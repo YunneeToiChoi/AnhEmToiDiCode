@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+
         public Category()
         {
             this.Rooms = new HashSet<Rooms>();
