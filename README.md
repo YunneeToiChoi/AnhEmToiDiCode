@@ -1,5 +1,9 @@
 AirbnbEntities
 AirBnBDB
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
         public Category()
         {
             this.Rooms = new HashSet<Rooms>();
