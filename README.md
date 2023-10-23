@@ -1,4 +1,5 @@
 AirbnbEntities
+AirBnBDB
         public Category()
         {
             this.Rooms = new HashSet<Rooms>();
