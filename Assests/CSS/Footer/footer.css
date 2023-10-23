@@ -1,0 +1,141 @@
+﻿/* Footer */
+.footer {
+    background-color: #F7F7F7;
+    width: 100%;
+}
+
+.footer__header {
+    font-size: 2.6rem;
+    padding: 60px 0px;
+}
+
+.footer__list {
+    list-style: none;
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+
+.footer__item {
+    margin: 0px 8px;
+    padding-bottom: 8px;
+}
+
+.footer__item--chosen {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.footer__item:first-child {
+    margin-left: 0;
+}
+
+.footer__link {
+    color: #717171;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+.footer__link--chosen {
+    color: black;
+}
+
+.footer__container {
+    border-bottom: 1px solid #DDDDDD;
+    margin: 20px 0px;
+}
+
+.footer__box {
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-bottom: 34px;
+}
+
+.footer__text {
+    color: #717171;
+}
+
+.footer__box-header {
+    font-size: 2rem;
+}
+
+.footer-under__container {
+    justify-content: space-between;
+}
+
+.footer-under__list {
+    list-style: none;
+}
+
+.footer-under__item {
+    margin: 10px 0px;
+}
+
+.footer-under__link {
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: #717171;
+}
+
+.footer-under__box {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-under__link:hover {
+    border-bottom: 1px solid #222222;
+    transition: 0.2s;
+}
+
+.footer__powered {
+    border-top: 1px solid #DDDDDD;
+    padding: 20px 0px;
+    font-size: 1.6rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__text {
+    display: inline-block;
+}
+
+
+.footer-powered__link {
+    text-decoration: none;
+    color: #717171;
+    margin-left: 10px;
+}
+
+.footer__powered-right {
+    margin-top: 20px;
+}
+
+.footer-powered__link:hover {
+    border-bottom: 1px solid #222222;
+    transition: 0.2s;
+}
+
+.dollar {
+    margin-left: 6px;
+}
+
+.footer-powered__link--no-margin {
+    margin: 0;
+}
+
+.footer-powered__link--icon:hover {
+    border: none;
+}
+
+.footer-powered__link--bold {
+    color: black;
+}
+a:hover, a:focus {
+    text-decoration: none!important;
+    color: #717171!important;
+}
+.footer-box__header, .footer__header,.footer__box-header {
+    font-weight: 600;
+}

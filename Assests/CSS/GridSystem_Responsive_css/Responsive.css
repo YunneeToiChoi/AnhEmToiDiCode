@@ -1,0 +1,9 @@
+﻿@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+/* NAV LOGIN VADITION  */
+@media (min-width: 740px)
+{
+}

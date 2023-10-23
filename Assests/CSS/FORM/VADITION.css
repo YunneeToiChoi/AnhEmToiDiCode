@@ -1,0 +1,179 @@
+﻿
+.form-vadition--modal
+{
+    display: none;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.form-vadition--overplay 
+{
+    z-index: 3;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    transform-origin: bottom bottom;
+    animation: fadeIn linear .2s;
+}
+
+.form-vadition__container--register
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--form-width);
+    height: 550px;
+    background-color: var(--white-color);
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 10;
+    transform-origin: bottom bottom;
+    animation: fadeInUp linear .4s;
+    display : none !important;
+}
+
+.vadition__header-icon 
+{
+    cursor: pointer;
+    padding: 8px;
+}
+.form-line 
+{
+    display: flex;
+    align-items: center;
+    margin: 20px 0 24px 0;
+}
+
+    .form-line p 
+    {
+        font-size: 1.2rem;
+        margin: 0 12px;
+    }
+
+    .form-line > hr 
+    {
+        width: 50%;
+        height: 0;
+    }
+
+.vadition__header 
+{
+    font-size: 1.8rem;
+    font-weight: 600;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.vadition__header-tittle 
+{
+    width: 100%;
+    flex: 1;
+}
+
+/*  END FORM HEADER  */
+
+/* BEGIN BOX FORM */
+.vadition__box
+{
+    height: 500px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    background-color: var(--white-color);
+}
+
+.vadition__box-wrapper 
+{
+    margin-top: 12px;
+}
+
+    .vadition__box-wrapper > input 
+    {
+        height: 52px;
+        width: 100%;
+        padding-left: 12px;
+    }
+
+.vadition__box-tittle--input
+{
+    margin: 12px 0;
+    font-size: 1.3rem;
+}
+
+.vadition__box-decripstion 
+{
+    font-size: 1.2rem;
+    margin: 12px 0 12px 0;
+    line-height: 2rem;
+}
+
+.vadition__box-privacyPolity
+{
+    text-decoration: underline;
+}
+
+.vadition__box-submit
+{
+    background-color: var(--color-magic);
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+/* END BOX FORM */
+
+
+
+/* BTN FORM CONNECT */
+
+    .vadition__box-connect button 
+    {
+        border-radius: 5px;
+        border: solid 1px;
+        margin-top: 20px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background-color: var(--white-color);
+    }
+
+    .vadition__box-connect span 
+    {
+        flex: 1;
+    }
+
+    .vadition__box-connect svg 
+    {
+        margin-left: 24px;
+    }
+   /* END REGISTER */
+
+/* BEGIN LOGIN */
+.form-vadition__container--login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--form-width);
+    height: 550px;
+    background-color: var(--white-color);
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 10;
+    transform-origin: bottom bottom;
+    animation: fadeInUp linear .4s;
+    display : none;
+}

@@ -1,0 +1,38 @@
+﻿@model AirBNB_Admin.Models.Category
+
+@{
+    ViewBag.Title = "Category_Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Category_Detail</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <img style="border-radius:0%!important" src="@Url.Content(Model.Image_Cate)" height="150" width="150" id="previewImg" />
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_Cate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_Cate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Cate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_Cate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Cate }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

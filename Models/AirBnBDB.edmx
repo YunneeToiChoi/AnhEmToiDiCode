@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AirbnbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name_User" Type="nvarchar(max)" />
+          <Property Name="Password_User" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email_User" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID_Cate" />
+          </Key>
+          <Property Name="ID_Cate" Type="int" Nullable="false" />
+          <Property Name="Name_Cate" Type="nvarchar(max)" />
+          <Property Name="Image_Cate" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderProduct">
+          <Key>
+            <PropertyRef Name="ID_Product" />
+          </Key>
+          <Property Name="ID_Product" Type="int" Nullable="false" />
+          <Property Name="ID_User" Type="int" />
+          <Property Name="Payment_Card" Type="varchar" MaxLength="50" />
+          <Property Name="Zip_Post" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ID_Reservation" />
+          </Key>
+          <Property Name="ID_Reservation" Type="int" Nullable="false" />
+          <Property Name="ID_Rooms" Type="int" />
+          <Property Name="ID_OrderPro" Type="int" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Guest" Type="int" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Reservation_id" Type="int" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="Id_Room" />
+          </Key>
+          <Property Name="Id_Room" Type="int" Nullable="false" />
+          <Property Name="Room_Name" Type="nvarchar" MaxLength="80" />
+          <Property Name="Place" Type="nvarchar" MaxLength="80" />
+          <Property Name="Images_Room" Type="nvarchar(max)" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Home_types" Type="nvarchar" MaxLength="50" />
+          <Property Name="Room_types" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_Cate" Type="int" />
+          <Property Name="Room_Discription" Type="nvarchar(max)" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="int" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Phone_number" Type="varchar" MaxLength="20" />
+          <Property Name="Identity_Card" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Emergency_Contact" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_OrderProduct_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_OrderProduct">
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderProduct">
+              <PropertyRef Name="ID_Product" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ID_OrderPro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_Rooms">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id_Room" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ID_Rooms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_Reservation">
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservation">
+              <PropertyRef Name="ID_Reservation" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="Reservation_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rooms_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID_Cate" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="ID_Cate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AirbnbModelStoreContainer">
+          <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OrderProduct_User" Association="Self.FK_OrderProduct_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_OrderProduct" Association="Self.FK_Reservation_OrderProduct">
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_Rooms" Association="Self.FK_Reservation_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_Reservation" Association="Self.FK_Reviews_Reservation">
+            <End Role="Reservation" EntitySet="Reservation" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rooms_Category" Association="Self.FK_Rooms_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AirbnbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminUser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name_User" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email_User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID_Cate" />
+          </Key>
+          <Property Name="ID_Cate" Type="Int32" Nullable="false" />
+          <Property Name="Name_Cate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image_Cate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_Rooms_Category" FromRole="Category" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="OrderProduct">
+          <Key>
+            <PropertyRef Name="ID_Product" />
+          </Key>
+          <Property Name="ID_Product" Type="Int32" Nullable="false" />
+          <Property Name="ID_User" Type="Int32" />
+          <Property Name="Payment_Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zip_Post" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_OrderProduct_User" FromRole="OrderProduct" ToRole="User" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_OrderProduct" FromRole="OrderProduct" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ID_Reservation" />
+          </Key>
+          <Property Name="ID_Reservation" Type="Int32" Nullable="false" />
+          <Property Name="ID_Rooms" Type="Int32" />
+          <Property Name="ID_OrderPro" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Guest" Type="Int32" />
+          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_Reservation_OrderProduct" FromRole="Reservation" ToRole="OrderProduct" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_Reservation_Rooms" FromRole="Reservation" ToRole="Rooms" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Reservation" FromRole="Reservation" ToRole="Reviews" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Reservation_id" Type="Int32" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK_Reviews_Reservation" FromRole="Reviews" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="Id_Room" />
+          </Key>
+          <Property Name="Id_Room" Type="Int32" Nullable="false" />
+          <Property Name="Room_Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Place" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Images_Room" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Home_types" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Room_types" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Cate" Type="Int32" />
+          <Property Name="Room_Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Rooms_Category" FromRole="Rooms" ToRole="Category" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_Rooms" FromRole="Rooms" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="Int32" Nullable="false" />
+          <Property Name="User_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Identity_Card" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Emergency_Contact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_User" FromRole="User" ToRole="OrderProduct" />
+        </EntityType>
+        <Association Name="FK_Rooms_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID_Cate" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="ID_Cate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderProduct_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="OrderProduct">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_OrderProduct">
+          <End Role="OrderProduct" Type="Self.OrderProduct" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderProduct">
+              <PropertyRef Name="ID_Product" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ID_OrderPro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservation_Rooms">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id_Room" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ID_Rooms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reviews_Reservation">
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservation">
+              <PropertyRef Name="ID_Reservation" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="Reservation_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AirbnbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminUser" EntityType="Self.AdminUser" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" />
+          <EntitySet Name="Reviews" EntityType="Self.Reviews" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Rooms_Category" Association="Self.FK_Rooms_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderProduct_User" Association="Self.FK_OrderProduct_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_OrderProduct" Association="Self.FK_Reservation_OrderProduct">
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservation_Rooms" Association="Self.FK_Reservation_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Reservation" EntitySet="Reservation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reviews_Reservation" Association="Self.FK_Reviews_Reservation">
+            <End Role="Reservation" EntitySet="Reservation" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AirbnbModelStoreContainer" CdmEntityContainer="AirbnbEntities">
+          <EntitySetMapping Name="AdminUser">
+            <EntityTypeMapping TypeName="AirbnbModel.AdminUser">
+              <MappingFragment StoreEntitySet="AdminUser">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name_User" ColumnName="Name_User" />
+                <ScalarProperty Name="Password_User" ColumnName="Password_User" />
+                <ScalarProperty Name="Email_User" ColumnName="Email_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="AirbnbModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID_Cate" ColumnName="ID_Cate" />
+                <ScalarProperty Name="Name_Cate" ColumnName="Name_Cate" />
+                <ScalarProperty Name="Image_Cate" ColumnName="Image_Cate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderProduct">
+            <EntityTypeMapping TypeName="AirbnbModel.OrderProduct">
+              <MappingFragment StoreEntitySet="OrderProduct">
+                <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="Payment_Card" ColumnName="Payment_Card" />
+                <ScalarProperty Name="Zip_Post" ColumnName="Zip_Post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservation">
+            <EntityTypeMapping TypeName="AirbnbModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="ID_Reservation" ColumnName="ID_Reservation" />
+                <ScalarProperty Name="ID_Rooms" ColumnName="ID_Rooms" />
+                <ScalarProperty Name="ID_OrderPro" ColumnName="ID_OrderPro" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Guest" ColumnName="Guest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="AirbnbModel.Reviews">
+              <MappingFragment StoreEntitySet="Reviews">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Reservation_id" ColumnName="Reservation_id" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="AirbnbModel.Rooms">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="Id_Room" ColumnName="Id_Room" />
+                <ScalarProperty Name="Room_Name" ColumnName="Room_Name" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Images_Room" ColumnName="Images_Room" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Home_types" ColumnName="Home_types" />
+                <ScalarProperty Name="Room_types" ColumnName="Room_types" />
+                <ScalarProperty Name="ID_Cate" ColumnName="ID_Cate" />
+                <ScalarProperty Name="Room_Discription" ColumnName="Room_Discription" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AirbnbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="AirbnbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone_number" />
+                <ScalarProperty Name="Identity_Card" ColumnName="Identity_Card" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Emergency_Contact" ColumnName="Emergency_Contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,102 @@
+﻿* 
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html 
+{
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+:root 
+{
+    --height-nav__user: 200px;
+    --grey-color: #f7f7ff;
+    --white-color: #fff;
+    --form-width: 568px;
+    --form-height: 357px;
+    --color-magic: #e61e4d;
+    --primary-color: #FF385C;
+    --colorBackground-magic: background-image ( circle at center,var(--ihf-tp-q) 0%,#e61e4d 27.5%,#e31c5f 40%,#d70466 57.5%,#bd1e59 75%,#bd1e59 100% );
+}
+/*animation*/
+@keyframes fadeInUp 
+{
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeIn 
+{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes HeadernotifyGrowth 
+{
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes Growth 
+{
+    from {
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+/*end-animation*/
+.active 
+{
+    display: block !important;
+}
+
+.pdlr24 
+{
+    padding: 0 24px;
+}
+
+.pd24 
+{
+    padding: 24px;
+}
+
+.mgt12 
+{
+    margin-top: 12px;
+}
+
+.btn 
+{
+    height: 48px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AirBNB_Admin.Models.Rooms>
+
+@{
+    ViewBag.Title = "Product_Control";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center">LIST PRODUCT</h2>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead class="table-info">
+                <tr>
+                    <th>Image</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image Link</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img style="border-radius:0%!important" src="@Url.Content(item.Images_Room)" height="150" width="150" id="previewImg" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id_Room)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Room_Name)
+                        </td>
+                        <td>
+                            <label class="badge badge-danger">
+                                @Html.DisplayFor(modelItem => item.Images_Room)
+                            </label>
+                        </td>
+                        @*<td>
+                          @Html.ActionLink("Edit", "Product_Edit", "Admin_Product", new { id = item.Id_Room }, null)
+                          @Html.ActionLink("Detail", "Product_Detail", "Admin_Product", new { id = item.Id_Room }, null)
+                          @Html.ActionLink("Delete", "Product_Delete", "Admin_Product", new { id = item.Id_Room }, null)
+                        </td>*@
+                        <td>
+                            <a href="Product_Edit/@item.Id_Room" class="text-link-action">Sửa</a>
+                            <span style="padding:0 8px">|</span>
+                            <a href="Product_Delete/@item.Id_Room" class="text-link-action">Xóa</a>
+                            <span style="padding:0 8px">|</span>
+                            <a href="Product_Detail/@item.Id_Room" class="text-link-action">Chi tiết</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

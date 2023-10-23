@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AirBNB_Admin.Models.Category>
+
+@{
+    ViewBag.Title = "Category_Control";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="text-align:center">LIST CATEGORIES</h2>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead class="table-info">
+                <tr>
+                    <th>Image</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image Link</th>
+                    <th>Chức năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img style="border-radius:0%!important" src="@Url.Content(item.Image_Cate)" height="150" width="150" id="previewImg" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID_Cate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name_Cate)
+                        </td>
+                        <td>
+                            <label class="badge badge-danger">
+                                @Html.DisplayFor(modelItem => item.Image_Cate)
+                            </label>
+                        </td>
+                        @*<td>
+                            @Html.ActionLink("Edit", "Category_Edit","Admin_Category",new { id = item.ID_Cate },null)
+                            @Html.ActionLink("Detail", "Category_Detail", "Admin_Category", new { id = item.ID_Cate }, null)
+                            @Html.ActionLink("Delete", "Category_Delete", "Admin_Category", new { id = item.ID_Cate }, null)
+                        </td>*@
+                    <td>
+                        <a href="Category_Edit/@item.ID_Cate" class="text-link-action">Sửa</a>
+                        <span style="padding:0 8px">|</span>
+                        <a href="Category_Delete/@item.ID_Cate" class="text-link-action">Xóa</a>
+                        <span style="padding:0 8px">|</span>
+                        <a href="Category_Detail/@item.ID_Cate" class="text-link-action">Chi tiết</a>
+                    </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

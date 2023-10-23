@@ -1,0 +1,207 @@
+﻿/* Navbar */
+.header {
+    width: 100%;
+    border-bottom: 1px solid #DDDDDD;
+    position: sticky !important;
+    top: 0;
+    z-index:2;
+    background-color: white;
+}
+
+.navbar {
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding:5px 0px;
+}
+
+.nav-right
+{
+    position:relative;
+}
+
+.nav-middle {
+    min-width: 380px;
+}
+
+.navbar__box {
+    padding: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.navbar__box:hover
+{
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2), 0 3px 8px rgba(0,0,0,0.2);
+    transition: 0.3s linear;
+}
+
+.navbar__list 
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    margin:0!important;
+}
+.navbar__link 
+{
+    width: 30px;
+}
+.navbar__item 
+{
+    display: block;
+    padding-right: 5px;
+}
+.navbar__item-space::after
+{
+    content: "";
+    border-right: 1px solid;
+    border-color: #cfcfcf;
+    padding: 5px 0;
+    padding-left: 10px;
+}
+.navbar__link 
+{
+    text-decoration: none;
+    color: black;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.navbar__link--no-bold 
+{
+    color: #a0a0a0;
+    font-weight:400;
+}
+
+.navbar__icon
+{
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.navbar__icon--user 
+
+{
+    padding: 8px 0px;
+    font-size: 1.6rem;
+    background-color: transparent !important;
+    color: black!important;
+}
+/* End Navbar */
+
+/* Menu */
+.menu 
+{
+    width: 100%;
+    position: sticky;
+    top: 80px;
+    z-index:1;
+    background-color: white;
+    padding: 30px 0px;
+}
+
+.menu__container 
+{
+    align-items: center;
+}
+
+.menu-left 
+{
+    display: flex !important;
+    justify-content:space-between;
+}
+
+.menu__box 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+    opacity: 0.6;
+    height: 50px;
+    padding-bottom: 10px;
+    text-decoration:none;
+    color:black;
+}
+.menu__box-border-bt
+{
+    display:none;
+
+}
+
+.menu__box:hover 
+{
+    transition: 0.5s ease;
+    opacity:1;
+}
+
+.menu__box:hover .menu__box-border-bt 
+{
+        display: block;
+        width: 100%;
+        padding-top: 10px;
+        border-bottom: 2px solid #dddddd;
+ }
+
+.menu__box--chosen 
+{
+    opacity: 1;
+    border-bottom: 2px solid black;
+}
+
+.menu__icon 
+{
+    font-size: 1.8rem;
+}
+
+.menu__icon--switch 
+{
+    font-size: 3rem;
+    cursor: pointer;
+    color: #717171;
+}
+
+.menu__icon--switch:hover 
+{
+        color: black;
+        transition: 0.2s;
+ }
+
+.menu-right__box 
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    border: 1px solid #DDDDDD;
+    border-radius: 16px;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
+}
+menu-right__box:hover 
+{
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2), 0 3px 8px rgba(0,0,0,0.2);
+    transition: 0.3s linear;
+}
+
+.menu__content 
+{
+    margin-right: 10px;
+}
+
+.menu__header 
+{
+    display:block;
+    margin-top: 6px;
+    font-size: 1.6rem;
+}
+/* End Menu */
