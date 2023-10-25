@@ -12,34 +12,43 @@
     <h4>Category</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            <img style="border-radius:0%!important" src="@Url.Content(Model.Image_Cate)" height="150" width="150" id="previewImg" />
-        </dt>
-        <dt>
-            @Html.DisplayNameFor(model => model.Name_Cate)
-        </dt>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Recent Tickets</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> Image </th>
+                                <th>ID</th>
+                                <th> Name </th>
+                                <th> Image-Link </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img class="me-2" style="border-radius:0%!important" src="@Url.Content(Model.Image_Cate)" height="150" width="150" id="previewImg" />
+                                </td>
+                                <td>  @Html.DisplayFor(model => model.Name_Cate) </td>
+                                <td>  @Html.DisplayFor(model => model.ID_Cate, new { @id = "exampleInputEmail3" })</td>
+                                <td>
+                                    @Html.DisplayFor(model => model.Image_Cate, new { @class = "badge badge-gradient-success" })
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                            @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.Name_Cate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image_Cate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image_Cate)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" />
-            @Html.ActionLink("Back to List", "Index")
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-gradient-primary me-2" />
+                                @Html.ActionLink("Cancel", "Category_Control", "Admin_Category", new { @class = "btn btn-light" })
+                            </div>
+                        }
+                </div>
+            </div>
         </div>
-    }
+    </dl>
 </div>

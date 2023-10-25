@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Category_Edit</h2>
+<h2>Edit</h2>
 
 @using (Html.BeginForm("Category_Edit", "Admin_Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -15,12 +15,10 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="card-body">
-            <p class="card-description"> Edit</p>
             <form class="forms-sample">
                 <div class="form-group">
-                    <label for="exampleInputName1">ID</label>
-                    @Html.EditorFor(model => model.ID_Cate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ID_Cate, "", new { @id = "exampleInputName1" })
+                    <label style="display:block" for="exampleInputName1">ID</label>
+                    @Html.DisplayFor(model => model.ID_Cate, new { @id = "exampleInputEmail3" })
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3">Name</label>
@@ -34,13 +32,15 @@
                         <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
                         <span class="input-group-append">
                             <label for="uploadimg" class="file-upload-browse btn btn-gradient-primary" type="button">Upload</label>
+                            <input id="uploadimg" style="display:none" type="file" name="UploadImage" onchange="ChangeImage(this,document.getElementById('previewImg'))" />
                         </span>
                     </div>
                     <img src="@Url.Content(Model.Image_Cate)" height="150" width="150" id="previewImg" />
                 </div>
                 <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-                <button class="btn btn-light">Cancel</button>
+                @*<button type "submit"class="btn btn-light">Cancel</button>*@
+                @Html.ActionLink("Cancel", "Category_Control", "Admin_Category", new { @class = "btn btn-light" })
             </form>
         </div>
     </div>
- }
+}
