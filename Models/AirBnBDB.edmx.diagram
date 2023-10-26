@@ -4,20 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d58cd5fbf09846c08c3bd9e956ce75d2" Name="Diagram1">
-        <EntityTypeShape EntityType="AirbnbModel.AdminUser" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirbnbModel.Category" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirbnbModel.OrderProduct" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirbnbModel.Reservation" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirbnbModel.Reviews" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirbnbModel.Rooms" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirbnbModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirbnbModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="AirbnbModel.FK_Rooms_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="AirbnbModel.FK_OrderProduct_User" ManuallyRouted="false" />
-        <AssociationConnector Association="AirbnbModel.FK_Reservation_OrderProduct" ManuallyRouted="false" />
-        <AssociationConnector Association="AirbnbModel.FK_Reservation_Rooms" ManuallyRouted="false" />
-        <AssociationConnector Association="AirbnbModel.FK_Reviews_Reservation" ManuallyRouted="false" />
+      <Diagram DiagramId="13f6079d127c45b481c512fe08fe0f78" Name="Diagram1">
+        <EntityTypeShape EntityType="AIRBNBModel.AdminUser" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIRBNBModel.Category" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIRBNBModel.OrderProduct" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIRBNBModel.Reservation" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIRBNBModel.Review" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIRBNBModel.Room" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AIRBNBModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="AIRBNBModel.FK_Rooms_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="AIRBNBModel.FK_OrderProduct_User" ManuallyRouted="false" />
+        <AssociationConnector Association="AIRBNBModel.FK_Reservation_OrderProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="AIRBNBModel.FK_Reservation_Rooms" ManuallyRouted="false" />
+        <AssociationConnector Association="AIRBNBModel.FK_Reviews_Reservation" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

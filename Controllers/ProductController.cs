@@ -10,7 +10,7 @@ namespace AirBNB_Admin.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        AirbnbEntities db = new AirbnbEntities();
+        AirbnbEntities1 db = new AirbnbEntities1();
         public ActionResult Index()
         {
             return View();

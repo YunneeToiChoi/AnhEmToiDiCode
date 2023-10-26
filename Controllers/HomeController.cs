@@ -26,5 +26,6 @@ namespace AirBNB_Admin.Controllers
 
             return View();
         }
+    
     }
 }

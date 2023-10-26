@@ -136,6 +136,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,13 +167,10 @@
     <Compile Include="Models\Reservation.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Reviews.cs">
+    <Compile Include="Models\Review.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Rooms.cs">
-      <DependentUpon>AirBnBDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
+    <Compile Include="Models\Room.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
@@ -186,7 +184,7 @@
     <Content Include="Assests\CSS\FORM\VADITION.css" />
     <Content Include="Assests\CSS\GridSystem_Responsive_css\grid.css" />
     <Content Include="Assests\CSS\GridSystem_Responsive_css\Responsive.css" />
-    <Content Include="Assests\CSS\loader_css\loader.css" />
+    <Content Include="Assests\CSS\Load_css\Load_css.css" />
     <Content Include="Assests\CSS\Product_css\Product.css" />
     <Content Include="Assests\CSS\Switch\Switch_menu.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\Modal_user.css" />
@@ -342,13 +340,6 @@
     <Content Include="_LayoutAdmin\partials\_navbar.html" />
     <Content Include="_LayoutAdmin\partials\_sidebar.html" />
     <Content Include="_LayoutAdmin\screenshot.jpg" />
-    <EntityDeploy Include="Models\AirBnBDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AirBnBDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AirBnBDB.edmx.diagram">
-      <DependentUpon>AirBnBDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\HomeAdmin\Index.cshtml" />
@@ -366,6 +357,13 @@
     <Content Include="Areas\Admin\Views\Admin_Product\Product_Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Admin_Product\Product_Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Admin_Product\Product_Edit.cshtml" />
+    <EntityDeploy Include="Models\AirBnBDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AirBnBDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AirBnBDB.edmx.diagram">
+      <DependentUpon>AirBnBDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -464,6 +462,8 @@
     <Content Include="_LayoutAdmin\README.md" />
     <Content Include="Views\Category\Category_Index.cshtml" />
     <Content Include="Views\Product\Product_Index.cshtml" />
+    <Content Include="Views\User\FormLogin.cshtml" />
+    <Content Include="Views\User\RegisterUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
