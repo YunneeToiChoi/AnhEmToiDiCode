@@ -1,13 +1,11 @@
 ﻿@model AirBNB_Admin.Models.AdminUser
 
-<!-- *NANG (SUA form-vadition__container >> form-vadition__container--login  )
-BEGIN  header-->
 <style>
     .field-validation-error {
-       color : red;
+        color: red;
     }
 </style>
-@using (Html.BeginForm("LoginAccount", "LoginUser"))
+@using (Html.BeginForm("LoginAccount", "User"))
 {
     @Html.AntiForgeryToken();
     <div class="vadition__header pdlr24">
@@ -23,20 +21,17 @@ BEGIN  header-->
         </h1>
         <form class="vadition__box-form">
             <div class="vadition__box-wrapper">
-                <p class="vadition__box-tittle--input">Your Number Phone : </p>
-                <input placeholder="Number Phone" type="number" class="vadition__box-numberPhone">
-                @Html.TextBoxFor(model => model.ID, new {style ="field-validation-error"})
-                @Html.ValidationMessageFor(model =>model.ID)
+                @Html.LabelFor(model => model.Email_User)
+                @Html.TextBoxFor(model => model.Email_User, new { style = "field-validation-error" })
+                @Html.ValidationMessageFor(model => model.Email_User)
             </div>
             <div class="vadition__box-wrapper">
-              @Html.LabelFor(model => model.Password_User)
-                @Html.EditorFor(model => model.Password_User, new { htmlAttributes = new { @class = "vadition__box-password" } })
+                @Html.LabelFor(model => model.Password_User)
+                @Html.PasswordFor(model => model.Password_User, new { htmlAttributes = new { @class = "vadition__box-password" } })
                 @Html.ValidationMessageFor(model => model.Password_User)
                 @* thieu placeholder *@
-            @if (ViewBag.ErrorInfo==null)
-                {
-                    <p></p>
-                }
+            
+                <h1 style="color : red">  @ViewBag.LoginFail</h1>          
             </div>
             <div class="vadition__box-decripstion">
                 We’ll call or text you to confirm your number. Standard message and data rates apply.
