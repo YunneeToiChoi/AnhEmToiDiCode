@@ -39,7 +39,7 @@
     z-index: 10;
     transform-origin: bottom bottom;
     animation: fadeInUp linear .4s;
-    display : none !important;
+    display : none;
 }
 
 .vadition__header-icon 
@@ -149,6 +149,7 @@ vadition__box-password {
         align-items: center;
         text-align: center;
         background-color: var(--white-color);
+        width : 100%;
     }
 
     .vadition__box-connect span 

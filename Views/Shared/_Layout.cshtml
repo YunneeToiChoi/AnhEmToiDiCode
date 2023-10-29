@@ -53,11 +53,38 @@
                             <div class="form-user--overplay"></div>
                             <div class="user-header__form--active">
                                 <div class="user-header__form-box">
-                                    <button class="user-header__form--navRegister">Sign In</button>
-                                    <button class="user-header__form--navLogin">Log in</button>
-                                    <hr style="border: 0.1px solid #cfcfcf " />
-                                    <button class="user-header__form--support">Airbnb your home</button>
-                                    <button class="user-header__form--support">Help Center</button>
+
+                                    @*<button class="user-header__form--navRegister">Sign In</button>
+        <button class="user-header__form--navLogin">Log in</button>
+        <hr style="border: 0.1px solid #cfcfcf " />
+        <button class="user-header__form--support">Airbnb your home</button>
+        <button class="user-header__form--support">Help Center</button>*@
+                                    @*@Html.Action("Index","User")*@
+                                    @{var user = Session["User"] as AirBNB_Admin.Models.AdminUser;}
+
+                                    @{ if (user == null)
+                                        {
+
+                                            <button class="user-header__form--navRegister">Sign In</button>
+                                            <button class="user-header__form--navLogin">Log in</button>
+                                            <hr style="border: 0.1px solid #cfcfcf " />
+                                            <button class="user-header__form--support">Airbnb your home</button>
+                                            <button class="user-header__form--support">Help Center</button>
+
+                                        }
+                                        else /*login dc */
+                                        {
+                                            <button class="user-header__form--navHello">Hello @user.Name_User</button>
+                                            <hr style="border: 0.1px solid #cfcfcf " />
+                                            <button class="user-header__form--support">Airbnb your home</button>
+                                            <button class="user-header__form--support">Help Center</button>
+                                            <button class="user-header__form--navLogout">@Html.ActionLink("Logout", "Logout", "User")</button>
+                                    
+                                        }
+                                    }
+
+
+
                                 </div>
                             </div>
                         </div>
