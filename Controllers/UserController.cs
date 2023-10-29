@@ -14,7 +14,10 @@ namespace AirBNB_Admin.Controllers
     {
         // GET: User
         AirbnbEntities1 db = new AirbnbEntities1();
-    
+        //public ActionResult Index()
+        //{
+        //    return PartialView(db.AdminUsers.ToList());
+        //}
         public ActionResult RegisterUser()
         {
             return PartialView();
@@ -62,15 +65,23 @@ namespace AirBNB_Admin.Controllers
             if (check == null)
             {
                 ViewBag.LoginFail = "Dang nhap that bai";
+                Session["User"] = null;
+
                 return PartialView() ;
             }
             else
             {
+                Session["User"] = check;
                 db.Configuration.ValidateOnSaveEnabled = false;
                 Session["ID"] = user.ID;
                 Session["PasswordUser"] = user.Password_User;
+
                 return RedirectToAction("Index", "Home");
             }
+        }
+        public ActionResult Logout() {
+            Session["User"] = null;
+            return RedirectToAction("Index", "Home");
         }
         //[HttpPost]
         //[ValidateAntiForgeryToken]
