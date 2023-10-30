@@ -17,7 +17,7 @@ namespace AirBNB_Admin.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Reservation()
         {
-            this.Reviews = new HashSet<Reviews>();
+            this.Reviews = new HashSet<Review>();
         }
     
         public int ID_Reservation { get; set; }
@@ -27,8 +27,8 @@ namespace AirBNB_Admin.Models
         public Nullable<int> Guest { get; set; }
     
         public virtual OrderProduct OrderProduct { get; set; }
-        public virtual Rooms Rooms { get; set; }
+        public virtual Room Room { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reviews> Reviews { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

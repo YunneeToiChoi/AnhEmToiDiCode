@@ -11,7 +11,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
     public class Admin_ProductController : Controller
     {
         // GET: Admin_Product
-        AirbnbEntities db = new AirbnbEntities();
+        AirbnbEntities1 db = new AirbnbEntities1();
         public ActionResult Index()
         {
             return View();
@@ -19,17 +19,17 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
         public ActionResult SelectCate() // tao category list cho prodct = ccah lay data tu category
         {
             Category catels = new Category();
-            catels.ListCate = db.Category.ToList<Category>();
+            catels.ListCate = db.Categories.ToList<Category>();
             return PartialView(catels);
 
         }
         public ActionResult Product_Create()
         {
-            Rooms room = new Rooms();
+            Room room = new Room();
             return View(room);
         }
         [HttpPost]
-        public ActionResult Product_Create(Rooms pro)
+        public ActionResult Product_Create(Room pro)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Product_Delete(int id, Rooms room)
+        public ActionResult Product_Delete(int id, Room room)
         {
             room = db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault();
             db.Rooms.Remove(room);
@@ -73,7 +73,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Product_Edit(int id, Rooms room)
+        public ActionResult Product_Edit(int id, Room room)
         {
             try
             {

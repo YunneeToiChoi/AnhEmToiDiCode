@@ -13,10 +13,10 @@ namespace AirBNB_Admin.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AirbnbEntities : DbContext
+    public partial class AirbnbEntities1 : DbContext
     {
-        public AirbnbEntities()
-            : base("name=AirbnbEntities")
+        public AirbnbEntities1()
+            : base("name=AirbnbEntities1")
         {
         }
     
@@ -25,13 +25,12 @@ namespace AirBNB_Admin.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AdminUser> AdminUser { get; set; }
-        public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<OrderProduct> OrderProduct { get; set; }
-        public virtual DbSet<Reservation> Reservation { get; set; }
-        public virtual DbSet<Reviews> Reviews { get; set; }
-        public virtual DbSet<Rooms> Rooms { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<AdminUser> AdminUsers { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<OrderProduct> OrderProducts { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<Room> Rooms { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -77,10 +77,14 @@
     font-weight: 500;
     padding-left: 24px;
     cursor: pointer;
+
+}
+.user-header__form--navLogout > a{
+    text-decoration : none;
+    color : #000;
 }
 
-hr 
-{
+hr {
     width: 100%;
 }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AirBNB_Admin.Models.Rooms>
+﻿@model IEnumerable<AirBNB_Admin.Models.Room>
 
 @foreach (var pro in Model)
 {
@@ -22,8 +22,8 @@
                 <p>@Html.DisplayFor(model => pro.Room_Name)</p>
                 <p class="content__rate"><i class="content__icon fa-solid fa-star"></i>4,88</p>
             </div>
-            <p class="content__owner">Chủ nhà: Carmela</p>
-            <p class="content__date">Ngày 06 - Ngày 11 tháng 11</p>
+            <p class="content__owner">@Html.DisplayFor(model => pro.Room_Discription)</p>
+            <p class="content__date">@Html.DisplayFor(model => pro.Date) </p> 
             <p class="content__price">@Html.DisplayFor(model => pro.Price) $ / <span class="content__day">đêm</span></p>
         </div>
     </div>

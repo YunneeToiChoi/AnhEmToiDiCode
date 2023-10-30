@@ -118,8 +118,7 @@
     justify-content:space-between;
 }
 
-.menu__box 
-{
+.menu__box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,8 +127,15 @@
     opacity: 0.6;
     height: 50px;
     padding-bottom: 10px;
-    text-decoration:none;
-    color:black;
+    text-decoration: none;
+    color: black;
+    height: 60px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    width: 18%;
+    text-align: center;
 }
 .menu__box-border-bt
 {
@@ -198,10 +204,13 @@ menu-right__box:hover
     margin-right: 10px;
 }
 
-.menu__header 
-{
-    display:block;
+.menu__header {
+    display: block;
     margin-top: 6px;
     font-size: 1.6rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 /* End Menu */

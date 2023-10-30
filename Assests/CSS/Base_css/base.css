@@ -75,6 +75,9 @@ html
 {
     display: block !important;
 }
+.none{
+    display : none !important;
+}
 
 .pdlr24 
 {

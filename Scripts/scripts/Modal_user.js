@@ -65,3 +65,8 @@ const registerForm = ModalForm.querySelector('.form-vadition__container--registe
 
 
 
+
+
+
+
+
