@@ -38,7 +38,7 @@ namespace AirBNB_Admin.Controllers
                         //Session["ID"] = user.ID;
                         db.AdminUsers.Add(user);
                         db.SaveChanges();
-                        return PartialView();
+                    return RedirectToAction("Index", "Home");
                     }
                     else
                     {
