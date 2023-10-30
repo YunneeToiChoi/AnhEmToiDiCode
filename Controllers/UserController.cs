@@ -30,7 +30,7 @@ namespace AirBNB_Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     var check = db.AdminUsers.SingleOrDefault(s => s.ID == user.ID && s.Email_User.Equals(mail));
-
+                    
                     if (check == null)// chua co id{
                     {
                         //user.Password_User = GetMD5(user.Password_User);
