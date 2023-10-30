@@ -27,13 +27,16 @@ namespace AirBNB_Admin.Models
         [Required(ErrorMessage = "Email not Empty....")]
         [Display(Name = ("Email User"))]
         [EmailAddress(ErrorMessage = "Please enter a valid email")]
-
+     
         public string Email_User { get; set; }
   
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter a valid password")]
+        [StringLength(50, ErrorMessage = "Khong du kich thuoc", MinimumLength = 8)]
+        [DataType(DataType.Password)]   
         public string Password_User { get; set; }
 
         [Compare(otherProperty: "Password_User", ErrorMessage = " Confirm password does not match")]
+        
         public string ConfirmPassword {  get; set; }
         [NotMapped]
         public string ErrorLogin {  get; set; }

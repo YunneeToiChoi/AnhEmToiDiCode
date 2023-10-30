@@ -22,7 +22,7 @@
         <form class="vadition__box-form">
             <div class="vadition__box-wrapper">
                 @Html.LabelFor(model => model.Email_User)
-                @Html.TextBoxFor(model => model.Email_User, new { style = "field-validation-error" })
+                @Html.EditorFor(model => model.Email_User, new { htmlAttributes = new { placeholder = "Your Email"} })
                 @Html.ValidationMessageFor(model => model.Email_User)
             </div>
             <div class="vadition__box-wrapper">
