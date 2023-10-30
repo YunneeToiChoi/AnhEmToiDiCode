@@ -34,7 +34,7 @@
                 </div>
                 <div class="vadition__box-wrapper">
                     <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.Email_User) </p>
-                    @Html.EditorFor(model => model.Email_User, new { style = "field-validation-error" })
+                    <input type="email" data-val="true" data-val-email="Please enter a valid email" id="Email_User" name="Email_User" value="" class="login__input" />
                     <p>@Html.ValidationMessageFor(model => model.Email_User)</p>
                 </div>
                 <div class="vadition__box-wrapper">
