@@ -2,114 +2,32 @@
     ViewBag.Title = "Home Page";
 }
 
-<!-- Footer -->
-<footer class="footer">
+<!-- End Navbar -->
+<!-- Menu -->
+<div class="menu">
     <div class="grid wide">
-        <h2 class="footer__header">Nguồn cảm hứng cho những kỳ nghỉ sau này</h2>
-        <ul class="footer__list">
-            <li class="footer__item footer__item--chosen"><a href="" class="footer__link footer__link--chosen">Phổ biến</a></li>
-            <li class="footer__item"><a href="" class="footer__link">Văn hoá và nghệ thuật</a></li>
-            <li class="footer__item"><a href="" class="footer__link">Ngoài trời</a></li>
-            <li class="footer__item"><a href="" class="footer__link">Dãy núi</a></li>
-            <li class="footer__item"><a href="" class="footer__link">Bãi biển</a></li>
-            <li class="footer__item"><a href="" class="footer__link">Danh mục</a></li>
-            <li class="footer__item"><a href="" class="footer__link">Những điều nên trải nghiệm</a></li>
-        </ul>
-        <div class="footer__container row">
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
+        <div class="menu__container row">
+            <div class="menu-left col l-9 m-12 c-12">
+                @Html.Action("Category_Index", "Category")
             </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-            <div class="footer__box col l-2 m-3 c-4">
-                <h4 class="footer-box__header">Canmore</h4>
-                <p class="footer__text">Căn hộ cho thuê</p>
-            </div>
-        </div>
-        <div class="footer-under__container row">
-            <div class="footer-under__box col l-4 m-4 c-6">
-                <h5 class="footer__box-header">Hỗ trợ</h5>
-                <ul class="footer-under__list">
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Trung tâm trợ giúp</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">AirCover</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Chống phân biệt đối xử</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Hỗ trợ người khuyết tật</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Các tùy chọn hủy</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Báo cáo lo ngại của khu dân cư</a></li>
-                </ul>
-            </div>
-            <div class="footer-under__box col l-4 m-4 c-6">
-                <h5 class="footer__box-header">Đón tiếp khách</h5>
-                <ul class="footer-under__list">
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Đón tiếp khách</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">AirCover cho Chủ nhà</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Tài nguyên về đón tiếp khách</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Diễn đàn cộng đồng</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Đón tiếp khách có trách nhiệm</a></li>
-                </ul>
-            </div>
-            <div class="footer-under__box col l-4 m-4 c-6">
-                <h5 class="footer__box-header">Airbnb</h5>
-                <ul class="footer-under__list">
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Trang tin tức</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Tính năng mới</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Cơ hội nghề nghiệp</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Nhà đầu tư</a></li>
-                    <li class="footer-under__item"><a href="" class="footer-under__link">Chỗ ở khẩn cấp Airbnb.org</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer__powered row">
-            <div class="footer__powered-left col l-9 m-12 c-12">
-                <p class="footer__text">© 2023 Airbnb, Inc.</p>
-                <a href="" class="footer-powered__link">Quyền riêng tư</a>
-                <a href="" class="footer-powered__link">Điều khoản</a>
-                <a href="" class="footer-powered__link">Sơ đồ trang web</a>
-            </div>
-            <div class="footer__powered-right col l-3 m-12 c-12">
-                <i class="footer__icon fa-solid fa-globe"></i>
-                <a href="" class="footer-powered__link footer-powered__link--bold">Tiếng Việt</a>
-                <span class="dollar">$</span>
-                <a href="" class="footer-powered__link footer-powered__link--no-margin footer-powered__link--bold">USD</a>
-                <a href="" class="footer-powered__link footer-powered__link--icon footer-powered__link--bold"><i class="fa-brands fa-facebook"></i></a>
-                <a href="" class="footer-powered__link footer-powered__link--icon footer-powered__link--bold"><i class="fa-brands fa-twitter"></i></a>
-                <a href="" class="footer-powered__link footer-powered__link--icon footer-powered__link--bold"><i class="fa-brands fa-instagram"></i></a>
+            <div class="menu-right col l-3 m-0 c-0">
+                <div class="menu-right__box navbar__box">
+                    <p class="menu__content">Hiển thị tổng trước thuế</p>
+                    <input type="checkbox" id="checkboxInput">
+                    <label for="checkboxInput" class="toggleSwitch">
+                    </label>
+                </div>
             </div>
         </div>
     </div>
-</footer>
+</div>
+<!--END  Menu -->
+<!--Begin Product -->
+<div class="content">
+    <div class="grid wide">
+        <div class="content__container row">
+            @Html.Action("Product_Index", "Product")
+        </div>
+    </div>
+</div>
+<!--END  Product -->

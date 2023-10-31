@@ -19,5 +19,9 @@ namespace AirBNB_Admin.Controllers
         {
             return PartialView(db.Rooms.ToList());
         }
+        public ActionResult Product_Detail_user(int id)
+        {
+            return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
+        }
     }
 }

@@ -179,6 +179,7 @@
   <ItemGroup>
     <Content Include="Assests\CSS\Base_css\base.css" />
     <Content Include="Assests\CSS\Bear_css\bear.css" />
+    <Content Include="Assests\CSS\Details\details.css" />
     <Content Include="Assests\CSS\FORM\VADITION.css" />
     <Content Include="Assests\CSS\GridSystem_Responsive_css\grid.css" />
     <Content Include="Assests\CSS\GridSystem_Responsive_css\Responsive.css" />
@@ -188,6 +189,7 @@
     <Content Include="Assests\CSS\_LayoutMater_css\Modal_user.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\_LayoutMaster.css" />
     <Content Include="Assests\_image\Content_image\content_1.jpg" />
+    <Content Include="Assests\_image\details_img\rua.png" />
     <Content Include="Assests\_image\Menu_image\menu_1.jpg" />
     <Content Include="Assests\_image\Menu_image\menu_2.jpg" />
     <Content Include="Assests\_image\Menu_image\menu_3.jpg" />
@@ -463,6 +465,7 @@
     <Content Include="Views\User\RegisterUser.cshtml" />
     <Content Include="Views\User\LoginAccount.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Product\Product_Detail_user.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
