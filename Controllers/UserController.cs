@@ -62,25 +62,26 @@ namespace AirBNB_Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LoginAccount(AdminUser user)
         {
-            var tk = user.Email_User;
-            var mk = user.Password_User;
-            var check = db.AdminUsers.SingleOrDefault(s => s.Email_User.Equals(tk) && s.Password_User.Equals(mk));
-            if (check == null)
+            if (ModelState.IsValid)
             {
-                ViewBag.LoginFail = "Dang nhap that bai";
-                Session["User"] = null;
+                var check = db.AdminUsers.Where(s => s.Email_User == user.Email_User && s.Password_User == user.Password_User).FirstOrDefault();
+                if (check == null)
+                {
+                    ViewBag.LoginFail = "Dang nhap that bai";
+                    Session["User"] = null;
 
-                return RedirectToAction("index_login", "User");
+                    return RedirectToAction("index_login", "User");
+                }
+                else
+                {
+                    Session["User"] = check;
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    Session["ID"] = user.ID;
+                    Session["PasswordUser"] = user.Password_User;
+                    return RedirectToAction("Index", "Home");
+                }
             }
-            else
-            {
-                Session["User"] = check;
-                db.Configuration.ValidateOnSaveEnabled = false;
-                Session["ID"] = user.ID;
-                Session["PasswordUser"] = user.Password_User;
-
-                return RedirectToAction("Index", "Home");
-            }
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult index_login(AdminUser user)
         {
