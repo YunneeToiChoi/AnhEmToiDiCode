@@ -2,6 +2,7 @@
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
+using System.EnterpriseServices.CompensatingResourceManager;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -38,7 +39,7 @@ namespace AirBNB_Admin.Controllers
                         //Session["ID"] = user.ID;
                         db.AdminUsers.Add(user);
                         db.SaveChanges();
-                    return RedirectToAction("Index", "Home");
+                      return RedirectToAction("index_login", "User");
                 }
                     else
                     {
@@ -61,15 +62,12 @@ namespace AirBNB_Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LoginAccount(AdminUser user)
-        {
-            if (ModelState.IsValid)
-            {
+        { 
                 var check = db.AdminUsers.Where(s => s.Email_User == user.Email_User && s.Password_User == user.Password_User).FirstOrDefault();
                 if (check == null)
                 {
                     ViewBag.LoginFail = "Dang nhap that bai";
                     Session["User"] = null;
-
                     return RedirectToAction("index_login", "User");
                 }
                 else
@@ -80,8 +78,6 @@ namespace AirBNB_Admin.Controllers
                     Session["PasswordUser"] = user.Password_User;
                     return RedirectToAction("Index", "Home");
                 }
-            }
-            return RedirectToAction("Index", "Home");
         }
         public ActionResult index_login(AdminUser user)
         {
