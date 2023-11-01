@@ -56,10 +56,10 @@
                                 <div class="user-header__form-box">
 
                                     @*<button class="user-header__form--navRegister">Sign In</button>
-                                    <button class="user-header__form--navLogin">Log in</button>
-                                    <hr style="border: 0.1px solid #cfcfcf " />
-                                    <button class="user-header__form--support">Airbnb your home</button>
-                                    <button class="user-header__form--support">Help Center</button>*@
+                                        <button class="user-header__form--navLogin">Log in</button>
+                                        <hr style="border: 0.1px solid #cfcfcf " />
+                                        <button class="user-header__form--support">Airbnb your home</button>
+                                        <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.AdminUser;}
 
@@ -217,54 +217,55 @@
 
 
     @*  BEGIN LOADER *@
-<div class="container_Load">
-    <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
-        <div class="wheel"></div>
-        <div class="hamster">
-            <div class="hamster__body">
-                <div class="hamster__head">
-                    <div class="hamster__ear"></div>
-                    <div class="hamster__eye"></div>
-                    <div class="hamster__nose"></div>
+    <div class="container_Load">
+        <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+            <div class="wheel"></div>
+            <div class="hamster">
+                <div class="hamster__body">
+                    <div class="hamster__head">
+                        <div class="hamster__ear"></div>
+                        <div class="hamster__eye"></div>
+                        <div class="hamster__nose"></div>
+                    </div>
+                    <div class="hamster__limb hamster__limb--fr"></div>
+                    <div class="hamster__limb hamster__limb--fl"></div>
+                    <div class="hamster__limb hamster__limb--br"></div>
+                    <div class="hamster__limb hamster__limb--bl"></div>
+                    <div class="hamster__tail"></div>
                 </div>
-                <div class="hamster__limb hamster__limb--fr"></div>
-                <div class="hamster__limb hamster__limb--fl"></div>
-                <div class="hamster__limb hamster__limb--br"></div>
-                <div class="hamster__limb hamster__limb--bl"></div>
-                <div class="hamster__tail"></div>
             </div>
+            <div class="spoke"></div>
         </div>
-        <div class="spoke"></div>
+
     </div>
 
-</div>
 
-
-
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/scripts/Modal_user.js"></script>
-   <script>
+    <script>
 
-       ////////////// LOADER // 
-       const load = document.querySelector('.container_Load');
-       function timeLoad() {
-           load.classList.add('none')
-       
+        ////////////// LOADER //
+        const load = document.querySelector('.container_Load');
+        function timeLoad() {
+            load.classList.add('none')
 
-       }
 
-       setTimeout(timeLoad, 1500)
+        }
 
-       //if (location.reload(true)){
-       //    load.classList.remove('none')
+        setTimeout(timeLoad, 1500)
 
-       //}
-   </script>
+           //if (location.reload(true)){
+           //    load.classList.remove('none')
+
+           //}
+    </script>
     <style>
-        .none{
-            display : none !important;
+        .none {
+            display: none !important;
         }
     </style>
 </body>

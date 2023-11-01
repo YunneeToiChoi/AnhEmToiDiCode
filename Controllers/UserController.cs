@@ -39,18 +39,21 @@ namespace AirBNB_Admin.Controllers
                         db.AdminUsers.Add(user);
                         db.SaveChanges();
                     return RedirectToAction("Index", "Home");
-                    }
+                }
                     else
                     {
                         ViewBag.ErrorRegister = "This ID or Email is exist";
-                        return PartialView();
+                        return RedirectToAction("index_register", "User");
                     }
                 }
-                return PartialView();
-            
+           return RedirectToAction("index_register", "User");
 
-        }   
 
+        }
+        public ActionResult index_register(AdminUser user)
+        {
+            return PartialView();
+        }
         public ActionResult LoginAccount()
         {
             return PartialView();
@@ -67,7 +70,7 @@ namespace AirBNB_Admin.Controllers
                 ViewBag.LoginFail = "Dang nhap that bai";
                 Session["User"] = null;
 
-                return PartialView() ;
+                return RedirectToAction("index_login", "User");
             }
             else
             {
@@ -78,6 +81,10 @@ namespace AirBNB_Admin.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+        }
+        public ActionResult index_login(AdminUser user)
+        {
+            return PartialView();
         }
         public ActionResult Logout() {
             Session["User"] = null;
