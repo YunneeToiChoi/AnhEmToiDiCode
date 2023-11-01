@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-
+Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
         public Category()
         {
             this.Rooms = new HashSet<Rooms>();
