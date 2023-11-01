@@ -103,3 +103,6 @@ html
     align-items: center;
     text-align: center;
 }
+.filled {
+    fill: #ff385c;
+}

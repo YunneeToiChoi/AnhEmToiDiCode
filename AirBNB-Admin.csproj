@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +175,7 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Wish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -256,6 +258,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\scripts\Modal_user.js" />
+    <Content Include="Scripts\scripts\Product_js.js" />
     <Content Include="_LayoutAdmin\.gitignore" />
     <Content Include="_LayoutAdmin\assets\css\style.css" />
     <Content Include="_LayoutAdmin\assets\images\chimcanhcut.png" />
@@ -467,6 +470,7 @@
     <Content Include="Views\User\index_register.cshtml" />
     <Content Include="Views\Product\Product_Detail_user.cshtml" />
     <Content Include="Views\User\index_login.cshtml" />
+    <Content Include="Views\WishList\ShowWish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
