@@ -13,6 +13,7 @@ html
 :root 
 {
     --height-nav__user: 200px;
+    --height-wish__empty : 300px;
     --grey-color: #f7f7ff;
     --white-color: #fff;
     --form-width: 568px;
