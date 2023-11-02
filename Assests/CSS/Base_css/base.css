@@ -106,3 +106,7 @@ html
 .filled {
     fill: #ff385c;
 }
+.rs-alink{
+    text-decoration : none;
+    color : #000;
+}
