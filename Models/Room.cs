@@ -37,7 +37,7 @@ namespace AirBNB_Admin.Models
         public Nullable<int> ID_Cate { get; set; }
         public string Room_Discription { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-    
+        public string active_heart { get; set; }    
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservations { get; set; }

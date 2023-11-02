@@ -163,6 +163,7 @@
     <Compile Include="Models\OrderProduct.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductWishListViewModel.cs" />
     <Compile Include="Models\Reservation.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>

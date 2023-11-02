@@ -17,6 +17,8 @@ namespace AirBNB_Admin.Controllers
         }
         public ActionResult Product_Index()
         {
+            Room r = new Room();
+            r.active_heart = "blue";
             return PartialView(db.Rooms.ToList());
         }
         public ActionResult Product_Detail_user(int id)
