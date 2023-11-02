@@ -60,7 +60,7 @@
                     }
                     <div class="vadition__box-wrapper">
                         <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.ID) </p>
-                        @Html.EditorFor(model => model.ID, new { htmlAttributes = new { placeholder = "Nhap ID" } })
+                        @Html.EditorFor(model => model.ID, new { htmlAttributes = new { placeholder = "Nhap ID", @readonly = "readonly" } })
                         <p>@Html.ValidationMessageFor(model => model.ID)</p>
                     </div>
                     <div class="vadition__box-wrapper">

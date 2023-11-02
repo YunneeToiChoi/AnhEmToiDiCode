@@ -19,9 +19,23 @@ namespace AirBNB_Admin.Controllers
         //{
         //    return PartialView(db.AdminUsers.ToList());
         //}
-        public ActionResult RegisterUser()
+        public ActionResult RegisterUser(int id=0)
         {
-            return PartialView();
+            AdminUser emp = new AdminUser();
+            var lastemployee = db.AdminUsers.OrderByDescending(x => x.ID).FirstOrDefault();
+            if (id != 0)
+            {
+                emp = db.AdminUsers.Where(x => x.ID == id).FirstOrDefault();
+            }
+            else if (lastemployee == null)
+            {
+                emp.ID = 0;
+            }
+            else
+            {
+                emp.ID = lastemployee.ID + 1;
+            }
+            return PartialView(emp);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -51,8 +65,29 @@ namespace AirBNB_Admin.Controllers
 
 
         }
+        public ActionResult index_register(int id = 0)
+        {
+            AdminUser emp = new AdminUser();
+            var lastemployee = db.AdminUsers.OrderByDescending(x => x.ID).FirstOrDefault();
+            if (id != 0)
+            {
+                emp = db.AdminUsers.Where(x => x.ID == id).FirstOrDefault();
+            }
+            else if (lastemployee == null)
+            {
+                emp.ID = 0;
+            }
+            else
+            {
+                emp.ID = lastemployee.ID + 1;
+            }
+            return PartialView(emp);
+        }
+        [HttpPost]
         public ActionResult index_register(AdminUser user)
         {
+            db.AdminUsers.Add(user);
+            db.SaveChanges();
             return PartialView();
         }
         public ActionResult LoginAccount()

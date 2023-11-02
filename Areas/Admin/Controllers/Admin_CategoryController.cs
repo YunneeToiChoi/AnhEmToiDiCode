@@ -16,11 +16,24 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
         {
             return View(db.Categories.ToList());
         }
-        public ActionResult Category_Create()
+        public ActionResult Category_Create(int id=0)
         {
 
-            Category categories = new Category();
-            return View(categories);
+            Category emp = new Category();
+            var lastemployee = db.Categories.OrderByDescending(x => x.ID_Cate).FirstOrDefault();
+            if (id != 0)
+            {
+                emp = db.Categories.Where(x => x.ID_Cate == id).FirstOrDefault();
+            }
+            else if (lastemployee == null)
+            {
+                emp.ID_Cate = 0;
+            }
+            else
+            {
+                emp.ID_Cate = lastemployee.ID_Cate + 1;
+            }
+            return View(emp);
         }
         [HttpPost]
         public ActionResult Category_Create(Category pro)

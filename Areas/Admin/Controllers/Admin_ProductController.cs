@@ -1,6 +1,7 @@
 ﻿using AirBNB_Admin.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -23,10 +24,23 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return PartialView(catels);
 
         }
-        public ActionResult Product_Create()
+        public ActionResult Product_Create(int id = 0)
         {
-            Room room = new Room();
-            return View(room);
+            Room emp = new Room();
+            var lastemployee = db.Rooms.OrderByDescending(x => x.Id_Room).FirstOrDefault();
+            if (id != 0)
+            {
+                emp = db.Rooms.Where(x => x.Id_Room == id).FirstOrDefault();
+            }
+            else if (lastemployee == null)
+            {
+                emp.Id_Room = 0;
+            }
+            else
+            {
+                emp.Id_Room = lastemployee.Id_Room + 1;
+            }
+            return View(emp);
         }
         [HttpPost]
         public ActionResult Product_Create(Room pro)
