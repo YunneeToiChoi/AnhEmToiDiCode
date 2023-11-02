@@ -8,6 +8,8 @@ namespace AirBNB_Admin.Models
     public class Wish
     {
         List<WishItem> items = new List<WishItem>();
+        public string active_heart { set; get; }
+
         public IEnumerable<WishItem> Items
         {
             get { return items; }
