@@ -55,6 +55,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                     pro.Images_Room = "~/Content/image/" + filename;
                     pro.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
                 }
+                pro.Date =DateTime.Now;
                 db.Rooms.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("Product_Control", pro);
