@@ -16,13 +16,18 @@ namespace AirBNB_Admin.Controllers
         //{
         //    return View();
         //}
+        public ActionResult EmptyLayout()
+        {
+            return View();
+        }
         public ActionResult ShowWish()
         {
             try
             {
                 if (Session["Wish"] == null)
                 {
-                    return RedirectToAction("ShowList", "ShoppingCart");
+                    //return RedirectToAction("ShowList", "ShoppingCart");
+                    return RedirectToAction("EmptyLayout", "WishList");
                     //return View("EmptyWish");
                 }
                 Wish wish = Session["Wish"] as Wish;
@@ -53,9 +58,10 @@ namespace AirBNB_Admin.Controllers
             if(_pro != null && Session["User"]!=null)
             {
                 GetWish().Add_Room_Cart(_pro);
+                return RedirectToAction("ShowWish", "WishList");
             }
-            //return RedirectToAction("ShowWish", "WishList");
-            return RedirectToAction("Index", "Home");
+
+            return RedirectToAction("index_login", "User");
         }
         public ActionResult RemoveWish(int id) // chua xoa dc
         {
