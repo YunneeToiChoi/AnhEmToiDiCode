@@ -1,4 +1,4 @@
-﻿@model AirBNB_Admin.Models.AdminUser
+﻿@model AirBNB_Admin.Models.User
 <link rel="stylesheet" href="~/_LayoutAdmin/assets/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="~/_LayoutAdmin/assets/vendors/css/vendor.bundle.base.css">
 <!-- endinject -->
@@ -31,13 +31,14 @@
         @using (Html.BeginForm("LoginAccount", "User"))
         {
             @Html.AntiForgeryToken()
-            <style >
+            <style>
 
 
-            .field-validation-error {
-            color: red;
-            }
-            </style> 
+                .field-validation-error {
+                    color: red;
+                }
+            </style>
+
             <div class="vadition__header pdlr24">
                 <div class="vadition__header-icon"><i class="fa-solid fa-x"></i></div>
                 <header class="vadition__header-tittle">Log in</header>
@@ -51,14 +52,14 @@
                 </h1>
                 <form class="vadition__box-form">
                     <div class="vadition__box-wrapper">
-                        @Html.LabelFor(model => model.Email_User)
-                        @Html.EditorFor(model => model.Email_User, new { htmlAttributes = new { placeholder = "Your Email" } })
-                        @Html.ValidationMessageFor(model => model.Email_User)
+                        @Html.LabelFor(model => model.Email)
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Your Email" } })
+                        @Html.ValidationMessageFor(model => model.Email)
                     </div>
                     <div class="vadition__box-wrapper">
-                        @Html.LabelFor(model => model.Password_User)
-                        @Html.PasswordFor(model => model.Password_User, new { htmlAttributes = new { @class = "vadition__box-password" } })
-                        @Html.ValidationMessageFor(model => model.Password_User)
+                        @Html.LabelFor(model => model.Password)
+                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "vadition__box-password" } })
+                        @Html.ValidationMessageFor(model => model.Password)
                         @* thieu placeholder *@
                         <h1 style="color : red">  @ViewBag.LoginFail</h1>
                     </div>

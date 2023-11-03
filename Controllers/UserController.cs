@@ -14,44 +14,44 @@ namespace AirBNB_Admin.Controllers
     public class UserController : Controller
     {
         // GET: User
-        AirbnbEntities1 db = new AirbnbEntities1();
+        AirbnbEntities2 db = new AirbnbEntities2();
         //public ActionResult Index()
         //{
-        //    return PartialView(db.AdminUsers.ToList());
+        //    return PartialView(db.User.ToList());
         //}
         public ActionResult RegisterUser(int id=0)
         {
-            AdminUser emp = new AdminUser();
-            var lastemployee = db.AdminUsers.OrderByDescending(x => x.ID).FirstOrDefault();
+            User emp = new User();
+            var lastemployee = db.User.OrderByDescending(x => x.ID_User).FirstOrDefault();
             if (id != 0)
             {
-                emp = db.AdminUsers.Where(x => x.ID == id).FirstOrDefault();
+                emp = db.User.Where(x => x.ID_User == id).FirstOrDefault();
             }
             else if (lastemployee == null)
             {
-                emp.ID = 0;
+                emp.ID_User = 0;
             }
             else
             {
-                emp.ID = lastemployee.ID + 1;
+                emp.ID_User = lastemployee.ID_User + 1;
             }
             return PartialView(emp);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RegisterUser(AdminUser user)
+        public ActionResult RegisterUser(User user)
         {
-            var mail = user.Email_User;
+            var mail = user.Email;
                 if (ModelState.IsValid)
                 {
-                    var check = db.AdminUsers.SingleOrDefault(s => s.ID == user.ID && s.Email_User.Equals(mail));
+                    var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
                     
                     if (check == null)// chua co id{
                     {
                         //user.Password_User = GetMD5(user.Password_User);
                         db.Configuration.ValidateOnSaveEnabled = false;
                         //Session["ID"] = user.ID;
-                        db.AdminUsers.Add(user);
+                        db.User.Add(user);
                         db.SaveChanges();
                       return RedirectToAction("index_login", "User");
                 }
@@ -67,26 +67,26 @@ namespace AirBNB_Admin.Controllers
         }
         public ActionResult index_register(int id = 0)
         {
-            AdminUser emp = new AdminUser();
-            var lastemployee = db.AdminUsers.OrderByDescending(x => x.ID).FirstOrDefault();
+            User emp = new User();
+            var lastemployee = db.User.OrderByDescending(x => x.ID_User).FirstOrDefault();
             if (id != 0)
             {
-                emp = db.AdminUsers.Where(x => x.ID == id).FirstOrDefault();
+                emp = db.User.Where(x => x.ID_User == id).FirstOrDefault();
             }
             else if (lastemployee == null)
             {
-                emp.ID = 0;
+                emp.ID_User = 0;
             }
             else
             {
-                emp.ID = lastemployee.ID + 1;
+                emp.ID_User = lastemployee.ID_User + 1;
             }
             return PartialView(emp);
         }
         [HttpPost]
-        public ActionResult index_register(AdminUser user)
+        public ActionResult index_register(User user)
         {
-            db.AdminUsers.Add(user);
+            db.User.Add(user);
             db.SaveChanges();
             return PartialView();
         }
@@ -96,9 +96,9 @@ namespace AirBNB_Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LoginAccount(AdminUser user)
+        public ActionResult LoginAccount(User user)
         { 
-                var check = db.AdminUsers.Where(s => s.Email_User == user.Email_User && s.Password_User == user.Password_User).FirstOrDefault();
+                var check = db.User.Where(s => s.Email == user.Email && s.Password == user.Password).FirstOrDefault();
                 if (check == null)
                 {
                     ViewBag.LoginFail = "Dang nhap that bai";
@@ -109,12 +109,12 @@ namespace AirBNB_Admin.Controllers
                 {
                     Session["User"] = check;
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    Session["ID"] = user.ID;
-                    Session["PasswordUser"] = user.Password_User;
+                    Session["ID"] = user.ID_User;
+                    Session["PasswordUser"] = user.Password;
                     return RedirectToAction("Index", "Home");
                 }
         }
-        public ActionResult index_login(AdminUser user)
+        public ActionResult index_login(User user)
         {
             return PartialView();
         }
@@ -126,7 +126,7 @@ namespace AirBNB_Admin.Controllers
         //[ValidateAntiForgeryToken]
         //public ActionResult LoginAccount(AdminUser user)
         //{
-        //    var check = db.AdminUsers.Where(s => s.ID == user.ID && s.Password_User == user.Password_User).FirstOrDefault();
+        //    var check = db.User.Where(s => s.ID == user.ID && s.Password_User == user.Password_User).FirstOrDefault();
         //    if (check == null) {
         //        ViewBag.ErrorInfo = "Sai info ";
         //        return PartialView();
@@ -144,7 +144,7 @@ namespace AirBNB_Admin.Controllers
         //    if (ModelState.IsValid)
         //    {
         //        var _password = GetMD5(password);
-        //        var data = db.AdminUsers.Where(s => s.Email_User.Equals(email) && s.Password_User.Equals(_password)).ToList();
+        //        var data = db.User.Where(s => s.Email_User.Equals(email) && s.Password_User.Equals(_password)).ToList();
         //        if (data.Count() > 0)
         //        {
         //            // add session

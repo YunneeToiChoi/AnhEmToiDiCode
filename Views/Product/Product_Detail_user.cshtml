@@ -1,4 +1,4 @@
-﻿@model AirBNB_Admin.Models.Room
+﻿@model AirBNB_Admin.Models.Rooms
 
 @{
     ViewBag.Title = "Product_Detail_user";
@@ -20,14 +20,6 @@
                     <div class="header__details-appellation">
                         <span class="appellation__icon"><i class="appellation__icon-medal fa-solid fa-signature"></i></span>
                         <span class="appellation__name">Chủ nhà siêu cấp</span>
-                    </div>
-                    <span class="assess__dotspace">.</span>
-                    <div class="header__details-location">
-                        <div class=" text__header-details details-location">
-                            <span>
-                                @Html.DisplayFor(model => Model.Date)
-                            </span>
-                        </div>
                     </div>
                 </div>
                 <div class="header__details-underright">
@@ -91,7 +83,7 @@
                                 <span class="assess__dotspace">.</span>
                                 <span class="Roomfeatures-text">1 phòng tắm</span>
                                 <span class="assess__dotspace">.</span>
-                                <span class="Roomfeatures-text">@Html.DisplayFor(model=>Model.Room_Discription)</span>
+                                <span class="Roomfeatures-text">@Html.DisplayFor(model=>Model.Room_Description)</span>
                             </div>
                         </div>
                         <div class="Details__Owner-logo">
@@ -241,6 +233,7 @@
                                         <div class="Order_Above-child">
                                             <span class="Order-text-head">TRẢ PHÒNG</span>
                                             <span class="add-day">Thêm ngày</span>
+                                        </div>
                                     </button>
                                     <div class="Order-box--body_Under">
                                         <span class="Order__Client">KHÁCH</span>

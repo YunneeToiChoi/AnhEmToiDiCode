@@ -10,7 +10,7 @@ namespace AirBNB_Admin.Controllers
     public class WishListController : Controller
     {
         // GET: WishList
-        AirbnbEntities1 db  = new AirbnbEntities1 ();
+        AirbnbEntities2 db  = new AirbnbEntities2 ();
 
         //public ActionResult Index()
         //{
@@ -41,7 +41,7 @@ namespace AirBNB_Admin.Controllers
         }
         public Wish GetWish()
         {
-            Room room = new Room();
+            Rooms room = new Rooms();
                 Wish wish = Session["Wish"] as Wish;
                 if (wish == null || Session["Wish"] == null)
                 {

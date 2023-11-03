@@ -167,10 +167,10 @@
     <Compile Include="Models\Reservation.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Review.cs">
+    <Compile Include="Models\Reviews.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Room.cs">
+    <Compile Include="Models\Rooms.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">

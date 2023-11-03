@@ -14,7 +14,7 @@ namespace AirBNB_Admin.Models
         {
             get { return items; }
         }
-        public void Add_Room_Cart (Room room, int _quanty = 1) // lay san pham bo vao gio hang
+        public void Add_Room_Cart (Rooms room, int _quanty = 1) // lay san pham bo vao gio hang
         {
             var item = Items.FirstOrDefault(s => s._product.Id_Room == room.Id_Room);
             if(item == null) // neu rong thi them moi gio hang
@@ -43,7 +43,7 @@ namespace AirBNB_Admin.Models
     }
     public class WishItem
     {
-        public Room _product { get; set; }
+        public Rooms _product { get; set; }
         public int _quality { get; set; }
     }
   

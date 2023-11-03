@@ -1,4 +1,4 @@
-﻿@model AirBNB_Admin.Models.Room
+﻿@model AirBNB_Admin.Models.Rooms
 
 @{
     ViewBag.Title = "Product_Detail";
@@ -33,7 +33,7 @@
                 <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
                     DESCRIPTION<i style="padding-left:10px" class="mdi mdi-account-card-details"></i>
                 </h4>
-                @Html.DisplayFor(model => model.Room_Discription, new { @class = "mb-5" })
+                @Html.DisplayFor(model => model.Room_Description, new { @class = "mb-5" })
                 <div style="padding:20px"></div>
                 <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
                     CATE-ID<i style="padding-left:10px" class="mdi mdi-account-card-details"></i>
@@ -44,11 +44,6 @@
                     IMG-LINK<i style="padding-left:10px" class="mdi mdi-comment-alert-outline"></i>
                 </h4>
                 @Html.DisplayFor(model => model.Images_Room, new { @class = "mb-5" })
-                <div style="padding:20px"></div>
-                <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
-                    Date<i style="padding-left:10px" class="mdi mdi-comment-alert-outline"></i>
-                </h4>
-                @Html.DisplayFor(model => model.Date, new { @class = "mb-5" })
             </div>
         </div>
         <div style="padding:20px"></div>

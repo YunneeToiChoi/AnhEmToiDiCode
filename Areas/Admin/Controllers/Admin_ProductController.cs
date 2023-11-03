@@ -12,7 +12,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
     public class Admin_ProductController : Controller
     {
         // GET: Admin_Product
-        AirbnbEntities1 db = new AirbnbEntities1();
+        AirbnbEntities2 db = new AirbnbEntities2();
         public ActionResult Index()
         {
             return View();
@@ -20,13 +20,13 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
         public ActionResult SelectCate() // tao category list cho prodct = ccah lay data tu category
         {
             Category catels = new Category();
-            catels.ListCate = db.Categories.ToList<Category>();
+            catels.ListCate = db.Category.ToList<Category>();
             return PartialView(catels);
 
         }
         public ActionResult Product_Create(int id = 0)
         {
-            Room emp = new Room();
+            Rooms emp = new Rooms();
             var lastemployee = db.Rooms.OrderByDescending(x => x.Id_Room).FirstOrDefault();
             if (id != 0)
             {
@@ -43,7 +43,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return View(emp);
         }
         [HttpPost]
-        public ActionResult Product_Create(Room pro)
+        public ActionResult Product_Create(Rooms pro)
         {
             try
             {
@@ -55,7 +55,6 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                     pro.Images_Room = "~/Content/image/" + filename;
                     pro.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
                 }
-                pro.Date =DateTime.Now;
                 db.Rooms.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("Product_Control", pro);
@@ -70,7 +69,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Product_Delete(int id, Room room)
+        public ActionResult Product_Delete(int id, Rooms room)
         {
             room = db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault();
             db.Rooms.Remove(room);
@@ -88,7 +87,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Product_Edit(int id, Room room)
+        public ActionResult Product_Edit(int id, Rooms room)
         {
             try
             {

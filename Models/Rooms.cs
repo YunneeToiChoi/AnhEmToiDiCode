@@ -14,32 +14,31 @@ namespace AirBNB_Admin.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
-    public partial class Room
+    public partial class Rooms
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Room()
+        public Rooms()
         {
             this.Reservation = new HashSet<Reservation>();
             Images_Room = "~/Content/image/pngtree-plus-icon-3d-illustration-png-image_8957667.png";
         }
         [NotMapped]
         public HttpPostedFileBase UploadImage { get; set; }
-        public string Name_Cate { get; set; }
-
         public int Id_Room { get; set; }
         public string Room_Name { get; set; }
         public string Place { get; set; }
-        public HashSet<Reservation> Reservation { get; }
         public string Images_Room { get; set; }
         public Nullable<decimal> Price { get; set; }
         public string Home_types { get; set; }
         public string Room_types { get; set; }
         public Nullable<int> ID_Cate { get; set; }
-        public string Room_Discription { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public string active_heart { get; set; }    
+        public string Room_Description { get; set; }
+        public Nullable<System.DateTime> Check_in { get; set; }
+        public Nullable<System.DateTime> Check_out { get; set; }
+        public string active_heart { get; set; }
+
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reservation> Reservations { get; set; }
+        public virtual ICollection<Reservation> Reservation { get; set; }
     }
 }

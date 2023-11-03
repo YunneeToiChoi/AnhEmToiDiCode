@@ -10,14 +10,14 @@ namespace AirBNB_Admin.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        AirbnbEntities1 db = new AirbnbEntities1();
+        AirbnbEntities2 db = new AirbnbEntities2();
         public ActionResult Index()
         {
             return View();
         }
         public ActionResult Product_Index()
         {
-            Room r = new Room();
+            Rooms r = new Rooms();
             r.active_heart = "blue";
             return PartialView(db.Rooms.ToList());
         }

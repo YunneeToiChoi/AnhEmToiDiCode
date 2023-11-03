@@ -17,10 +17,9 @@ namespace AirBNB_Admin.Models
     public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-
         public Category()
         {
-            this.Rooms = new HashSet<Room>();
+            this.Rooms = new HashSet<Rooms>();
             Image_Cate = "~/Content/image/pngtree-plus-icon-3d-illustration-png-image_8957667.png";
         }
         [NotMapped]
@@ -29,8 +28,8 @@ namespace AirBNB_Admin.Models
         public int ID_Cate { get; set; }
         public string Name_Cate { get; set; }
         public string Image_Cate { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room> Rooms { get; set; }
+        public virtual ICollection<Rooms> Rooms { get; set; }
     }
 }

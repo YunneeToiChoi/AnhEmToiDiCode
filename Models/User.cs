@@ -11,26 +11,40 @@ namespace AirBNB_Admin.Models
 {
     using System;
     using System.Collections.Generic;
-
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.OrderProducts = new HashSet<OrderProduct>();
-        }
-   
+        [Display(Name = "Mã User")]
+        [Required(ErrorMessage = "ID not Empty.....")]
         public int ID_User { get; set; }
+
+        [Required(ErrorMessage = "Name not Empty.....")]
+        [Display(Name = ("Tên User"))]
         public string User_Name { get; set; }
+
+        [Required(ErrorMessage = "Email not Empty....")]
+        [Display(Name = ("Email User"))]
+        [EmailAddress(ErrorMessage = "Please enter a valid email")]
         public string Email { get; set; }
-     
         public string Phone_number { get; set; }
         public string Identity_Card { get; set; }
         public string Address { get; set; }
         public string Emergency_Contact { get; set; }
-    
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter a valid password")]
+        [StringLength(50, ErrorMessage = "Khong du kich thuoc", MinimumLength = 8)]
+        [DataType(DataType.Password)]
+
+        public string Password { get; set; }
+
+
+        public string ConfirmPassword { get; set; }
+        [NotMapped]
+        public string ErrorLogin { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
     }
 }

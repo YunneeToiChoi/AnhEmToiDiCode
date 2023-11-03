@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AIRBNBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AirbnbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminUser">
           <Key>
             <PropertyRef Name="ID" />
@@ -62,8 +62,9 @@
           <Property Name="Home_types" Type="nvarchar" MaxLength="50" />
           <Property Name="Room_types" Type="nvarchar" MaxLength="50" />
           <Property Name="ID_Cate" Type="int" />
-          <Property Name="Room_Discription" Type="nvarchar(max)" />
-          <Property Name="Date" Type="date" />
+          <Property Name="Room_Description" Type="nvarchar(max)" />
+          <Property Name="Check_in" Type="date" />
+          <Property Name="Check_out" Type="date" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -71,11 +72,12 @@
           </Key>
           <Property Name="ID_User" Type="int" Nullable="false" />
           <Property Name="User_Name" Type="nvarchar(max)" />
-          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="Phone_number" Type="varchar" MaxLength="20" />
           <Property Name="Identity_Card" Type="nvarchar(max)" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Emergency_Contact" Type="nchar" MaxLength="10" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_OrderProduct_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
@@ -137,7 +139,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AIRBNBModelStoreContainer">
+        <EntityContainer Name="AirbnbModelStoreContainer">
           <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" Schema="dbo" store:Type="Tables" />
@@ -170,7 +172,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AIRBNBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AirbnbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AdminUser">
           <Key>
             <PropertyRef Name="ID" />
@@ -198,7 +200,7 @@
           <Property Name="Payment_Card" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Zip_Post" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_OrderProduct_User" FromRole="OrderProduct" ToRole="User" />
-          <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservation_OrderProduct" FromRole="OrderProduct" ToRole="Reservation" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_OrderProduct" FromRole="OrderProduct" ToRole="Reservation" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
@@ -210,10 +212,10 @@
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Guest" Type="Int32" />
           <NavigationProperty Name="OrderProduct" Relationship="Self.FK_Reservation_OrderProduct" FromRole="Reservation" ToRole="OrderProduct" />
-          <NavigationProperty Name="Room" Relationship="Self.FK_Reservation_Rooms" FromRole="Reservation" ToRole="Rooms" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_Reservation_Rooms" FromRole="Reservation" ToRole="Rooms" />
           <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Reservation" FromRole="Reservation" ToRole="Reviews" />
         </EntityType>
-        <EntityType Name="Review">
+        <EntityType Name="Reviews">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -223,7 +225,7 @@
           <Property Name="Comment" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Reservation" Relationship="Self.FK_Reviews_Reservation" FromRole="Reviews" ToRole="Reservation" />
         </EntityType>
-        <EntityType Name="Room">
+        <EntityType Name="Rooms">
           <Key>
             <PropertyRef Name="Id_Room" />
           </Key>
@@ -235,10 +237,11 @@
           <Property Name="Home_types" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Room_types" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ID_Cate" Type="Int32" />
-          <Property Name="Room_Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Room_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Check_in" Type="DateTime" Precision="0" />
+          <Property Name="Check_out" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Rooms_Category" FromRole="Rooms" ToRole="Category" />
-          <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservation_Rooms" FromRole="Rooms" ToRole="Reservation" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_Rooms" FromRole="Rooms" ToRole="Reservation" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -246,16 +249,17 @@
           </Key>
           <Property Name="ID_User" Type="Int32" Nullable="false" />
           <Property Name="User_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Identity_Card" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Emergency_Contact" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="OrderProducts" Relationship="Self.FK_OrderProduct_User" FromRole="User" ToRole="OrderProduct" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderProduct" Relationship="Self.FK_OrderProduct_User" FromRole="User" ToRole="OrderProduct" />
         </EntityType>
         <Association Name="FK_Rooms_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Rooms" Type="Self.Room" Multiplicity="*" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="ID_Cate" />
@@ -290,7 +294,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Reservation_Rooms">
-          <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Rooms">
@@ -303,7 +307,7 @@
         </Association>
         <Association Name="FK_Reviews_Reservation">
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
-          <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Reservation">
               <PropertyRef Name="ID_Reservation" />
@@ -313,32 +317,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AirbnbEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdminUsers" EntityType="Self.AdminUser" />
-          <EntitySet Name="Categories" EntityType="Self.Category" />
-          <EntitySet Name="OrderProducts" EntityType="Self.OrderProduct" />
-          <EntitySet Name="Reservations" EntityType="Self.Reservation" />
-          <EntitySet Name="Reviews" EntityType="Self.Review" />
-          <EntitySet Name="Rooms" EntityType="Self.Room" />
-          <EntitySet Name="Users" EntityType="Self.User" />
+        <EntityContainer Name="AirbnbEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminUser" EntityType="Self.AdminUser" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" />
+          <EntitySet Name="Reviews" EntityType="Self.Reviews" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+          <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_Rooms_Category" Association="Self.FK_Rooms_Category">
-            <End Role="Category" EntitySet="Categories" />
+            <End Role="Category" EntitySet="Category" />
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderProduct_User" Association="Self.FK_OrderProduct_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="OrderProduct" EntitySet="OrderProducts" />
+            <End Role="User" EntitySet="User" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
           </AssociationSet>
           <AssociationSet Name="FK_Reservation_OrderProduct" Association="Self.FK_Reservation_OrderProduct">
-            <End Role="OrderProduct" EntitySet="OrderProducts" />
-            <End Role="Reservation" EntitySet="Reservations" />
+            <End Role="OrderProduct" EntitySet="OrderProduct" />
+            <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
           <AssociationSet Name="FK_Reservation_Rooms" Association="Self.FK_Reservation_Rooms">
             <End Role="Rooms" EntitySet="Rooms" />
-            <End Role="Reservation" EntitySet="Reservations" />
+            <End Role="Reservation" EntitySet="Reservation" />
           </AssociationSet>
           <AssociationSet Name="FK_Reviews_Reservation" Association="Self.FK_Reviews_Reservation">
-            <End Role="Reservation" EntitySet="Reservations" />
+            <End Role="Reservation" EntitySet="Reservation" />
             <End Role="Reviews" EntitySet="Reviews" />
           </AssociationSet>
         </EntityContainer>
@@ -347,9 +351,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AIRBNBModelStoreContainer" CdmEntityContainer="AirbnbEntities1">
-          <EntitySetMapping Name="AdminUsers">
-            <EntityTypeMapping TypeName="AIRBNBModel.AdminUser">
+        <EntityContainerMapping StorageEntityContainer="AirbnbModelStoreContainer" CdmEntityContainer="AirbnbEntities2">
+          <EntitySetMapping Name="AdminUser">
+            <EntityTypeMapping TypeName="AirbnbModel.AdminUser">
               <MappingFragment StoreEntitySet="AdminUser">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name_User" ColumnName="Name_User" />
@@ -358,8 +362,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="AIRBNBModel.Category">
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="AirbnbModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="ID_Cate" ColumnName="ID_Cate" />
                 <ScalarProperty Name="Name_Cate" ColumnName="Name_Cate" />
@@ -367,8 +371,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderProducts">
-            <EntityTypeMapping TypeName="AIRBNBModel.OrderProduct">
+          <EntitySetMapping Name="OrderProduct">
+            <EntityTypeMapping TypeName="AirbnbModel.OrderProduct">
               <MappingFragment StoreEntitySet="OrderProduct">
                 <ScalarProperty Name="ID_Product" ColumnName="ID_Product" />
                 <ScalarProperty Name="ID_User" ColumnName="ID_User" />
@@ -377,8 +381,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Reservations">
-            <EntityTypeMapping TypeName="AIRBNBModel.Reservation">
+          <EntitySetMapping Name="Reservation">
+            <EntityTypeMapping TypeName="AirbnbModel.Reservation">
               <MappingFragment StoreEntitySet="Reservation">
                 <ScalarProperty Name="ID_Reservation" ColumnName="ID_Reservation" />
                 <ScalarProperty Name="ID_Rooms" ColumnName="ID_Rooms" />
@@ -389,7 +393,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reviews">
-            <EntityTypeMapping TypeName="AIRBNBModel.Review">
+            <EntityTypeMapping TypeName="AirbnbModel.Reviews">
               <MappingFragment StoreEntitySet="Reviews">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Reservation_id" ColumnName="Reservation_id" />
@@ -399,7 +403,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="AIRBNBModel.Room">
+            <EntityTypeMapping TypeName="AirbnbModel.Rooms">
               <MappingFragment StoreEntitySet="Rooms">
                 <ScalarProperty Name="Id_Room" ColumnName="Id_Room" />
                 <ScalarProperty Name="Room_Name" ColumnName="Room_Name" />
@@ -409,13 +413,14 @@
                 <ScalarProperty Name="Home_types" ColumnName="Home_types" />
                 <ScalarProperty Name="Room_types" ColumnName="Room_types" />
                 <ScalarProperty Name="ID_Cate" ColumnName="ID_Cate" />
-                <ScalarProperty Name="Room_Discription" ColumnName="Room_Discription" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Room_Description" ColumnName="Room_Description" />
+                <ScalarProperty Name="Check_in" ColumnName="Check_in" />
+                <ScalarProperty Name="Check_out" ColumnName="Check_out" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="AIRBNBModel.User">
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="AirbnbModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="ID_User" ColumnName="ID_User" />
                 <ScalarProperty Name="User_Name" ColumnName="User_Name" />
@@ -424,6 +429,7 @@
                 <ScalarProperty Name="Identity_Card" ColumnName="Identity_Card" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Emergency_Contact" ColumnName="Emergency_Contact" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -441,7 +447,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

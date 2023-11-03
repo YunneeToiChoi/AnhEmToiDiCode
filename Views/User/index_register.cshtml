@@ -1,4 +1,4 @@
-﻿@model AirBNB_Admin.Models.AdminUser
+﻿@model AirBNB_Admin.Models.User
 
 <link rel="stylesheet" href="~/_LayoutAdmin/assets/vendors/mdi/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="~/_LayoutAdmin/assets/vendors/css/vendor.bundle.base.css">
@@ -59,24 +59,24 @@
                         <p style="color : red">@ViewBag.ErrorRegister</p>
                     }
                     <div class="vadition__box-wrapper">
-                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.ID) </p>
-                        @Html.EditorFor(model => model.ID, new { htmlAttributes = new { placeholder = "Nhap ID", @readonly = "readonly" } })
-                        <p>@Html.ValidationMessageFor(model => model.ID)</p>
+                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.ID_User) </p>
+                        @Html.EditorFor(model => model.ID_User, new { htmlAttributes = new { placeholder = "Nhap ID", @readonly = "readonly" } })
+                        <p>@Html.ValidationMessageFor(model => model.ID_User)</p>
                     </div>
                     <div class="vadition__box-wrapper">
-                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.Email_User) </p>
-                        <input type="email" data-val="true" data-val-email="Please enter a valid email" id="Email_User" name="Email_User" value="" class="login__input" placeholder="Nhap Email" />
-                        <p>@Html.ValidationMessageFor(model => model.Email_User)</p>
+                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.Email) </p>
+                        <input type="email" data-val="true" data-val-email="Please enter a valid email" id="Email_User" name="Email" value="" class="login__input" placeholder="Nhap Email" />
+                        <p>@Html.ValidationMessageFor(model => model.Email)</p>
                     </div>
                     <div class="vadition__box-wrapper">
-                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.Name_User) </p>
-                        @Html.EditorFor(model => model.Name_User, new { htmlAttributes = new { placeholder = "Nhap User" } })
-                        <p>@Html.ValidationMessageFor(model => model.Name_User)</p>
+                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.User_Name) </p>
+                        @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { placeholder = "Nhap User" } })
+                        <p>@Html.ValidationMessageFor(model => model.User_Name)</p>
                     </div>
                     <div class="vadition__box-wrapper">
-                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.Password_User) </p>
-                        @Html.PasswordFor(model => model.Password_User, new { htmlAttributes = new { placeholder = "Your Password " } })
-                        <p>@Html.ValidationMessageFor(model => model.Password_User)</p>
+                        <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.Password) </p>
+                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { placeholder = "Your Password " } })
+                        <p>@Html.ValidationMessageFor(model => model.Password)</p>
                     </div>
                     <div class="vadition__box-wrapper">
                         <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.ConfirmPassword) </p>
@@ -115,4 +115,5 @@
         }
     </div>
 </div>
+
 

@@ -1,4 +1,4 @@
-﻿@model AirBNB_Admin.Models.Room
+﻿@model AirBNB_Admin.Models.Rooms
 
 @{
     ViewBag.Title = "Product_Delete";
@@ -36,7 +36,7 @@
                                 <td>  @Html.DisplayFor(model => model.Id_Room, new { @id = "exampleInputEmail3" })</td>
                                 <td>@Html.DisplayFor(model => model.Room_Name, new { @id = "exampleInputEmail3" })</td>
                                 <td>@Html.DisplayFor(model => model.Price, new { @id = "exampleInputEmail3" })</td>
-                                <td>@Html.DisplayFor(model => model.Room_Discription, new { @id = "exampleInputEmail3" })</td>
+                                <td>@Html.DisplayFor(model => model.Room_Description, new { @id = "exampleInputEmail3" })</td>
                                 <td style="text-align:center">  @Html.DisplayFor(model => model.ID_Cate, new { @id = "exampleInputEmail3" }) </td>
                                 <td>
                                     @Html.DisplayFor(model => model.Images_Room, new { @class = "badge badge-gradient-success" })

@@ -11,19 +11,19 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
     public class Admin_CategoryController : Controller
     {
         // GET: Admin/Admin_Category
-        AirbnbEntities1 db = new AirbnbEntities1();
+        AirbnbEntities2 db = new AirbnbEntities2();
         public ActionResult Category_Control()
         {
-            return View(db.Categories.ToList());
+            return View(db.Category.ToList());
         }
         public ActionResult Category_Create(int id=0)
         {
 
             Category emp = new Category();
-            var lastemployee = db.Categories.OrderByDescending(x => x.ID_Cate).FirstOrDefault();
+            var lastemployee = db.Category.OrderByDescending(x => x.ID_Cate).FirstOrDefault();
             if (id != 0)
             {
-                emp = db.Categories.Where(x => x.ID_Cate == id).FirstOrDefault();
+                emp = db.Category.Where(x => x.ID_Cate == id).FirstOrDefault();
             }
             else if (lastemployee == null)
             {
@@ -48,7 +48,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                     pro.Image_Cate = "~/Content/image/" + filename;
                     pro.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
                 }
-                db.Categories.Add(pro);
+                db.Category.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("Category_Control", pro);
             }
@@ -61,13 +61,13 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
 
         public ActionResult Category_Delete(int id)
         {
-            return View(db.Categories.Where(s => s.ID_Cate == id).FirstOrDefault());
+            return View(db.Category.Where(s => s.ID_Cate == id).FirstOrDefault());
         }
         [HttpPost]
         public ActionResult Category_Delete(int id, Category cate)
         {
-            cate = db.Categories.Where(s => s.ID_Cate == id).FirstOrDefault();
-            db.Categories.Remove(cate);
+            cate = db.Category.Where(s => s.ID_Cate == id).FirstOrDefault();
+            db.Category.Remove(cate);
             db.SaveChanges();
             return RedirectToAction("Category_Control");
         }
@@ -76,13 +76,13 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
 
         public ActionResult Category_Detail(int id)
         {
-            return View(db.Categories.Where(s => s.ID_Cate == id).FirstOrDefault());
+            return View(db.Category.Where(s => s.ID_Cate == id).FirstOrDefault());
         }
 
 
         public ActionResult Category_Edit(int id)
         {
-            return View(db.Categories.Where(s => s.ID_Cate == id).FirstOrDefault());
+            return View(db.Category.Where(s => s.ID_Cate == id).FirstOrDefault());
         }
         [HttpPost]
         public ActionResult Category_Edit(Category cate)

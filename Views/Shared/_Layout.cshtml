@@ -62,7 +62,7 @@
         <button class="user-header__form--support">Airbnb your home</button>
         <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
-                                    @{var user = Session["User"] as AirBNB_Admin.Models.AdminUser;}
+                                    @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
                                     @{ if (user == null)
                                         {
@@ -76,7 +76,7 @@
                                         }
                                         else /*login dc */
                                         {
-                                            <button class="user-header__form--navHello">Hello @user.Name_User</button>
+                                            <button class="user-header__form--navHello">Hello @user.User_Name</button>
                                             <hr style="border: 0.1px solid #cfcfcf " />
 
                                             <button class="user-header__form--support">Airbnb your home</button>

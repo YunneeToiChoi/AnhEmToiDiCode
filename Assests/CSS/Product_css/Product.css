@@ -84,9 +84,6 @@
 .content__header {
     display: flex;
     justify-content: space-between;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
 }
 
 .content__owner, .content__date, .content__day {
