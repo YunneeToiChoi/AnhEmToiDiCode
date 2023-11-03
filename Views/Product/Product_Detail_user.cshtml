@@ -25,7 +25,7 @@
                     <div class="header__details-location">
                         <div class=" text__header-details details-location">
                             <span>
-                                @Html.DisplayFor(model => Model.Room_Discription)
+                                @Html.DisplayFor(model => Model.Date)
                             </span>
                         </div>
                     </div>
@@ -38,10 +38,10 @@
                         </button>
                     </div>
                     <div class="details__save">
-                        <button class="btn_details details__save-btn">
+                        <a href="/WishList/AddtoWish/@Model.Id_Room" style="color:black" class="btn_details details__save-btn">
                             <div class="save-btn-icon"><i class="details__save-icon fa-regular fa-heart"></i></div>
                             <span class="btn__header-details save-btn-text">Lưu</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -90,6 +90,8 @@
                                 <span class="Roomfeatures-text">1 giường</span>
                                 <span class="assess__dotspace">.</span>
                                 <span class="Roomfeatures-text">1 phòng tắm</span>
+                                <span class="assess__dotspace">.</span>
+                                <span class="Roomfeatures-text">@Html.DisplayFor(model=>Model.Room_Discription)</span>
                             </div>
                         </div>
                         <div class="Details__Owner-logo">
