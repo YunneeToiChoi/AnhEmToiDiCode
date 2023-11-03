@@ -1,0 +1,27 @@
+﻿.menu-mobile{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:white;
+    height:64px;
+}
+
+.menu-mobile__box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: rgb(113, 113, 113);
+    padding: 0px 20px;
+}
+
+
+.menu-mobile__icon{
+    font-size:1.6rem;
+    padding:10px 0px;
+}

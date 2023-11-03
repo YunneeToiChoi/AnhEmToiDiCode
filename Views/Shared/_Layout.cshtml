@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="~/Assests/CSS/_LayoutMater_css/Modal_user.css" />
     <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
     <link rel="stylesheet" href="~/Assests/CSS/Bear_css/bear.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/OrderProduct/OrderProductCss.css" />
     <link href="~/Assests/CSS/loader_css/loader.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Assests/CSS/Footer/footer.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/MenuMobile_css/menumobile.css" />
     <link href="~/Assests/CSS/Load_css/Load_css.css" rel="stylesheet" />
     <link href="~/Assests/CSS/Details/details.css" rel="stylesheet" />
     <link href="~/Scripts/scripts/Product_js.js" rel="stylesheet" />
@@ -24,12 +26,13 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
 </head>
 <body>
+
     <div class="main">
         <!-- Navbar -->
         <div class="header">
             <div class="grid wide">
-                <nav class="navbar row">
-                    <div class="nav-left col l-1">
+                <nav class="navbar-mobile navbar row">
+                    <div class="nav-left col l-1 hide-on-mobile">
                         <a href="https://localhost:44371" class="navbar__link">
                             <img src="~/Assests/_image/navbar_image/logo.png" alt="" class="navbar__img" style="width: 120px;height:100%">
                         </a>
@@ -44,7 +47,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="nav-right user-navbar__header col l-1">
+                    <div class="nav-right user-navbar__header col l-1 hide-on-mobile">
                         <div class=" navbar__box user-navbar__box">
                             <ul class="navbar__list">
                                 <li class="navbar__item-user"><span class="navbar__link"><i class="navbar__icon--user fa-solid fa-bars"></i></span></li>
@@ -239,6 +242,23 @@
 
     </div>
 
+
+    @* Menu-Mobile *@
+<div class="menu-mobile menu-mobile--active">
+    <div class="menu-mobile__box">
+        <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
+        <h4 class="menu-mobile__name">Khám phá</h4>
+    </div>
+    <div class="menu-mobile__box">
+        <i class="menu-mobile__icon fa-regular fa-heart"></i>
+        <h4 class="menu-mobile__name">Yêu thích</h4>
+    </div>
+    <div class="menu-mobile__box">
+        <i class="menu-mobile__icon fa-regular fa-user"></i>
+        <h4 class="menu-mobile__name">Đăng nhập</h4>
+    </div>
+</div>
+    @* End Menu-Mobile *@
 
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
