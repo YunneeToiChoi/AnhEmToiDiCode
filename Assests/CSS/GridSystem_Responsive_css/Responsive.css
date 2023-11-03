@@ -1,7 +1,14 @@
 ﻿@media (max-width: 768px) {
     .hide-on-mobile {
-        display: none;
+        display: none ;
     }
+    .navbar-mobile{
+        justify-content:center !important;
+    }
+    .menu-mobile--active{
+        display:flex !important;
+    }
+
 }
 /* NAV LOGIN VADITION  */
 @media (min-width: 740px)
