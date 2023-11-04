@@ -2,11 +2,28 @@
 
 
 
-    @foreach (var menu in Model)
-    {
-        <a href="#" class="menu__box ">
-            <img src="@Url.Content(menu.Image_Cate)" style="width : 26px" class="menu__img" />
-            <h4 class="menu__header">@Html.DisplayFor(x => menu.Name_Cate)</h4>
-            <div class="menu__box-border-bt"></div>
-        </a>
-    }
+<div class="menu">
+    <div class="grid wide">
+        <div class="menu__container row">
+            <div class="menu-left col l-9 m-12 c-12">
+                @foreach (var menu in Model)
+                {
+                    <a href="/Product/Product_Index?cateid=@menu.ID_Cate" class="menu__box ">
+                        <img src="@Url.Content(menu.Image_Cate)" style="width : 26px" class="menu__img" />
+                        <h4 class="menu__header">@Html.DisplayFor(x => menu.Name_Cate)</h4>
+                        <div class="menu__box-border-bt"></div>
+                    </a>
+                }
+            </div>
+            <div class="menu-right col l-3 m-0 c-0">
+                <div class="menu-right__box navbar__box">
+                    <p class="menu__content">Hiển thị tổng trước thuế</p>
+                    <input type="checkbox" id="checkboxInput">
+                    <label for="checkboxInput" class="toggleSwitch">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*@Html.Action("Product_Index", "Product")*@

@@ -11,15 +11,29 @@ namespace AirBNB_Admin.Controllers
     {
         // GET: Product
         AirbnbEntities2 db = new AirbnbEntities2();
+
         public ActionResult Index()
         {
+
             return View();
         }
-        public ActionResult Product_Index()
+        public ActionResult Product_Index_Main()
         {
-            Rooms r = new Rooms();
-            r.active_heart = "blue";
+
             return PartialView(db.Rooms.ToList());
+        }
+        public ActionResult Product_Index(int cateid)
+        {
+            if (cateid == -1)
+            {
+                var productList = db.Rooms.OrderByDescending(x => x.ID_Cate);
+                return View(productList);
+            }
+            else
+            {
+                var productlist = db.Rooms.OrderByDescending(x => x.ID_Cate).Where(x => x.ID_Cate == cateid);
+                return View(productlist);
+            }
         }
         public ActionResult Product_Detail_user(int id)
         {
