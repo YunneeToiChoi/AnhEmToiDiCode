@@ -19,8 +19,9 @@ namespace AirBNB_Admin.Controllers
         //{
         //    return PartialView(db.User.ToList());
         //}
-        public ActionResult RegisterUser(int id=0)
+        public ActionResult RegisterUser(int id = 0)
         {
+            id = 0;
             User emp = new User();
             var lastemployee = db.User.OrderByDescending(x => x.ID_User).FirstOrDefault();
             if (id != 0)
@@ -42,26 +43,26 @@ namespace AirBNB_Admin.Controllers
         public ActionResult RegisterUser(User user)
         {
             var mail = user.Email;
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
+            {
+                var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
+
+                if (check == null)// chua co id{
                 {
-                    var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
-                    
-                    if (check == null)// chua co id{
-                    {
-                        //user.Password_User = GetMD5(user.Password_User);
-                        db.Configuration.ValidateOnSaveEnabled = false;
-                        //Session["ID"] = user.ID;
-                        db.User.Add(user);
-                        db.SaveChanges();
-                      return RedirectToAction("index_login", "User");
+                    //user.Password_User = GetMD5(user.Password_User);
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    //Session["ID"] = user.ID;
+                    db.User.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("index_login", "User");
                 }
-                    else
-                    {
-                        ViewBag.ErrorRegister = "This ID or Email is exist";
-                        return RedirectToAction("index_register", "User");
-                    }
+                else
+                {
+                    ViewBag.ErrorRegister = "This ID or Email is exist";
+                    return RedirectToAction("index_register", "User");
                 }
-           return RedirectToAction("index_register", "User");
+            }
+            return RedirectToAction("index_register", "User");
 
 
         }
@@ -97,28 +98,29 @@ namespace AirBNB_Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LoginAccount(User user)
-        { 
-                var check = db.User.Where(s => s.Email == user.Email && s.Password == user.Password).FirstOrDefault();
-                if (check == null)
-                {
-                    ViewBag.LoginFail = "Dang nhap that bai";
-                    Session["User"] = null;
-                    return RedirectToAction("index_login", "User");
-                }
-                else
-                {
-                    Session["User"] = check;
-                    db.Configuration.ValidateOnSaveEnabled = false;
-                    Session["ID"] = user.ID_User;
-                    Session["PasswordUser"] = user.Password;
-                    return RedirectToAction("Index", "Home");
-                }
+        {
+            var check = db.User.Where(s => s.Email == user.Email && s.Password == user.Password).FirstOrDefault();
+            if (check == null)
+            {
+                ViewBag.LoginFail = "Dang nhap that bai";
+                Session["User"] = null;
+                return RedirectToAction("index_login", "User");
+            }
+            else
+            {
+                Session["User"] = check;
+                db.Configuration.ValidateOnSaveEnabled = false;
+                Session["ID"] = user.ID_User;
+                Session["PasswordUser"] = user.Password;
+                return RedirectToAction("Index", "Home");
+            }
         }
         public ActionResult index_login(User user)
         {
             return PartialView();
         }
-        public ActionResult Logout() {
+        public ActionResult Logout()
+        {
             Session["User"] = null;
             return RedirectToAction("Index", "Home");
         }

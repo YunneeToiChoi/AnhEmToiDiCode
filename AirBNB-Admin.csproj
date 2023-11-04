@@ -479,6 +479,8 @@
     <Content Include="Views\OrderProduct\Index.cshtml" />
     <Content Include="Views\OrderProduct\Index_OrderProduct.cshtml" />
     <Content Include="Views\Product\Oder_Product_Index.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Product\Product_Index_Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
