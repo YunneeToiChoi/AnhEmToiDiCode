@@ -111,3 +111,7 @@ html
     text-decoration : none;
     color : #000;
 }
+.rs-alink-mb {
+    color: rgb(113, 113, 113);
+    text-decoration: none;
+}
