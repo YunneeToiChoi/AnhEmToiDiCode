@@ -36,6 +36,13 @@ namespace AirBNB_Admin.Models
         public Nullable<System.DateTime> Check_in { get; set; }
         public Nullable<System.DateTime> Check_out { get; set; }
         public string active_heart { get; set; }
+        public Nullable<decimal> tongtientrong5ngay { get; set; }
+        public Nullable<decimal> ThuatToantongtientrong5ngay()
+        {
+
+            tongtientrong5ngay = Price * 5;
+            return tongtientrong5ngay;
+        }
 
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

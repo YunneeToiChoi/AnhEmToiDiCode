@@ -23,6 +23,15 @@ namespace AirBNB_Admin.Controllers
         }
         public ActionResult Product_Detail_user(int id)
         {
+            var x = db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault();
+            if (x == null)
+            {
+                Session["event"] = null;
+            }
+            else
+            {
+                Session["event"] = x;
+            }
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
     }
