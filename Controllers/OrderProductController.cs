@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirBNB_Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +10,12 @@ namespace AirBNB_Admin.Controllers
     public class OrderProductController : Controller
     {
         // GET: OrderProduct
-        public ActionResult Index()
+        AirbnbEntities2 db = new AirbnbEntities2();
+        public ActionResult Index_OrderProduct(int id)
         {
-            return View();
+            Rooms rooms = new Rooms();
+            rooms.Id_Room=id;
+            return View(db.Rooms.Where(x=>x.Id_Room==id).ToList());
         }
     }
 }

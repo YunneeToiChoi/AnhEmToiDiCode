@@ -1,11 +1,9 @@
-﻿
-@*@{
-    ViewBag.Title = "Index";
-}*@
+﻿@model AirBNB_Admin.Models.OrderProduct
+
 
 <div class="content">
     <div class="grid wide">
-            <h2 class="order__header">Xác nhận và thanh toán</h2>
+        <h2 class="order__header">Xác nhận và thanh toán</h2>
         <div class="content__containers row">
             <div class="content-left col l-8 m-12 c-12">
                 <div class="order__trip">
@@ -35,14 +33,14 @@
                         <p>Thanh toán toàn bộ số tiền ($279,97) ngay bây giờ và thế là xong.</p>
                     </div>
                 </div>
-                <hr style="margin:10px 0px"/>
+                <hr style="margin:10px 0px" />
                 <div class="order__payment">
                     <div>
-                    <h3 class="order__payment-header">Thanh toán bằng</h3>
-                    <div class="order__choose">
-                        <i class="order__icon fa-regular fa-credit-card"></i>
-                        <span>Thẻ tín dụng hoặc thẻ ghi nợ</span>
-                    </div>
+                        <h3 class="order__payment-header">Thanh toán bằng</h3>
+                        <div class="order__choose">
+                            <i class="order__icon fa-regular fa-credit-card"></i>
+                            <span>Thẻ tín dụng hoặc thẻ ghi nợ</span>
+                        </div>
                     </div>
                     <div class="payment__box">
                         <input class="payment__input" placeholder="Số thẻ" style="width:100%" />
@@ -66,7 +64,7 @@
                             <p style="font-size:1.2rem"> <i class="product__icon fa-solid fa-star"></i> 4,87 (163 đánh giá)</p>
                         </div>
                     </div>
-                    <hr style="margin:10px 0px"/>
+                    <hr style="margin:10px 0px" />
                     <div class="order__detais">
                         <h3 style="font-size:2.6rem;margin:10px 0px">Chi tiết giá</h3>
                         <div class="order__fee">
@@ -74,7 +72,7 @@
                             <p>$213,41</p>
                         </div>
                     </div>
-                    <hr style="margin-bottom:26px"/>
+                    <hr style="margin-bottom:26px" />
                     <div class="order__fee order__fee--total">
                         <p>Tổng (<span style="text-decoration:underline">USD</span>)</p>
                         <p>$279,97</p>
@@ -84,4 +82,5 @@
         </div>
     </div>
 </div>
+
 
