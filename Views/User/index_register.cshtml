@@ -24,11 +24,11 @@
 <link rel="stylesheet" href="~/Assests/CSS/Footer/footer.css" />
 <link href="~/Assests/CSS/Load_css/Load_css.css" rel="stylesheet" />
 <link href="~/Assests/CSS/Details/details.css" rel="stylesheet" />
-<div style=" position: fixed;  top: 0; bottom: 0; right: 0; left: 0;" class="card bg-gradient-danger card-img-holder text-white">
-    <img src="/_layoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
-</div>
 
-<div class="form-register-clone">
+
+
+<div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
+    <div class="form-register-clone">
     <div class="cart-body">
         @using (Html.BeginForm("RegisterUser", "User", FormMethod.Post, new { enctype = "multipartform/data" }))
         {
@@ -41,6 +41,7 @@
 
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div>
             <div class="vadition__header pdlr24">
                 <div class="vadition__header-icon"><i class="fa-solid fa-x"></i></div>
                 <header class="vadition__header-tittle">Sign up ERROR</header>
@@ -111,9 +112,12 @@
                 </div>
             </div>
 
-
+            </div>
         }
     </div>
 </div>
+</div>
+
+
 
 

@@ -136,6 +136,7 @@
     <Compile Include="Controllers\OrderProductController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserMobileController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -192,6 +193,7 @@
     <Content Include="Assests\CSS\OrderProduct\OrderProductCss.css" />
     <Content Include="Assests\CSS\Product_css\Product.css" />
     <Content Include="Assests\CSS\Switch\Switch_menu.css" />
+    <Content Include="Assests\CSS\UserMobile__css\userMobilecss.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\Modal_user.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\_LayoutMaster.css" />
     <Content Include="Assests\_image\Content_image\content_1.jpg" />
@@ -481,6 +483,8 @@
     <Content Include="Views\Product\Oder_Product_Index.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Product\Product_Index_Main.cshtml" />
+    <Content Include="Views\UserMobile\Index.cshtml" />
+    <Content Include="Views\UserMobile\Info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

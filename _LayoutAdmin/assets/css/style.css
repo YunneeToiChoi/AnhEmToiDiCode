@@ -12973,8 +12973,7 @@ code {
     .card.card-img-holder .card-img-absolute {
       position: absolute;
       top: 0;
-      right: 0;
-      height: 100%; }
+      right: 0;}
   .card.bg-blue-gradient {
     background: -webkit-gradient(linear, left top, right top, from(#065efd), color-stop(#3169fd), to(#6f79fc));
     background: linear-gradient(to right, #065efd, #3169fd, #6f79fc);

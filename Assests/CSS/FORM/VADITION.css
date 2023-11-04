@@ -182,13 +182,8 @@ vadition__box-password {
     display : none;
 }
 .form-register-clone {
-    transform: translateY(-50%);
-    top: 50%;
-    right: 25%;
-    align-items: center;
     background-color: white;
-    position: fixed;
-    width: 700px;
+    width: 70%;
     margin: auto;
     box-shadow: -14px -14px 28px #e07e84, 14px 14px 28px #ffa0a8;
     border-radius: 12px;
