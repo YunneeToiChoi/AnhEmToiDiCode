@@ -254,20 +254,51 @@
 
 
     @* Menu-Mobile *@
-    <div class="menu-mobile menu-mobile--active">
-        <div class="menu-mobile__box">
-            <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
-            <h4 class="menu-mobile__name">Khám phá</h4>
-        </div>
-        <div class="menu-mobile__box">
-            <i class="menu-mobile__icon fa-regular fa-heart"></i>
-            <h4 class="menu-mobile__name">Yêu thích</h4>
-        </div>
-        <div class="menu-mobile__box">
-            <i class="menu-mobile__icon fa-regular fa-user"></i>
-            <h4 class="menu-mobile__name">Đăng nhập</h4>
-        </div>
-    </div>
+
+
+
+    @{var usermb = Session["User"] as AirBNB_Admin.Models.User;}
+
+    @{ if (usermb == null) // neu k co dang nhap
+        {
+            <div class="menu-mobile menu-mobile--active">
+                <div class="menu-mobile__box">
+                    <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
+                    <h4 class="menu-mobile__name">Khám phá</h4>
+                </div>
+                <div class="menu-mobile__box">
+                    <i class="menu-mobile__icon fa-regular fa-heart"></i>
+                    <h4 class="menu-mobile__name">
+                        @Html.ActionLink("Yêu thích", "index_register", "User", null, new { @class = "rs-alink-mb" })
+                    </h4>
+                </div>
+                <div class="menu-mobile__box">
+                    <i class="menu-mobile__icon fa-regular fa-user"></i>
+                    <h4 class="menu-mobile__name">@Html.ActionLink("Dang Nhap", "index_register", "User", null, new { @class = "rs-alink-mb" }) </h4>
+                </div>
+            </div>
+        }
+        else /*login dc */
+        {
+            <div class="menu-mobile menu-mobile--active">
+                <div class="menu-mobile__box">
+                    <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
+                    <h4 class="menu-mobile__name">Khám phá</h4>
+                </div>
+                <div class="menu-mobile__box">
+                    <i class="menu-mobile__icon fa-regular fa-heart"></i>
+                    <h4 class="menu-mobile__name">
+                        @Html.ActionLink("Yêu thích", "ShowWish", "WishList", null, new { @class = "rs-alink" })
+                    </h4>
+                </div>
+                <div class="menu-mobile__box">
+                    <i class="menu-mobile__icon fa-regular fa-user"></i>
+                    @* Thieu view tai khoan mb *@                  <h4 class="menu-mobile__name">@Html.ActionLink("Tài Khoản", "index_register", "User", null, new { @class = "rs-alink-mb" }) </h4>
+                </div>
+            </div>
+        }
+    }
+
     @* End Menu-Mobile *@
 
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
@@ -289,10 +320,10 @@
         setTimeout(timeLoad, 1500)
 
 
-               //if (location.reload(true)){
-               //    load.classList.remove('none')
+                       //if (location.reload(true)){
+                       //    load.classList.remove('none')
 
-               //}
+                       //}
     </script>
     <style>
         .none {
