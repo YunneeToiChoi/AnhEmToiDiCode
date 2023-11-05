@@ -1,4 +1,6 @@
-﻿
+﻿@model  IEnumerable <AirBNB_Admin.Models.User>
+
+
 @{
     Layout = null;
 }
@@ -18,93 +20,171 @@
     <title>Index</title>
 </head>
 <body>
-    <div class="content">
-        <div class="grid wide">
-            <h2 class="user-mobile__header">Hồ sơ</h2>
-            <a href="" style="text-decoration:none; color:black">
-                <div class="user-mobile__box">
-                    <div class="user-mobile__left">
-                        <div class="user-mobile__list">
-                            <img src="~/Content/image/1618457259_14-phonoteka_org-p-fon-dlya-obs-14.jpg" width="80" height="80" style="border-radius:50%" />
-                            <div class="user-mobile__text">
-                                <p>Xin chào !</p>
-                                <p>Hiền thị hồ sơ</p>
+    @{var user = Session["User"] as AirBNB_Admin.Models.User;}
+    @{ if (user == null)
+        {
+
+            <div class="content">
+                <div class="grid wide">
+                    <h2 class="user-mobile__header">Hồ sơ</h2>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <img src="~/Content/image/1618457259_14-phonoteka_org-p-fon-dlya-obs-14.jpg" width="80" height="80" style="border-radius:50%" />
+                                    <div class="user-mobile__text">
+                                        @Html.ActionLink("Đăng Kí", "index_register", "User", null, new { @class = "rs-alink-register" })
+                                        @Html.ActionLink("Đăng Nhập", "index_login", "User", null, new { @class = "rs-alink-register" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="user-mobile__right">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-            </a>
-            <a href="@Url.Action("Info","UserMobile")" style="text-decoration:none; color:black">
-                <div class="user-mobile__box">
-                    <div class="user-mobile__left">
-                        <div class="user-mobile__list">
-                            <i class="user-mobile__icon fa-regular fa-user"></i>
-                            <div class="user-mobile__text">
-                                <p>Thông tin cá nhân</p>
+                    </a>
+                    <h2 class="user-mobile__header">Hỗ trợ</h2>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box user-mobile__box--no-border">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-solid fa-question"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Truy cập Trung tâm trợ giúp</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="user-mobile__right">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-            </a>
-            <h2 class="user-mobile__header">Hỗ trợ</h2>
-            <a href="" style="text-decoration:none; color:black">
-                <div class="user-mobile__box user-mobile__box--no-border">
-                    <div class="user-mobile__left">
-                        <div class="user-mobile__list">
-                            <i class="user-mobile__icon fa-solid fa-question"></i>
-                            <div class="user-mobile__text">
-                                <p>Truy cập Trung tâm trợ giúp</p>
+                    </a>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box user-mobile__box--no-border">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-solid fa-shield"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Tìm trợ giúp về vấn đề an toàn</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="user-mobile__right">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-            </a>
-            <a href="" style="text-decoration:none; color:black">
-                <div class="user-mobile__box user-mobile__box--no-border">
-                    <div class="user-mobile__left">
-                        <div class="user-mobile__list">
-                            <i class="user-mobile__icon fa-solid fa-shield"></i>
-                            <div class="user-mobile__text">
-                                <p>Tìm trợ giúp về vấn đề an toàn</p>
+                    </a>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-solid fa-headphones"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Báo cáo lo ngại của hàng xóm</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="user-mobile__right">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
+                    </a>
+                    <br />
+                    <p style="text-align:center;font-size:0.7rem;"><a style="color:black" href="">Trợ giúp & hỗ trợ</a> · <a style="color:black" href="">Điều khoản dịch vụ </a>· <a style="color:black" href="">Chính sách quyền riêng tư</a></p>
+                    <p style="text-align:center; font-size:0.7rem; color:#808080">© 2023 Airbnb, Inc. Bảo lưu mọi quyền.</p>
                 </div>
-            </a>
-            <a href="" style="text-decoration:none; color:black">
-                <div class="user-mobile__box">
-                    <div class="user-mobile__left">
-                        <div class="user-mobile__list">
-                            <i class="user-mobile__icon fa-solid fa-headphones"></i>
-                            <div class="user-mobile__text">
-                                <p>Báo cáo lo ngại của hàng xóm</p>
+            </div>
+        }
+        else
+        {
+            <div class="content">
+                <div class="grid wide">
+                    <h2 class="user-mobile__header">Hồ sơ</h2>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <img src="~/Content/image/1618457259_14-phonoteka_org-p-fon-dlya-obs-14.jpg" width="80" height="80" style="border-radius:50%" />
+                                    <div class="user-mobile__text">
+                                        <p>Xin chào !</p>
+                                            <p>@user.User_Name </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </div>
-                    </div>
-                    <div class="user-mobile__right">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
+                    </a>
+                    <a href="@Url.Action("Info","UserMobile")" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-regular fa-user"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Thông tin cá nhân</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <h2 class="user-mobile__header">Hỗ trợ</h2>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box user-mobile__box--no-border">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-solid fa-question"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Truy cập Trung tâm trợ giúp</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box user-mobile__box--no-border">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-solid fa-shield"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Tìm trợ giúp về vấn đề an toàn</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-solid fa-headphones"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Báo cáo lo ngại của hàng xóm</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                    @*<a class="user-mobile__logout" href="">Đăng Xuất</a>*@
+                    @Html.ActionLink("Đăng Xuất", "Logout", "User", null, new { @class = "rs-alink user-mobile__logout" })
+                    <br />
+                    <p style="text-align:center;font-size:0.7rem;"><a style="color:black" href="">Trợ giúp & hỗ trợ</a> · <a style="color:black" href="">Điều khoản dịch vụ </a>· <a style="color:black" href="">Chính sách quyền riêng tư</a></p>
+                    <p style="text-align:center; font-size:0.7rem; color:#808080">© 2023 Airbnb, Inc. Bảo lưu mọi quyền.</p>
                 </div>
-            </a>
-            <span><i class="fa-solid fa-globe"></i> <a class="user-mobile__link" href="">Tiếng Việt(VN)</a></span>
-            <span>$ <a class="user-mobile__link" href="">USD</a></span>
-            <a class="user-mobile__logout" href="">Đăng Xuất</a>
-            <br />
-            <p style="text-align:center;font-size:0.7rem;"><a style="color:black" href="">Trợ giúp & hỗ trợ</a> · <a style="color:black" href="">Điều khoản dịch vụ </a>· <a style="color:black" href="">Chính sách quyền riêng tư</a></p>
-            <p style="text-align:center; font-size:0.7rem; color:#808080">© 2023 Airbnb, Inc. Bảo lưu mọi quyền.</p>
-        </div>
-    </div>
+            </div>
+        }
+    }
 </body>
 </html>

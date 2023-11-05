@@ -106,6 +106,7 @@ namespace AirBNB_Admin.Controllers
                 Session["User"] = null;
                 ModelState.AddModelError("myError", "InvalidEmail or Password");
                 return RedirectToAction("index_login", "User");
+
             }
             else
             {
@@ -113,6 +114,7 @@ namespace AirBNB_Admin.Controllers
                 db.Configuration.ValidateOnSaveEnabled = false;
                 Session["ID"] = user.ID_User;
                 Session["PasswordUser"] = user.Password;
+                db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
         }

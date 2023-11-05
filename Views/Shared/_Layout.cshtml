@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
     <link rel="stylesheet" href="~/Assests/CSS/Bear_css/bear.css" />
     <link rel="stylesheet" href="~/Assests/CSS/OrderProduct/OrderProductCss.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/ContactUscss/contact.css" />
     <link href="~/Assests/CSS/loader_css/loader.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Assests/CSS/Footer/footer.css" />
     <link rel="stylesheet" href="~/Assests/CSS/MenuMobile_css/menumobile.css" />
@@ -60,16 +61,16 @@
                                 <div class="user-header__form-box">
 
                                     @*<button class="user-header__form--navRegister">Sign In</button>
-                                        <button class="user-header__form--navLogin">Log in</button>
-                                        <hr style="border: 0.1px solid #cfcfcf " />
-                                        <button class="user-header__form--support">Airbnb your home</button>
-                                        <button class="user-header__form--support">Help Center</button>*@
+        <button class="user-header__form--navLogin">Log in</button>
+        <hr style="border: 0.1px solid #cfcfcf " />
+        <button class="user-header__form--support">Airbnb your home</button>
+        <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
                                     @{ if (user == null)
                                         {
-                                            <button class="user-header__form--navRegister">Sign In</button>
+                                            <button class="user-header__form--navRegister">Sign Un</button>
                                             <button class="user-header__form--navLogin">Log in</button>
                                             <hr style="border: 0.1px solid #cfcfcf " />
                                             <button class="user-header__form--support">Airbnb your home</button>
@@ -77,9 +78,12 @@
                                         }
                                         else /*login dc */
                                         {
-                                            <button class="user-header__form--navHello">Hello @user.User_Name</button>
+                                            <a class="user-header__form--navHello" href="/UserMobile/Index">
+                                                <button class="user-header__form--navHello">
+                                                    Hello @user.User_Name
+                                                </button>
+                                            </a>
                                             <hr style="border: 0.1px solid #cfcfcf " />
-
                                             <button class="user-header__form--support">Airbnb your home</button>
                                             <button class="user-header__form--navWishList">@Html.ActionLink("Wish List", "ShowWish", "WishList", null, new { @class = "rs-alink" })</button>// mot sua thanh actionlink
                                             <button class="user-header__form--support">Help Center</button>
@@ -106,7 +110,7 @@
         @RenderBody() <!-- sau nay lam mappp -->
         <footer class="footer">
             <div class="grid wide">
-                <h2 class="footer__header">Nguồn cảm hứng cho những kỳ nghỉ sau này</h2>
+                @*<h2 class="footer__header">Nguồn cảm hứng cho những kỳ nghỉ sau này</h2>
                 <ul class="footer__list">
                     <li class="footer__item footer__item--chosen"><a href="" class="footer__link footer__link--chosen">Phổ biến</a></li>
                     <li class="footer__item"><a href="" class="footer__link">Văn hoá và nghệ thuật</a></li>
@@ -161,7 +165,7 @@
                         <h4 class="footer-box__header">Mallacoota</h4>
                         <p class="footer__text">Chỗ ở cho thuê phù hợp với thú cưng</p>
                     </div>
-                </div>
+                </div>*@
                 <div class="footer-under__container row">
                     <div class="footer-under__box col l-4 m-4 c-6">
                         <h5 class="footer__box-header">Hỗ trợ</h5>
@@ -201,6 +205,7 @@
                         <a href="" class="footer-powered__link">Quyền riêng tư</a>
                         <a href="" class="footer-powered__link">Điều khoản</a>
                         <a href="" class="footer-powered__link">Sơ đồ trang web</a>
+                        <a href="@Url.Action("Contact","Home")" class="footer-powered__link">About us</a>
                     </div>
                     <div class="footer__powered-right col l-3 m-12 c-12">
                         <i class="footer__icon fa-solid fa-globe"></i>
@@ -267,12 +272,12 @@
                 <div class="menu-mobile__box">
                     <i class="menu-mobile__icon fa-regular fa-heart"></i>
                     <h4 class="menu-mobile__name">
-                        @Html.ActionLink("Yêu thích", "index_register", "User", null, new { @class = "rs-alink-mb" })
+                        @Html.ActionLink("Yêu thích", "Index", "UserMobile", null, new { @class = "rs-alink-mb" })
                     </h4>
                 </div>
                 <div class="menu-mobile__box">
                     <i class="menu-mobile__icon fa-regular fa-user"></i>
-                    <h4 class="menu-mobile__name">@Html.ActionLink("Dang Nhap", "index_register", "User", null, new { @class = "rs-alink-mb" }) </h4>
+                    <h4 class="menu-mobile__name">@Html.ActionLink("Đăng Nhập", "Index", "UserMobile", null, new { @class = "rs-alink-mb" }) </h4>
                 </div>
             </div>
         }
@@ -291,7 +296,7 @@
                 </div>
                 <div class="menu-mobile__box">
                     <i class="menu-mobile__icon fa-regular fa-user"></i>
-                    @* Thieu view tai khoan mb *@                  <h4 class="menu-mobile__name">@Html.ActionLink("Tài Khoản", "index_register", "User", null, new { @class = "rs-alink-mb" }) </h4>
+                   <h4 class="menu-mobile__name">@Html.ActionLink("Tài Khoản", "Index", "UserMobile", null, new { @class = "rs-alink-mb" }) @*<a href="/UserMobile/Index/@user.ID_User">content</a>*@ </h4>
                 </div>
             </div>
         }

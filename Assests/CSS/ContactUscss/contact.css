@@ -1,0 +1,28 @@
+﻿.content__list
+{
+    list-style:none;
+    padding:0;
+
+}
+
+.content__item{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    margin:16px 0px
+}
+
+.content__box-icon{
+    margin-right:20px;
+}
+
+.content-contact__icon {
+    font-size: 2rem;
+    padding: 10px;
+    border: 1px solid #808080;
+    border-radius: 50%;
+}
+
+.footer__link{
+    line-break:anywhere;
+}
