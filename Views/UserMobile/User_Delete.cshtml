@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "User_Delete";
+    Layout = "~/Views/Shared/_InfoUser.cshtml";
 }
 
 <h2>User_Delete</h2>
@@ -34,7 +35,6 @@
         <dd>
             @Html.DisplayFor(model => model.Phone_number)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Address)
         </dt>
@@ -50,23 +50,6 @@
         <dd>
             @Html.DisplayFor(model => model.Password)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ConfirmPassword)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ConfirmPassword)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ErrorLogin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ErrorLogin)
-        </dd>
-
     </dl>
 
     @using (Html.BeginForm()) {
@@ -74,7 +57,6 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
         </div>
     }
 </div>
