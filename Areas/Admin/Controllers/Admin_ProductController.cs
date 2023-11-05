@@ -75,8 +75,6 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             db.Rooms.Remove(room);
             db.SaveChanges();
             return RedirectToAction("Product_Control");
-
-
         }
         public ActionResult Product_Detail(int id)
         {

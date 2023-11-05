@@ -490,6 +490,9 @@
     <Content Include="Views\Product\Product_Index_Main.cshtml" />
     <Content Include="Views\UserMobile\Index.cshtml" />
     <Content Include="Views\UserMobile\Info.cshtml" />
+    <Content Include="Views\UserMobile\User_Delete.cshtml" />
+    <Content Include="Views\UserMobile\User_Edit.cshtml" />
+    <Content Include="Views\UserMobile\User_Control.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

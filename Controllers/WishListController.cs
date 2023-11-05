@@ -48,7 +48,8 @@ namespace AirBNB_Admin.Controllers
                     wish = new Wish();
                     Session["Wish"] = wish;
                     wish.active_heart = "#ff385c";
-                room.active_heart = wish.active_heart;
+                    room.active_heart = "#ff385c";
+                    Session["CheckWish"] = wish.active_heart;
                 }
             return wish;
             

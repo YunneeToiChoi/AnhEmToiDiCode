@@ -104,7 +104,9 @@ namespace AirBNB_Admin.Controllers
             {
                 ViewBag.LoginFail = "Dang nhap that bai";
                 Session["User"] = null;
+                db.SaveChanges();
                 return RedirectToAction("index_login", "User");
+
             }
             else
             {
@@ -112,6 +114,7 @@ namespace AirBNB_Admin.Controllers
                 db.Configuration.ValidateOnSaveEnabled = false;
                 Session["ID"] = user.ID_User;
                 Session["PasswordUser"] = user.Password;
+                db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
         }
