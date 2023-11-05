@@ -1,21 +1,20 @@
-﻿@model AirBNB_Admin.Models.Rooms
+﻿﻿@model AirBNB_Admin.Models.Rooms
 
 @{
     ViewBag.Title = "Product_Detail_user";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <div class="Containt__details">
     <div class="grid wide">
         <div class="header__details">
             <div class="header__details-above"><h1 class="header__details-headline">@Html.DisplayFor(model => Model.Room_Name)</h1></div>
-            <div class="header__details-under row">
-                <div class="header__details-underleft col l-6 m-6 c-12">
+            <div class="header__details-under">
+                <div class="header__details-underleft">
                     <div class="header__details-assess">
                         <span class="assess__icon"><i class="assess__icon--star fa-solid fa-star"></i></span>
                         <span class="assess__number">5,0 ·</span>
-                        <span class="text__header-details assess__ofturns"> 29 đánh giá    </span>
+                        <span class="text__header-details assess__ofturns"> 29 đánh giá</span>
                     </div>
                     <span class="assess__dotspace">.</span>
                     <div class="header__details-appellation">
@@ -23,14 +22,13 @@
                         <span class="appellation__name">Chủ nhà siêu cấp</span>
                     </div>
                 </div>
-                <div class="header__details-underright col l-6 m-6 c-12">
+                <div class="header__details-underright">
                     <div class="details__share">
                         <button class="btn_details details__share-btn">
                             <div class="share-btn-icon"><i class="details__share-icon fa-solid fa-arrow-up-from-bracket"></i></div>
                             <span class="btn__header-details share-btn-text">Chia sẻ</span>
                         </button>
                     </div>
-
                     <div class="details__save">
                         <a href="/WishList/AddtoWish/@Model.Id_Room" style="color:black" class="btn_details details__save-btn">
                             <div class="save-btn-icon"><i class="details__save-icon fa-regular fa-heart"></i></div>
@@ -43,15 +41,12 @@
         <!-- end-header__details -->
         <!-- Picture__product -->
         <div class="Main__details-picture">
-            @* Image details product *@
-            <div class="pictures__details row ">
-                <div class="dt__picture-left col l-8 m-6 c-12" style="height:360px; margin:20px 0px">
-                    <a href="#" class="dt__pture-parent dt__pture-left pture--parent">
-                        <img src="@Url.Content(Model.Images_Room)">
-                    </a>
-                </div>
-                <div class=" dt__pture-parent dt__pture-right col l-4 m-6 c-12 ">
-                    <div class="dt__pture-right--child col l-6 m-6 c-6">
+            <div class="pictures__details">
+                <a href="#" class="dt__pture-parent dt__pture-left pture--parent">
+                    <img src="@Url.Content(Model.Images_Room)">
+                </a>
+                <div class="dt__pture-parent dt__pture-right">
+                    <div class="dt__pture-right--child">
                         <a href="#" class="pt__box-child pture--child pture--child-above">
                             <img src="@Url.Content(Model.Images_Room)">
                         </a>
@@ -59,7 +54,7 @@
                             <img src="@Url.Content(Model.Images_Room)">
                         </a>
                     </div>
-                    <div class="dt__pture-right--child col l-6 m-6 c-6">
+                    <div class="dt__pture-right--child ">
                         <a href="#" class="pt__box-child pture--child pture--child-above">
                             <img src="@Url.Content(Model.Images_Room)">
                         </a>
@@ -68,14 +63,13 @@
                         </a>
                     </div>
                 </div>
-                @* End Image details product *@
             </div>
         </div>
         <!-- end-picture__details -->
         <div class="Main__details-Oder">
-            <div class="Order__Details-interface row">
+            <div class="Order__Details-interface">
                 <!-- infobox-Owner -->
-                <div class="Details-interface__Infobox col l-8 m-7 c-12">
+                <div class="Details-interface__Infobox">
                     <!-- header-info-owner -->
                     <div class="Owner__Info--header">
                         <div class="Details__Owner-name">
@@ -89,7 +83,7 @@
                                 <span class="assess__dotspace">.</span>
                                 <span class="Roomfeatures-text">1 phòng tắm</span>
                                 <span class="assess__dotspace">.</span>
-                                <span class="Roomfeatures-text">@Html.DisplayFor(model=>Model.Room_Description)</span>
+                                <span class="Roomfeatures-text">@Html.DisplayFor(model => Model.Room_Description)</span>
                             </div>
                         </div>
                         <div class="Details__Owner-logo">
@@ -211,10 +205,10 @@
                             </li>
                         </ul>
                     </div>
-                    <hr style="border: 1px solid #e7e7e7; margin: 16px 0px">
+                    <hr style="border: 1px solid #e7e7e7;">
                 </div>
                 <!-- orderbox-Owner -->
-                <div class="Details-interface__Orderbox col l-4 m-5 c-12">
+                <div class="Details-interface__Orderbox">
                     <div class="Oderbox-Main">
                         <div class="Order-box--UX">
                             <div class="Order-box--header">
@@ -248,7 +242,7 @@
                                 </div>
                             </div>
                             <div class="Order-btn--check">
-                                <button class="Order-btn"><span class="Order-btn__text"><a style="text-decoration:none;color : whitesmoke" href="/OrderProduct/Index_OrderProduct/@Model.Id_Room">Kiểm Tra Tình Trạng Còn Phòng</a>  </span></button>
+                                <button class="Order-btn"><span class="Order-btn__text">Kiểm tra tình trạng còn phòng</span></button>
                             </div>
                         </div>
                     </div>
