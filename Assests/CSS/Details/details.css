@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 /* header__details */
 .Containt__details {
     position: relative;
@@ -26,14 +26,13 @@
 }
 
 .header__details-underleft {
-/*   min-width: 493.575px;*/
+    min-width: 493.575px;
 }
 
 .header__details-underright {
     display: flex;
     min-width: 170px;
-/*    justify-content: space-between;*/
-    justify-content:right;
+    justify-content: space-between;
     align-items: center;
     margin-top: 3px;
 }
@@ -45,7 +44,7 @@
 .details__share,
 .details__save {
     display: flex;
-/*    justify-content: space-around;*/
+    justify-content: space-around;
     align-items: center;
     margin-top: 3px;
 }
@@ -138,7 +137,6 @@
 .dt__pture-right {
     display: flex;
     flex-direction: row;
-    justify-content:center;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
     overflow: hidden;
@@ -187,6 +185,8 @@
 }
 
 .Details-interface__Infobox {
+    position: relative;
+    width: 54%;
 }
 
 .Owner__Info--header {
@@ -293,13 +293,14 @@
 .Oderbox-Main {
     position: sticky;
     top: 100px;
-/*    margin-left: 93.333px;
-    margin-bottom:48px;*/
+    margin-left: 93.333px;
+    margin-bottom: 48px;
 }
 
 .Order-box--UX {
     display: flex;
     flex-direction: column;
+    width: 100%px;
     padding: 24px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 12px;
@@ -309,7 +310,6 @@
 
 .Order-box--header {
     display: flex;
-    flex-wrap:wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
