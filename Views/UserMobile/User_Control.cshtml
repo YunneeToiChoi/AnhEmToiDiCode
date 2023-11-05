@@ -2,7 +2,9 @@
 
 @{
     ViewBag.Title = "User_Control";
+    Layout = "~/Views/Shared/_InfoUser.cshtml";
 }
+
 <h2 style="text-align:center">LIST PRODUCT</h2>
 <div class="card">
     <div class="card-body">
@@ -13,7 +15,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone_number</th>
-                    <th>Address</th>   
+                    <th>Address</th>
                     <th>Password</th>
                 </tr>
             </thead>
@@ -36,7 +38,7 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Address)
                         </td>
-                        
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Password)
                         </td>
@@ -58,3 +60,4 @@
         </table>
     </div>
 </div>
+
