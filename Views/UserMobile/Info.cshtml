@@ -1,4 +1,7 @@
-﻿
+﻿@model IEnumerable<AirBNB_Admin.Models.User>
+@{var user = Session["User"] as AirBNB_Admin.Models.User;}
+
+
 @{
     Layout = null;
 }
@@ -28,7 +31,7 @@
                         <div class="user-mobile__list">
                             <div class="user-mobile__text">
                                 <p>Tên pháp lý</p>
-                                <p class="blur">Tên</p>
+                                <p class="blur">@user.User_Name</p>
                             </div>
                         </div>
                     </div>
@@ -41,7 +44,7 @@
                         <div class="user-mobile__list">
                             <div class="user-mobile__text">
                                 <p>Địa chỉ email</p>
-                                <p class="blur">t***1@yahoo.com</p>
+                                <p class="blur">@user.Email</p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +57,7 @@
                         <div class="user-mobile__list">
                             <div class="user-mobile__text">
                                 <p>Số điện thoại</p>
-                                <p class="blur">0792509301</p>
+                                <p class="blur">@user.Phone_number</p>
                             </div>
                         </div>
                     </div>
