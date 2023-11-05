@@ -185,6 +185,7 @@
   <ItemGroup>
     <Content Include="Assests\CSS\Base_css\base.css" />
     <Content Include="Assests\CSS\Bear_css\bear.css" />
+    <Content Include="Assests\CSS\ContactUscss\contact.css" />
     <Content Include="Assests\CSS\Details\details.css" />
     <Content Include="Assests\CSS\FORM\VADITION.css" />
     <Content Include="Assests\CSS\GridSystem_Responsive_css\grid.css" />
