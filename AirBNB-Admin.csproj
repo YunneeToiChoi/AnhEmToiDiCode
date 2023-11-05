@@ -130,6 +130,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\Admin_CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\Admin_ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Admin_UsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -373,6 +374,9 @@
     <Content Include="Models\AirBnBDB.edmx.diagram">
       <DependentUpon>AirBnBDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Admin_Users\User_Control.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin_Users\User_Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin_Users\User_Detail.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

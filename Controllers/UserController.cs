@@ -115,7 +115,7 @@ namespace AirBNB_Admin.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-        public ActionResult index_login(User user)
+        public ActionResult index_login()
         {
             return PartialView();
         }
