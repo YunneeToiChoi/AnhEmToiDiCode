@@ -61,10 +61,10 @@
                                 <div class="user-header__form-box">
 
                                     @*<button class="user-header__form--navRegister">Sign In</button>
-                                        <button class="user-header__form--navLogin">Log in</button>
-                                        <hr style="border: 0.1px solid #cfcfcf " />
-                                        <button class="user-header__form--support">Airbnb your home</button>
-                                        <button class="user-header__form--support">Help Center</button>*@
+        <button class="user-header__form--navLogin">Log in</button>
+        <hr style="border: 0.1px solid #cfcfcf " />
+        <button class="user-header__form--support">Airbnb your home</button>
+        <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
@@ -78,9 +78,12 @@
                                         }
                                         else /*login dc */
                                         {
-                                            <button class="user-header__form--navHello">Hello @user.User_Name</button>
+                                            <a class="user-header__form--navHello" href="/UserMobile/Index">
+                                                <button class="user-header__form--navHello">
+                                                    Hello @user.User_Name
+                                                </button>
+                                            </a>
                                             <hr style="border: 0.1px solid #cfcfcf " />
-
                                             <button class="user-header__form--support">Airbnb your home</button>
                                             <button class="user-header__form--navWishList">@Html.ActionLink("Wish List", "ShowWish", "WishList", null, new { @class = "rs-alink" })</button>// mot sua thanh actionlink
                                             <button class="user-header__form--support">Help Center</button>
@@ -107,7 +110,7 @@
         @RenderBody() <!-- sau nay lam mappp -->
         <footer class="footer">
             <div class="grid wide">
-                <h2 class="footer__header">Nguồn cảm hứng cho những kỳ nghỉ sau này</h2>
+                @*<h2 class="footer__header">Nguồn cảm hứng cho những kỳ nghỉ sau này</h2>
                 <ul class="footer__list">
                     <li class="footer__item footer__item--chosen"><a href="" class="footer__link footer__link--chosen">Phổ biến</a></li>
                     <li class="footer__item"><a href="" class="footer__link">Văn hoá và nghệ thuật</a></li>
@@ -162,7 +165,7 @@
                         <h4 class="footer-box__header">Mallacoota</h4>
                         <p class="footer__text">Chỗ ở cho thuê phù hợp với thú cưng</p>
                     </div>
-                </div>
+                </div>*@
                 <div class="footer-under__container row">
                     <div class="footer-under__box col l-4 m-4 c-6">
                         <h5 class="footer__box-header">Hỗ trợ</h5>
