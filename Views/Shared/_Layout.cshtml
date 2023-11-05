@@ -70,7 +70,7 @@
 
                                     @{ if (user == null)
                                         {
-                                            <button class="user-header__form--navRegister">Sign In</button>
+                                            <button class="user-header__form--navRegister">Sign Un</button>
                                             <button class="user-header__form--navLogin">Log in</button>
                                             <hr style="border: 0.1px solid #cfcfcf " />
                                             <button class="user-header__form--support">Airbnb your home</button>
@@ -269,12 +269,12 @@
                 <div class="menu-mobile__box">
                     <i class="menu-mobile__icon fa-regular fa-heart"></i>
                     <h4 class="menu-mobile__name">
-                        @Html.ActionLink("Yêu thích", "index_register", "User", null, new { @class = "rs-alink-mb" })
+                        @Html.ActionLink("Yêu thích", "Index", "UserMobile", null, new { @class = "rs-alink-mb" })
                     </h4>
                 </div>
                 <div class="menu-mobile__box">
                     <i class="menu-mobile__icon fa-regular fa-user"></i>
-                    <h4 class="menu-mobile__name">@Html.ActionLink("Dang Nhap", "index_register", "User", null, new { @class = "rs-alink-mb" }) </h4>
+                    <h4 class="menu-mobile__name">@Html.ActionLink("Đăng Nhập", "Index", "UserMobile", null, new { @class = "rs-alink-mb" }) </h4>
                 </div>
             </div>
         }
@@ -293,7 +293,7 @@
                 </div>
                 <div class="menu-mobile__box">
                     <i class="menu-mobile__icon fa-regular fa-user"></i>
-                    @* Thieu view tai khoan mb *@                  <h4 class="menu-mobile__name">@Html.ActionLink("Tài Khoản", "index_register", "User", null, new { @class = "rs-alink-mb" }) </h4>
+                   <h4 class="menu-mobile__name">@Html.ActionLink("Tài Khoản", "Index", "UserMobile", null, new { @class = "rs-alink-mb" }) @*<a href="/UserMobile/Index/@user.ID_User">content</a>*@ </h4>
                 </div>
             </div>
         }
