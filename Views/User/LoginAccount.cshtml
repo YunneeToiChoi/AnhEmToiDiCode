@@ -1,10 +1,15 @@
 ﻿@model AirBNB_Admin.Models.User
-<link href="~/Assests/CSS/FORM/VADITION.css" rel="stylesheet" />
 <style>
     .field-validation-error {
         color: red;
     }
 </style>
+<link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
+<link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
+
+@*<div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
+    <div class="form-register-clone">
+        <div class="cart-body">*@
 @using (Html.BeginForm("LoginAccount", "User"))
 {
     @Html.AntiForgeryToken();
@@ -31,7 +36,7 @@
                 @Html.ValidationMessageFor(model => model.Password)
                 @* thieu placeholder *@
 
-                <h1 style="color : red">  @ViewBag.LoginFail</h1>
+                @*<h1 style="color : red">  @ViewBag.LoginFail</h1>*@
             </div>
             <div class="vadition__box-decripstion">
                 We’ll call or text you to confirm your number. Standard message and data rates apply.
@@ -61,4 +66,6 @@
     </div>
     @*END BOx*@
 }
-
+@*</div>
+    </div>
+    </div>*@

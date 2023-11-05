@@ -1,15 +1,15 @@
 ﻿@model AirBNB_Admin.Models.User
-
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
+<link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
 
 @using (Html.BeginForm("RegisterUser", "User", FormMethod.Post, new { enctype = "multipartform/data" }))
 {
     @Html.AntiForgeryToken()
-    <style>
-        .field-validation-error {
-            color: red;
-        }
-    </style>
-
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="vadition__header pdlr24">
         <div class="vadition__header-icon"><i class="fa-solid fa-x"></i></div>

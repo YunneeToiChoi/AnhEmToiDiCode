@@ -30,7 +30,7 @@
 <div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
     <div class="form-register-clone">
         <div class="cart-body">
-            @using (Html.BeginForm("LoginAccount", "User", FormMethod.Post, new { enctype = "multipartform/data" }))
+            @using (Html.BeginForm("LoginAccount", "User"))
             {
                 @Html.AntiForgeryToken()
                 <style>

@@ -104,6 +104,7 @@ namespace AirBNB_Admin.Controllers
             {
                 ViewBag.LoginFail = "Dang nhap that bai";
                 Session["User"] = null;
+                ModelState.AddModelError("myError", "InvalidEmail or Password");
                 return RedirectToAction("index_login", "User");
             }
             else
