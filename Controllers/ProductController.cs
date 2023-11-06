@@ -20,6 +20,14 @@ namespace AirBNB_Admin.Controllers
         }
         public ActionResult Product_Index_Main()
         {
+            List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
+            foreach (int i in sum)
+            {
+                var x = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
+                x.tongtientrong5ngay = 1;
+                x.tongtientrong5ngay = x.Price * 100;
+                db.SaveChanges();
+            }
             return PartialView(db.Rooms.ToList());
         }
         public ActionResult Product_Index_Main__Agothims(int id =0)
