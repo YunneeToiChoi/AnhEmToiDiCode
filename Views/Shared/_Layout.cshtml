@@ -105,7 +105,9 @@
             Session["event"] = 2;
         }
 
-        @RenderBody() <!-- sau nay lam mappp -->
+    <div class="render-body-content">  <!-- Product -->
+        @RenderBody()
+    </div>
         <footer class="footer">
             <div class="grid wide">
                 <h2 class="footer__header">Nguồn cảm hứng cho những kỳ nghỉ sau này</h2>
@@ -331,23 +333,6 @@
             display: none !important;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var checkbox = document.getElementById('checkboxInput');
-            if (checkbox) { // true
-                checkbox.addEventListener('change', function () {
-                    if (checkbox.checked) {
-                        // Checkbox đã được chọn
-                        console.log('Checkbox is checked'); // >> thue
-                        // action to product Ago 
-                    } else { // false
-                        // Checkbox đã bị bỏ chọn
-                        console.log('Checkbox is unchecked'); // bth
-                        // action to product index
-                    }
-                });
-            }
-        });
-    </script>
+
 </body>
 </html>
