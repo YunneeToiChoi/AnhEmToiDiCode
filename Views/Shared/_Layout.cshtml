@@ -61,10 +61,10 @@
                                 <div class="user-header__form-box">
 
                                     @*<button class="user-header__form--navRegister">Sign In</button>
-        <button class="user-header__form--navLogin">Log in</button>
-        <hr style="border: 0.1px solid #cfcfcf " />
-        <button class="user-header__form--support">Airbnb your home</button>
-        <button class="user-header__form--support">Help Center</button>*@
+                                        <button class="user-header__form--navLogin">Log in</button>
+                                        <hr style="border: 0.1px solid #cfcfcf " />
+                                        <button class="user-header__form--support">Airbnb your home</button>
+                                        <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
@@ -79,7 +79,7 @@
                                         else /*login dc */
                                         {
                                             <a class="user-header__form--navHello" href="/UserMobile/Index" style="color:black;text-decoration:none;padding:15px 0;text-align:center;font-size:1.6rem; font-weight:500">
-                                                    Hello @user.User_Name
+                                                Hello @user.User_Name
                                             </a>
                                             <hr style="border: 0.1px solid #cfcfcf " />
                                             <button class="user-header__form--support">Airbnb your home</button>
@@ -96,7 +96,7 @@
             </div>
         </div>
         @{ var xx = Session["event"] as AirBNB_Admin.Models.Rooms;}
-        @if (xx == null )
+        @if (xx == null)
         {
             @Html.Partial("_Menu")
         }
@@ -294,7 +294,7 @@
                 </div>
                 <div class="menu-mobile__box">
                     <i class="menu-mobile__icon fa-regular fa-user"></i>
-                   <h4 class="menu-mobile__name">@Html.ActionLink("Tài Khoản", "Index", "UserMobile", null, new { @class = "rs-alink-mb" }) @*<a href="/UserMobile/Index/@user.ID_User">content</a>*@ </h4>
+                    <h4 class="menu-mobile__name">@Html.ActionLink("Tài Khoản", "Index", "UserMobile", null, new { @class = "rs-alink-mb" }) @*<a href="/UserMobile/Index/@user.ID_User">content</a>*@ </h4>
                 </div>
             </div>
         }
@@ -321,15 +321,33 @@
         setTimeout(timeLoad, 1500)
 
 
-                       //if (location.reload(true)){
-                       //    load.classList.remove('none')
+        //if (location.reload(true)){
+        //    load.classList.remove('none')
 
-                       //}
+        //}
     </script>
     <style>
         .none {
             display: none !important;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var checkbox = document.getElementById('checkboxInput');
+            if (checkbox) { // true
+                checkbox.addEventListener('change', function () {
+                    if (checkbox.checked) {
+                        // Checkbox đã được chọn
+                        console.log('Checkbox is checked'); // >> thue
+                        // action to product Ago 
+                    } else { // false
+                        // Checkbox đã bị bỏ chọn
+                        console.log('Checkbox is unchecked'); // bth
+                        // action to product index
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
