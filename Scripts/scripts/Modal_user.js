@@ -24,7 +24,21 @@ const registerNav = document.querySelector('.user-header__form--navRegister') //
 const loginNav = document.querySelector('.user-header__form--navLogin') //Bat form login nav
 const ModalForm = document.querySelector('.form-vadition--modal') // goi form
 const closeForm = ModalForm.querySelector('.vadition__header-icon') // goi dong form
+const closeFormic = ModalForm.querySelector('.vadition__header-icon--ic') // goi dong form
+const closeFormics = ModalForm.querySelector('.vadition__header-icon--ics') // goi dong form
 const overPlayForm = ModalForm.querySelector('.form-vadition--overplay') // goi overplay
+
+
+closeFormic.addEventListener('click', closeicon)
+function closeicon() {
+    console.log('cc')
+    ModalForm.classList.remove('active');
+}
+closeFormics.addEventListener('click', closeicon)
+function closeicon() {
+    console.log('cc')
+    ModalForm.classList.remove('active');
+}
 
 
 
@@ -60,6 +74,8 @@ closeForm.addEventListener('click ', () => { ModalForm.classList.remove('active'
 ////FORM NAV TO LOGIN/REGISTER //
 const loginForm = ModalForm.querySelector('.form-vadition__container--login') // bat form login
 const registerForm = ModalForm.querySelector('.form-vadition__container--register') // bat form login
+
+
 
 
 
