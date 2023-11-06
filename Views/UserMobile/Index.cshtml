@@ -12,6 +12,12 @@
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/Responsive.css" />
+    <link href="~/Assests/CSS/_LayoutMater_css/_LayoutMaster.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/grid.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/_LayoutMater_css/Modal_user.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/MenuMobile_css/menumobile.css" />
     <link rel="stylesheet" href="~/Assests/CSS/UserMobile__css/userMobilecss.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,82 +27,40 @@
 </head>
 <body>
     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
-    @{ if (user == null)
-        {
-
-            <div class="content">
+            <div class="header">
                 <div class="grid wide">
-                    <h2 class="user-mobile__header">Hồ sơ</h2>
-                    <a href="" style="text-decoration:none; color:black">
-                        <div class="user-mobile__box">
-                            <div class="user-mobile__left">
-                                <div class="user-mobile__list">
-                                    <img src="~/Content/image/1618457259_14-phonoteka_org-p-fon-dlya-obs-14.jpg" width="80" height="80" style="border-radius:50%" />
-                                    <div class="user-mobile__text">
-                                        @Html.ActionLink("Đăng Kí", "index_register", "User", null, new { @class = "rs-alink-register" })
-                                        @Html.ActionLink("Đăng Nhập", "index_login", "User", null, new { @class = "rs-alink-register" })
+                    <nav class="navbar-mobile navbar row">
+                        <div class="nav-left col l-1 hide-on-mobile">
+                            <a href="https://localhost:44371" class="navbar__link">
+                                <img src="~/Assests/_image/navbar_image/logo.png" alt="" class="navbar__img" style="width: 120px;height:100%">
+                            </a>
+                        </div>
+                        <div class="nav-right user-navbar__header col l-1 hide-on-mobile">
+                            <div class=" navbar__box user-navbar__box">
+                                <ul class="navbar__list">
+                                    <li class="navbar__item-user"><span class="navbar__link"><i class="navbar__icon--user fa-solid fa-bars"></i></span></li>
+                                    <li class="navbar__item-user"><span class="navbar__link"><i class="navbar__icon--user fa-solid fa-user"></i></span></li>
+                                </ul>
+                            </div>
+                            <div class="user-header__form--active-Parent">
+                                <div class="form-user--overplay"></div>
+                                <div class="user-header__form--active">
+                                    <div class="user-header__form-box">
+                                        <a class="user-header__form--navHello" href="/UserMobile/Index" style="color:black;text-decoration:none;padding:15px 0;text-align:center;font-size:1.6rem; font-weight:500">
+                                            Hello @user.User_Name
+                                        </a>
+                                        <hr style="border: 0.1px solid #cfcfcf " />
+                                        <button class="user-header__form--support">Airbnb your home</button>
+                                        <button class="user-header__form--navWishList">@Html.ActionLink("Wish List", "ShowWish", "WishList", null, new { @class = "rs-alink" })</button>
+                                        <button class="user-header__form--support">Help Center</button>
+                                        <button class="user-header__form--navLogout">@Html.ActionLink("Logout", "Logout", "User", null, new { @class = "rs-alink" })</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="user-mobile__right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
                         </div>
-                    </a>
-                    <h2 class="user-mobile__header">Hỗ trợ</h2>
-                    <a href="" style="text-decoration:none; color:black">
-                        <div class="user-mobile__box user-mobile__box--no-border">
-                            <div class="user-mobile__left">
-                                <div class="user-mobile__list">
-                                    <i class="user-mobile__icon fa-solid fa-question"></i>
-                                    <div class="user-mobile__text">
-                                        <p>Truy cập Trung tâm trợ giúp</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-mobile__right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" style="text-decoration:none; color:black">
-                        <div class="user-mobile__box user-mobile__box--no-border">
-                            <div class="user-mobile__left">
-                                <div class="user-mobile__list">
-                                    <i class="user-mobile__icon fa-solid fa-shield"></i>
-                                    <div class="user-mobile__text">
-                                        <p>Tìm trợ giúp về vấn đề an toàn</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-mobile__right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" style="text-decoration:none; color:black">
-                        <div class="user-mobile__box">
-                            <div class="user-mobile__left">
-                                <div class="user-mobile__list">
-                                    <i class="user-mobile__icon fa-solid fa-headphones"></i>
-                                    <div class="user-mobile__text">
-                                        <p>Báo cáo lo ngại của hàng xóm</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-mobile__right">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <br />
-                    <p style="text-align:center;font-size:0.7rem;"><a style="color:black" href="">Trợ giúp & hỗ trợ</a> · <a style="color:black" href="">Điều khoản dịch vụ </a>· <a style="color:black" href="">Chính sách quyền riêng tư</a></p>
-                    <p style="text-align:center; font-size:0.7rem; color:#808080">© 2023 Airbnb, Inc. Bảo lưu mọi quyền.</p>
+                    </nav>
                 </div>
             </div>
-        }
-        else
-        {
             <div class="content">
                 <div class="grid wide">
                     <h2 class="user-mobile__header">Hồ sơ</h2>
@@ -107,7 +71,7 @@
                                     <img src="~/Content/image/1618457259_14-phonoteka_org-p-fon-dlya-obs-14.jpg" width="80" height="80" style="border-radius:50%" />
                                     <div class="user-mobile__text">
                                         <p>Xin chào !</p>
-                                            <p>@user.User_Name </p>
+                                        <p>@user.User_Name </p>
                                     </div>
                                 </div>
                             </div>
@@ -180,11 +144,12 @@
                     @*<a class="user-mobile__logout" href="">Đăng Xuất</a>*@
                     @Html.ActionLink("Đăng Xuất", "Logout", "User", null, new { @class = "rs-alink user-mobile__logout" })
                     <br />
-                    <p style="text-align:center;font-size:0.7rem;"><a style="color:black" href="">Trợ giúp & hỗ trợ</a> · <a style="color:black" href="">Điều khoản dịch vụ </a>· <a style="color:black" href="">Chính sách quyền riêng tư</a></p>
-                    <p style="text-align:center; font-size:0.7rem; color:#808080">© 2023 Airbnb, Inc. Bảo lưu mọi quyền.</p>
+                    <div style="padding:5px 0"></div>
+                    <p style="text-align:center;font-size:1.2rem;"><a style="color:black" href="">Trợ giúp & hỗ trợ</a> · <a style="color:black" href="">Điều khoản dịch vụ </a>· <a style="color:black" href="">Chính sách quyền riêng tư</a></p>
+                    <div style="padding:3px 0"></div>
+                    <p style="text-align:center; font-size:1.2rem; color:#808080">© 2023 Airbnb, Inc. Bảo lưu mọi quyền.</p>
                 </div>
             </div>
-        }
-    }
+    <script src="~/Scripts/scripts/Modal_user.js"></script>
 </body>
 </html>

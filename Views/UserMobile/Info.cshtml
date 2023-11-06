@@ -20,94 +20,89 @@
     <title>Index</title>
 </head>
 <body>
-        <div class="content">
-            <div class="grid wide">
-                <a href="@Url.Action("Index","UserMobile")" style="color:black"><i style="margin:20px 0px" class="user-mobile__icon fa-solid fa-chevron-left"></i></a>
-                <h2 style="padding:0px 20px;">Thông tin cá nhân</h2>
-                <a href="" style="text-decoration:none; color:black">
-                    <div class="user-mobile__box">
-                        <div class="user-mobile__left">
-                            <div class="user-mobile__list">
-                                <div class="user-mobile__text">
-                                    <p>Tên pháp lý</p>
+    <div class="content">
+        <div class="grid wide">
+            <a href="@Url.Action("Index","UserMobile")" style="color:black"><i style="margin:20px 0px" class="user-mobile__icon fa-solid fa-chevron-left"></i></a>
+            <h2 style="padding:0px 20px;">Thông tin cá nhân</h2>
+            <a href="" style="text-decoration:none; color:black">
+                <div class="user-mobile__box">
+                    <div class="user-mobile__left">
+                        <div class="user-mobile__list">
+                            <div class="user-mobile__text">
+                                <p>Tên pháp lý</p>
 
-                                    <p class="blur">@user.User_Name</p>
-                                </div>
+                                <p class="blur">@user.User_Name</p>
                             </div>
                         </div>
-                        <div class="user-mobile__right">
-                            @*UserMobile
-                User_Control*@
-                            @*@Html.Action("User_Delete", "UserMobile")*@
-                            @*<a class="user-mobile__link" href="/UserMobile/User_Delete/@user.ID_User">Chỉnh sửa</a>*@
-                            <a class="user-mobile__link" href="">Chỉnh sửa</a>
-                            @*@Html.ActionLink("Chỉnh sửa", "UserMobile", "User_Edit", null, new { @class = "user-mobile__link" })*@
-                        </div>
                     </div>
-                    <div class="user-mobile__box">
-                        <div class="user-mobile__left">
-                            <div class="user-mobile__list">
-                                <div class="user-mobile__text">
-                                    <p>Địa chỉ email</p>
-                                    <p class="blur">@user.Email</p>
-                                </div>
+                    <div class="user-mobile__right">
+                        <a class="user-mobile__link" href="">Chỉnh sửa</a>
+                    </div>
+                </div>
+                <div class="user-mobile__box">
+                    <div class="user-mobile__left">
+                        <div class="user-mobile__list">
+                            <div class="user-mobile__text">
+                                <p>Địa chỉ email</p>
+                                <p class="blur">@user.Email</p>
                             </div>
                         </div>
-                        <div class="user-mobile__right">
-                            <a class="user-mobile__link" href="">Chỉnh sửa</a>
-                        </div>
                     </div>
-                    <div class="user-mobile__box">
-                        <div class="user-mobile__left">
-                            <div class="user-mobile__list">
-                                <div class="user-mobile__text">
-                                    <p>Số điện thoại</p>
-                                    <p class="blur">@user.Phone_number</p>
-                                </div>
+                    <div class="user-mobile__right">
+                        <a class="user-mobile__link" href="">Chỉnh sửa</a>
+                    </div>
+                </div>
+                <div class="user-mobile__box">
+                    <div class="user-mobile__left">
+                        <div class="user-mobile__list">
+                            <div class="user-mobile__text">
+                                <p>Số điện thoại</p>
+                                <p class="blur">@user.Phone_number</p>
                             </div>
                         </div>
-                        <div class="user-mobile__right">
-                            <a class="user-mobile__link" href="">Thêm</a>
-                        </div>
                     </div>
+                    <div class="user-mobile__right">
+                        <a class="user-mobile__link" href="">Thêm</a>
+                    </div>
+                </div>
 
-                    <div class="user-mobile__box">
-                        <div class="user-mobile__left">
-                            <div class="user-mobile__list">
-                                <div class="user-mobile__text">
-                                    <p>Địa chỉ</p>
-                                    <p class="blur">@user.Address</p>
-                                </div>
+                <div class="user-mobile__box">
+                    <div class="user-mobile__left">
+                        <div class="user-mobile__list">
+                            <div class="user-mobile__text">
+                                <p>Địa chỉ</p>
+                                <p class="blur">@user.Address</p>
                             </div>
                         </div>
-                        <div class="user-mobile__right">
-                            <a class="user-mobile__link" href="">Thêm</a>
-                        </div>
                     </div>
-                    <div class="user-mobile__box">
-                        <div class="user-mobile__left">
-                            <div class="user-mobile__list">
-                                <div class="user-mobile__text">
-                                    <p>Mật Khẩu</p>
-                                    <p class="blur">@user.Password</p>
-                                </div>
+                    <div class="user-mobile__right">
+                        <a class="user-mobile__link" href="">Thêm</a>
+                    </div>
+                </div>
+                <div class="user-mobile__box">
+                    <div class="user-mobile__left">
+                        <div class="user-mobile__list">
+                            <div class="user-mobile__text">
+                                <p>Mật Khẩu</p>
+                                <p class="blur">@user.Password</p>
                             </div>
                         </div>
-                        <div class="user-mobile__right">
-                            <a class="user-mobile__link" href="">Thêm</a>
-                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="user-mobile__box">
-                <div class="user-mobile__left">
-                    <div class="user-mobile__list">
-                        <div class="user-mobile__text">
-                            <a class="user-mobile__link" href="/UserMobile/User_Control/@user.ID_User">Chỉnh sửa</a>
-                        </div>
+                    <div class="user-mobile__right">
+                        <a class="user-mobile__link" href="">Thêm</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="user-mobile__box">
+            <div class="user-mobile__left">
+                <div class="user-mobile__list">
+                    <div class="user-mobile__text">
+                        <a class="user-mobile__link" href="/UserMobile/User_Control/@user.ID_User">Chỉnh sửa</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </body>
 </html>
