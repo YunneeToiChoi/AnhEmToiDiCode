@@ -34,7 +34,7 @@
 .user-header__form--active 
 {
     position: absolute;
-    top: 140%;
+    top: 120%;
     right: 10px;
     height: var(--height-nav__user);
     background-color: var(--white-color);
