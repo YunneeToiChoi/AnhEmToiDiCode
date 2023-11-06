@@ -2,60 +2,22 @@
 
 @{
     ViewBag.Title = "User_Delete";
+    Layout = "~/Views/Shared/_InfoUser.cshtml";
 }
+<a href="/UserMobile/User_Control/@Model.ID_User" style="color:black ;margin:20px"><i style="margin:20px 0px;font-size:2.5rem" class="user-mobile__icon fa-solid fa-chevron-left"></i></a>
+<h1 style="text-align: center; padding: 200px; font-size: 4rem;">Are you sure you want to delete<span style="color:red;"> @Model.User_Name Account !</span></h1>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<h2>User_Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User_Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User_Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone_number)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone_number)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+    <div style="width: 80%; margin: auto; justify-content: center; display: flex " class="btn vadition__box-submit">
+        <div class="user-mobile__left">
+            <div style="display:block" class="user-mobile__list">
+                <div class="user-mobile__text">
+                    <button type="submit" value="Delete" class="btn vadition__box-submit"><span style="font-size: 1.6rem !important; padding: 10px; display: block;text-decoration:none;color:white">Detele</span></button>
+                </div>
+            </div>
         </div>
-    }
-</div>
+    </div>
+    <div style="margin:25px"></div>
+}

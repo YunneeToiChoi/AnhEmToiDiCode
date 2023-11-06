@@ -25,19 +25,22 @@
     margin:10px 0px;
 }
 
-.user-mobile__left{
-    display:flex;
-}
+    .user-mobile__left {
+        flex:1;
+    }
 
 .user-mobile__list {
     display:flex;
     align-items:center;
+    width:100%;
 }
 
 .user-mobile__text {
+    flex:1;
     padding: 0px 20px;
     font-size: 1.6rem;
     font-weight: 500;
+    line-height: 1.4;
 }
 
 .user-mobile__icon{
@@ -49,7 +52,7 @@
 }
 
 .user-mobile__link{
-    color:black;
+    color:white;
     text-decoration:none;
 }
 
@@ -90,4 +93,9 @@
     border-radius: 10px;
     text-decoration: none;
     margin:0 10px
+}
+.user_mobile__form_control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
 }

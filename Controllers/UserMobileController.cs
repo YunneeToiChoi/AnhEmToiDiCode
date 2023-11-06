@@ -17,12 +17,6 @@ namespace AirBNB_Admin.Controllers
             id = 0;
             return View(db.User.Where(x=> x.ID_User == id ).ToList());
         }
-
-        public ActionResult Info(int id = 0)
-        {
-            id = 0;
-            return View(db.User.Where(x => x.ID_User == id).ToList());
-        }
         public ActionResult User_Delete(int id)
         {
             return View(db.User.Where(s => s.ID_User == id).FirstOrDefault());
@@ -44,6 +38,7 @@ namespace AirBNB_Admin.Controllers
         {
             try
             {
+              
                 // mot them anh  vao nha 
                 //if (room.UploadImage != null)
                 //{
@@ -53,7 +48,7 @@ namespace AirBNB_Admin.Controllers
                 //    room.Images_Room = "~/Content/image/" + filename;
                 //    room.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
                 //}
-                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified; 
                 db.SaveChanges();
                 return RedirectToAction("Logout","User");
             }

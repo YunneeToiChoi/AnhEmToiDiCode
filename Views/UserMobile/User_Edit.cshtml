@@ -2,56 +2,85 @@
 
 @{
     ViewBag.Title = "User_Edit";
+    Layout = "~/Views/Shared/_InfoUser.cshtml";
 }
-<h2>User_Edit</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    
+    <div style="margin-bottom:50px">
+        <div class="content">
+            <div class="form-group" style="display:none">
+                @Html.LabelFor(model => model.ID_User, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ID_User, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ID_User, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <a href="/UserMobile/User_Control/@Model.ID_User" style="color:black"><i style="margin:20px 0px;font-size:2.5rem" class="user-mobile__icon fa-solid fa-chevron-left"></i></a>
+            <h2 style="padding:0px 20px;font-size:2rem">Chỉnh sửa</h2>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Tên pháp lý</p>
+                            <p class="blur">@Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "user_mobile__form_control" } })</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Địa chỉ email</p>
+                            <p class="blur"> @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "user_mobile__form_control" } })</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Số điện thoại</p>
+                            <p class="blur"> @Html.EditorFor(model => model.Phone_number, new { htmlAttributes = new { @class = "user_mobile__form_control" } })</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-horizontal">
-        <h4>User</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.User_Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.User_Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.User_Name, "", new { @class = "text-danger" })
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Địa chỉ</p>
+                            <p class="blur"> @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "user_mobile__form_control" } })</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Mật Khẩu</p>
+                            <p class="blur"> @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "user_mobile__form_control" } })</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Phone_number, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Phone_number, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Phone_number, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="btn vadition__box-submit">
+                <div class="user-mobile__left">
+                    <div style="display:block" class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <button type="submit" class="btn vadition__box-submit"><span style="font-size: 1.6rem !important; padding: 10px; display: block;text-decoration:none;color:white">Save</span></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
 }
