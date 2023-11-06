@@ -58,7 +58,7 @@
 }
 
 .user-mobile__logout{
-    margin-top:30px;
+    margin-top:15px;
     display:block;
     text-align:center;
     padding:10px 0px;
@@ -77,4 +77,17 @@
 {
     font-size:2rem;
     font-weight:700;
+}
+
+.user-mobile__lirs {
+    margin-top: 15px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    color: black;
+    font-size: 1.4rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    margin:0 10px
 }
