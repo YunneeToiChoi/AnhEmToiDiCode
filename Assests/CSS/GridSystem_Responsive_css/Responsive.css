@@ -8,9 +8,66 @@
     .menu-mobile--active{
         display:flex !important;
     }
-
+    .bottom-Main {
+        margin-bottom: 70px;
+    }
 }
-/* NAV LOGIN VADITION  */
-@media (min-width: 740px)
+@media(max-width:1023px)
 {
+    .footer__powered-right {
+        text-align: center;
+    }
+    .footer__powered {
+        justify-content: center!important;
+    }
+    footer__powered-left
+    {
+        text-align:center!important;
+    }
+    @media (min-width: 740px) {
+        .content__box img
+  {
+      height:188px;
+  }
+}
+@media(max-width:330px)
+{
+    .menu-mobile__name {
+        display: none;
+    }
+    .menu-mobile 
+    {
+        justify-content:space-around!important;
+    }
+}
+@media(max-width:400px) {
+    .navbar__link-none
+    {
+        display:none!important;
+    }
+    .navbar__box {
+        width: 100px !important;
+    }
+    .navbar-mobile {
+        justify-content: flex-end!important;
+    }
+    .navbar__box {
+        display: flex;
+        justify-content:center;
+    }
+    .nav-left
+    {
+        display:block!important;
+    }
+    .navbar__item
+    {
+        padding:0!important;
+    }
+    .navbar-mobile{
+        justify-content:space-between!important;
+    }
+    .navbar__img
+    {
+        padding-left:20px;
+    }
 }

@@ -19,9 +19,9 @@
 {
     position:relative;
 }
-
-.nav-middle {
-    min-width: 380px;
+.nav-middle_width
+{
+    width:380px;
 }
 
 .navbar__box {
@@ -104,7 +104,7 @@
     top: 80px;
     z-index:2;
     background-color: white;
-    padding: 30px 0px;
+    padding: 30px 0 10px 0;
 }
 
 .menu__container 

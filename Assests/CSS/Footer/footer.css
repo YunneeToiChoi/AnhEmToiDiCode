@@ -114,6 +114,8 @@
 
 .footer__powered-right {
     margin-top: 20px;
+    display: flex !important;
+    margin-right: 20px;
 }
 
 .footer-powered__link:hover {
