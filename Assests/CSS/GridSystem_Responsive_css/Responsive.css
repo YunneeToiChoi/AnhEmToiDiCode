@@ -1,19 +1,42 @@
 ﻿@media (max-width: 768px) {
     .hide-on-mobile {
-        display: none ;
+        display: none;
     }
-    .navbar-mobile{
-        justify-content:center !important;
+
+    .navbar-mobile {
+        justify-content: center !important;
     }
-    .menu-mobile--active{
-        display:flex !important;
+
+    .menu-mobile--active {
+        display: flex !important;
     }
+
     .bottom-Main {
         margin-bottom: 70px;
+    }
+
+    .menu-right {
+        display: none !important;
     }
 }
 @media(max-width:1023px) 
 {
+    .menu-left::-webkit-scrollbar{
+        width:0;
+    }
+    .box-loc {
+        padding: 20px 30px !important;
+    }
+    .menu-right {
+        flex: 0 0 16.66667% !important;
+        max-width: 16.66667% !important;
+    }
+    .boloc {
+        display: none !important;
+    }
+    .box-price {
+        display: none !important;
+    }
     .footer__powered-right {
         text-align: center;
     }
@@ -29,24 +52,92 @@
     {
         display:none!important;
     }
+    .Order__Details-interface {
+        flex-direction: column;
+    }
+
+    .Details-interface__Infobox {
+        width: 100% !important;
+    }
+
+    .Oderbox-Main {
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .Order-box--UX {
+        width: 400px;
+        margin: auto;
+    }
 }
-@media (max-width: 740px) 
-{
+@media (max-width: 740px) {
+    .menu-right__box
+    {
+        margin-left:50px;
+    }
+    .Room__About-item {
+        flex-direction: column;
+    }
+
+    .service-text {
+        text-align: center;
+        margin-left: 0 !important;
+        margin-top: 10px;
+    }
+
+    .Order__Details-interface {
+        flex-direction: column;
+    }
+
+    .Details-interface__Infobox {
+        width: 100% !important;
+    }
+
+    .Oderbox-Main {
+        margin-left: 0 !important;
+        margin-bottom: 0 !important;
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .Order-box--UX {
+        width: 400px;
+        margin: auto;
+    }
+
+    .pture--parent, .dt__pture-right {
+        height: auto !important;
+    }
+
     .dt__pture-right--child-fisrt {
         display: none !important;
     }
-    .dt__pture-left
-    {
-        border-radius:12px;
+
+    .dt__pture-left {
+        border-radius: 12px;
     }
-    .pture--parent
-    {
-        height:auto!important;
+
+    .pture--parent {
+        height: auto !important;
     }
-    .Main__details-picture
-    {
-        padding-right:20px;
-        padding-left:20px;
+
+    .Main__details-picture {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .header__details-under {
+        flex-direction: column;
+    }
+
+    .header__details-above {
+        text-align: center;
+    }
+
+    .header__details-underright {
+        width: 100%;
     }
 }
     @media (min-width: 740px) {
@@ -66,12 +157,16 @@
     }
 
     @media(max-width:400px) {
-        .navbar__link-none {
+        .assess__ofturns {
             display: none !important;
         }
 
-        .navbar__box {
-            width: 100px !important;
+        .assess__dotspace {
+            display: none !important;
+        }
+
+        .navbar__link-none {
+            display: none !important;
         }
 
         .navbar-mobile {
@@ -79,8 +174,7 @@
         }
 
         .navbar__box {
-            display: flex;
-            justify-content: center;
+            width:auto!important;
         }
 
         .nav-left {
@@ -99,31 +193,55 @@
             padding-left: 20px;
         }
     }
-@media(max-width:1023px) {
-    .Order__Details-interface {
-        flex-direction: column;
-    }
 
-    .Details-interface__Infobox {
-        width: 100% !important;
-    }
+    @media(max-width:540px) {
+        .Owner__Info--header {
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .Oderbox-Main {
-        margin-left: 0!important;
-        margin-bottom: 0!important;
-        margin-top: 20px!important;
-        margin-bottom: 20px!important;
-    }
+        .Details__Owner-name {
+            text-align: center;
+        }
 
-    .Order-box--UX {
-        width: 400px;
-        margin:auto;
+        .Details__Owner-logo {
+            margin-top: 10px;
+        }
     }
-}
-@media(max-width:500px)
-{
-    .Owner__Info--header {
-        flex-direction: column;
-        align-items: center;
+    @media(max-width:460px)
+    {
+        .Order-box--UX
+        {
+            width:auto!important;
+        }
+        .Order-box--header
+        {
+            flex-direction:column;
+        }
+        .Order-box--header_report
+        {
+            margin-top:5px!important;
+        }
+        .Order-box--body_Above
+        {
+            flex-direction:column;
+        }
+        .Order_Above-child {
+            width: 100% !important;
+        }
+            .Order_Above-child:first-child {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+            }
+            .Order_Above-child:last-child {
+                border-right: 1px solid #b5b5b5;
+                border-left: 1px solid #b5b5b5;
+                border-bottom: 1px solid #b5b5b5;
+                border-top: none !important;
+                border-top-right-radius: 0px!important;
+            }
+        .header__details-underright
+        {
+            margin-top:10px!important;
+        }
     }
-}

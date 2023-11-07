@@ -23,14 +23,13 @@
     animation: fadeIn linear .2s;
 }
 
-.form-vadition__container--register
-{
+.form-vadition__container--register {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    width: var(--form-width);
+    max-width: var(--form-width);
     height: 550px;
     background-color: var(--white-color);
     margin: auto;
@@ -39,7 +38,7 @@
     z-index: 10;
     transform-origin: bottom bottom;
     animation: fadeInUp linear .4s;
-    display : none;
+    display: none;
 }
 
 .vadition__header-icon 
@@ -170,7 +169,7 @@ vadition__box-password {
     right: 0;
     bottom: 0;
     left: 0;
-    width: var(--form-width);
+    max-width: var(--form-width);
     height: 550px;
     background-color: var(--white-color);
     margin: auto;

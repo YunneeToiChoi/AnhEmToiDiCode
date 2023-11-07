@@ -18,12 +18,12 @@ namespace AirBNB_Admin.Controllers
                 var dbContext = new AirbnbEntities2();
 
                 var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
-                    .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
+                    .Select(room => EntityFunctions.DiffDays(room.Check_in, room.Check_out))
                     .Sum();
 
                 var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
                 get.tongtientruocthue = 1;
-                get.tongtientruocthue = -(get.Price * totalDays);
+                get.tongtientruocthue = (get.Price * totalDays);
                 get.tongtiensauthue = 1;
                 get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
                 get.tongdem = 1;

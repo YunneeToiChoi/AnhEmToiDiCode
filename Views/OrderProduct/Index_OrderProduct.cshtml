@@ -68,7 +68,7 @@
                 <div class="content-right col l-4 m-12 c-12">
                     <div class="content-right-box">
                         <div class="product__box">
-                            <img class="order-product__img" width=126px height=106px src="~/Content/image/0b65b1cd-0787-45c6-87a1-da3ff9e96760.png" />
+                            <img class="order-product__img" width=126px height=106px src="@Url.Content(temp.Images_Room)" />
                             <div class="order-product__description">
                                 <p class="product__type">Phòng tại căn hộ chung cư cao cấp</p>
                                 <p class="product__name">@Html.DisplayFor(x => temp.Name_Cate)</p>
@@ -79,7 +79,7 @@
                         <div class="order__detais">
                             <h3 style="font-size:2.6rem;margin:10px 0px">Chi tiết giá</h3>
                             <div class="order__fee">
-                                <p>@Html.DisplayFor(x=> temp.Price) x @temp.tongdem đêm </p>
+                                <p>$ @Html.DisplayFor(x=> temp.Price) x @temp.tongdem đêm </p>
                             </div>
                         </div>
                         <hr style="margin-bottom:26px" />

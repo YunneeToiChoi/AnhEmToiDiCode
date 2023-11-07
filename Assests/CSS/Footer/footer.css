@@ -53,6 +53,7 @@
 }
 
 .footer__text {
+    padding-top:5px;
     color: #717171;
     display: -webkit-box!important;
     -webkit-box-orient: vertical;
@@ -117,6 +118,7 @@
     margin-top: 20px;
     display: flex !important;
     margin-right: 20px;
+    align-items:center;
 }
 
 .footer-powered__link:hover {

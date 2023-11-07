@@ -16,10 +16,10 @@
 </style>
 
 
-<div class="menu hide-on-mobile">
+<div class="menu">
     <div class="grid wide">
-        <div class="menu__container row">
-            <div class="menu-left col l-7 m-12 c-12">
+        <div class="menu__container">
+            <div class="menu-left col ">
                 @foreach (var menu in Model)
                 {
                     <a href="/Product/Product_Index?cateid=@menu.ID_Cate" class="menu__box ">
@@ -29,15 +29,12 @@
                     </a>
                 }
             </div>
-            <div style="display:flex;" class="menu-right col l-5 m-0 c-0">
-                <div style="margin-right:10px" class="menu-right__box navbar__box">
+            <div style="display:flex;margin-left:20px" class="menu-right l-5 m-6 c-2">
+                <div class="menu-right__box navbar__box box-loc">
                     <i class="menu-icon fa-solid fa-filter"></i>
-                    <span style="font-size:1.6rem;margin-left:6px;" class="menu__content">Bộ lọc</span>
-                    @*<input type="checkbox" id="checkboxInput" />
-        <label for="checkboxInput" class="toggleSwitch">
-        </label>*@
+                    <span style="font-size:1.6rem;margin-left:6px;" class="menu__content boloc">Bộ lọc</span>
                 </div>
-                <div class="menu-right__box navbar__box">
+                <div class="menu-right__box navbar__box box-price">
                     <p class="menu__content">Hiển thị tổng trước thuế</p>
                     <input type="checkbox" id="checkboxInput" />
                     <label for="checkboxInput" class="toggleSwitch">
@@ -52,7 +49,7 @@
             </div>
             <hr />
             @*END HEADER
-        BEGIN BOX*@
+            BEGIN BOX*@
             <div class="vadition__box pd24">
                 <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
                     Khoảng giá
@@ -62,9 +59,10 @@
                     <span style="margin: 0px 20px"> ---- </span>
                     <input class="filter__input" placeholder="Max" />
                 </div>
-            <hr />
+                <hr />
             </div>
         </div>
     </div>
-</div>
+       
+    </div>
 @*@Html.Action("Product_Index", "Product")*@
