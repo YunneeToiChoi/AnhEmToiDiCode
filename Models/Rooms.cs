@@ -44,13 +44,10 @@ namespace AirBNB_Admin.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Check_out { get; set; }
         public string active_heart { get; set; }
-        public Nullable<decimal> tongtientrong5ngay { get; set; }
-        public Nullable<decimal> ThuatToantongtientrong5ngay()
-        {
+        public Nullable<decimal> tongtientruocthue { get; set; }
+        public Nullable<decimal> tongtiensauthue { get; set; }
+        public Nullable<decimal> tongdem { get; set; }
 
-            tongtientrong5ngay = Price * 5;
-            return tongtientrong5ngay;
-        }
 
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
