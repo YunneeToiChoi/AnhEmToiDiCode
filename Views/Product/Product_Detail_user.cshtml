@@ -228,11 +228,11 @@
                                     <button class="Order-box--body_Above">
                                         <div class="Order_Above-child">
                                             <span class="Order-text-head">NHẬN PHÒNG</span>
-                                            <span class="add-day">Thêm ngày</span>
+                                            <span class="add-day">@Html.DisplayFor(x=> x.Check_in)</span>
                                         </div>
                                         <div class="Order_Above-child">
                                             <span class="Order-text-head">TRẢ PHÒNG</span>
-                                            <span class="add-day">Thêm ngày</span>
+                                            <span class="add-day">@Html.DisplayFor(x => x.Check_out)</span>
                                         </div>
                                     </button>
                                     <div class="Order-box--body_Under">
@@ -242,7 +242,7 @@
                                 </div>
                             </div>
                             <div class="Order-btn--check">
-                                <button class="Order-btn"><span class="Order-btn__text"><a href="/OrderProduct/Index_OrderProduct/@Model.Id_Room" style="text-decoration:none;color : whitesmoke;" >Kiểm Tra Tình Trạng Còn Phòng</a></span></button>
+                                <button class="Order-btn"><span class="Order-btn__text"><a href="/OrderProduct/Index_OrderProduct/@Model.Id_Room" style="text-decoration:none;color : whitesmoke;" >Đặt Phòng</a></span></button>
                             </div>
                         </div>
                     </div>

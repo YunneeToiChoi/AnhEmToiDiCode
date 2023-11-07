@@ -24,7 +24,7 @@
                                 <p class="big-text">Ngày</p>
                                 <a class="order__link" href="">Chỉnh sửa</a>
                             </div>
-                            <p>Ngày 26 tháng 11 - Ngày 01 tháng 12</p>
+                            <p> Từ ngày @Html.DisplayFor(x => temp.Check_in) - Đến ngày @Html.DisplayFor(x => temp.Check_out)</p>
                         </div>
                         <div class="order__quantity">
                             <div class="order__day">
@@ -65,13 +65,13 @@
                         Yêu cầu đặt phòng
                     </button>
                 </div>
-                @*<div class="content-right col l-4 m-12 c-12">
+                <div class="content-right col l-4 m-12 c-12">
                     <div class="content-right-box">
                         <div class="product__box">
                             <img class="order-product__img" width=126px height=106px src="~/Content/image/0b65b1cd-0787-45c6-87a1-da3ff9e96760.png" />
                             <div class="order-product__description">
                                 <p class="product__type">Phòng tại căn hộ chung cư cao cấp</p>
-                                <p class="product__name">Căn phòng quý tộc vào Torino lịch sử</p>
+                                <p class="product__name">@Html.DisplayFor(x => temp.Name_Cate)</p>
                                 <p style="font-size:1.2rem"> <i class="product__icon fa-solid fa-star"></i> 4,87 (163 đánh giá)</p>
                             </div>
                         </div>
@@ -79,17 +79,16 @@
                         <div class="order__detais">
                             <h3 style="font-size:2.6rem;margin:10px 0px">Chi tiết giá</h3>
                             <div class="order__fee">
-                                <p>@Html.DisplayFor(x=> temp.Price) x 5 đêm </p>
-                                <p>@Html.DisplayFor(x => temp.tongtientrong5ngay)</p>
+                                <p>@Html.DisplayFor(x=> temp.Price) x @temp.tongdem đêm </p>
                             </div>
                         </div>
                         <hr style="margin-bottom:26px" />
                         <div class="order__fee order__fee--total">
                             <p>Tổng (<span style="text-decoration:underline">USD</span>)</p>
-                            <p>$279,97</p>
+                            <p>$ @temp.tongtiensauthue</p>
                         </div>
                     </div>
-                </div>*@
+                </div>
             </div>
         </div>
     </div>
