@@ -94,6 +94,7 @@
 }
 
 .footer__powered {
+    display:flex;
     border-top: 1px solid #DDDDDD;
     padding: 20px 0px;
     font-size: 1.6rem;

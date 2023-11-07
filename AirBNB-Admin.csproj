@@ -496,7 +496,6 @@
     <Content Include="Views\UserMobile\User_Delete.cshtml" />
     <Content Include="Views\UserMobile\User_Edit.cshtml" />
     <Content Include="Views\UserMobile\User_Control.cshtml" />
-    <Content Include="Views\Product\Product_Index_Main__Agothims.cshtml" />
     <Content Include="Views\Shared\_InfoUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
