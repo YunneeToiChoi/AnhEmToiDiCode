@@ -55,6 +55,11 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                     pro.Images_Room = "~/Content/image/" + filename;
                     pro.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
                 }
+                List<Category> catels = db.Category.ToList();
+                foreach (var item in catels)
+                {
+                    pro.Name_Cate= db.Category.Where(x => x.ID_Cate == item.ID_Cate).Select( x=> x.Name_Cate).FirstOrDefault();
+                }
                 db.Rooms.Add(pro);
                 db.SaveChanges();
                 return RedirectToAction("Product_Control", pro);
@@ -96,6 +101,11 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                     filename += extent;
                     room.Images_Room = "~/Content/image/" + filename;
                     room.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
+                }
+                List<Category> catels = db.Category.ToList();
+                foreach (var item in catels)
+                {
+                    room.Name_Cate = db.Category.Where(x => x.ID_Cate == item.ID_Cate).Select(x => x.Name_Cate).FirstOrDefault();
                 }
                 db.Entry(room).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();

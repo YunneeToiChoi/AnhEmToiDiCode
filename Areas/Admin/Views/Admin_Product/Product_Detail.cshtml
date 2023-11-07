@@ -13,7 +13,7 @@
         <div class="card bg-gradient-danger card-img-holder text-white"style="overflow:hidden!important">
             <div class="card-body" style="text-align:center">
                 <img src="~/_layoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
-                <img style="border-radius:0%!important" src="@Url.Content(Model.Images_Room)" height="150" width="150" id="previewImg" />
+                <img style="border-radius:0%!important" src="@Url.Content(Model.Images_Room)" height="150" width="200" id="previewImg" />
                 <div style="padding:20px"></div>
                 <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
                     ID<i style="padding-left:10px" class="mdi mdi-account-card-details"></i>
@@ -39,6 +39,21 @@
                     CATE-ID<i style="padding-left:10px" class="mdi mdi-account-card-details"></i>
                 </h4>
                 @Html.DisplayFor(model => model.ID_Cate, new { @class = "mb-5" })
+                <div style="padding:20px"></div>
+                <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
+                    CHECK IN<i style="padding-left:10px" class="mdi mdi-account-card-details"></i>
+                </h4>
+                @Html.DisplayFor(model => model.Check_in, new { @class = "mb-5" })
+                <div style="padding:20px"></div>
+                <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
+                    CHECK OUT<i style="padding-left:10px" class="mdi mdi-account-card-details"></i>
+                </h4>
+                @Html.DisplayFor(model => model.Check_out, new { @class = "mb-5" })
+                <div style="padding:20px"></div>
+                <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
+                    CATE-NAME<i style="padding-left:10px" class="mdi mdi-account-card-details"></i>
+                </h4>
+                @Html.DisplayFor(model => model.Name_Cate, new { @class = "mb-5" })
                 <div style="padding:20px"></div>
                 <h4 class="font-weight-normal mb-3" style="display:flex;align-items:center;justify-content:center">
                     IMG-LINK<i style="padding-left:10px" class="mdi mdi-comment-alert-outline"></i>

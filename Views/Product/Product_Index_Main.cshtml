@@ -46,7 +46,9 @@
                             <p class="content__rate"><i class="content__icon fa-solid fa-star"></i>4,88</p>
                         </div>
                         <p class="content__owner">@Html.DisplayFor(model => pro.Room_Description)</p>
+                        <div style="display:flex;align-items:center"><p class="content__owner">@Html.DisplayFor(mode => pro.Check_in)</p> <span style="padding:0 3px"> - </span><p class="content__owner">@Html.DisplayFor(mode => pro.Check_out)</p></div>
                         <p class="content__price">@Html.DisplayFor(model => pro.Price) $ / <span class="content__day">đêm</span></p>
+                        
                     </div>
                 </div>
             }

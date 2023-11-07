@@ -18,7 +18,7 @@ namespace AirBNB_Admin.Models
     public partial class User
     {
         [Display(Name = "Mã User")]
-        [Required(ErrorMessage= "ID not Empty.....")]
+        [Required(ErrorMessage = "ID not Empty.....")]
         public int ID_User { get; set; }
 
         [Required(ErrorMessage = "Name not Empty.....")]

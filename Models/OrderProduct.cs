@@ -20,12 +20,11 @@ namespace AirBNB_Admin.Models
             this.Reservation = new HashSet<Reservation>();
         }
     
-        public int ID_Product { get; set; } // bo
-        public int Id_Room { get; set; }
-
+        public int ID_Product { get; set; }
         public Nullable<int> ID_User { get; set; }
         public string Payment_Card { get; set; }
         public string Zip_Post { get; set; }
+    
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservation { get; set; }

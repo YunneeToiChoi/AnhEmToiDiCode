@@ -176,6 +176,9 @@
     <Compile Include="Models\Rooms.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>AirBnBDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
@@ -198,6 +201,7 @@
     <Content Include="Assests\CSS\UserMobile__css\userMobilecss.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\Modal_user.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\_LayoutMaster.css" />
+    <Content Include="Assests\_image\Content_image\avatar-gau-cute.png" />
     <Content Include="Assests\_image\Content_image\content_1.jpg" />
     <Content Include="Assests\_image\details_img\rua.png" />
     <Content Include="Assests\_image\Menu_image\menu_1.jpg" />
@@ -368,6 +372,9 @@
     <Content Include="Areas\Admin\Views\Admin_Product\Product_Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Admin_Product\Product_Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Admin_Product\Product_Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin_Users\User_Control.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin_Users\User_Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin_Users\User_Detail.cshtml" />
     <EntityDeploy Include="Models\AirBnBDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AirBnBDB.Designer.cs</LastGenOutput>
@@ -375,9 +382,6 @@
     <Content Include="Models\AirBnBDB.edmx.diagram">
       <DependentUpon>AirBnBDB.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Admin_Users\User_Control.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin_Users\User_Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin_Users\User_Detail.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -12,14 +12,12 @@ namespace AirBNB_Admin.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Reviews
+    public partial class sysdiagrams
     {
-        public int ID { get; set; }
-        public Nullable<int> Reservation_id { get; set; }
-        public Nullable<int> Rating { get; set; }
-        public Nullable<int> Id_Room { get; set; }
-        public string Comment { get; set; }
-    
-        public virtual Reservation Reservation { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -31,6 +31,7 @@ namespace AirBNB_Admin.Models
         public virtual DbSet<Reservation> Reservation { get; set; }
         public virtual DbSet<Reviews> Reviews { get; set; }
         public virtual DbSet<Rooms> Rooms { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }
