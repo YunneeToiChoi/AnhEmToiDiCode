@@ -23,10 +23,6 @@ namespace AirBNB_Admin.Controllers
         [Obsolete]
         public ActionResult Product_Index_Main()
         {
-
-
-
-
             List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
             foreach (int i in sum)
             {
@@ -71,10 +67,6 @@ namespace AirBNB_Admin.Controllers
                 var productlist = db.Rooms.OrderByDescending(x => x.ID_Cate).Where(x => x.ID_Cate == cateid);
                 return View(productlist);
             }
-
-
-
-
         }
         public ActionResult Product_Detail_user(int id)
         {

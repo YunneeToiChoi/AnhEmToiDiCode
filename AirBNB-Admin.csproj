@@ -487,7 +487,6 @@
     <Content Include="Views\User\index_login.cshtml" />
     <Content Include="Views\WishList\ShowWish.cshtml" />
     <Content Include="Views\WishList\EmptyLayout.cshtml" />
-    <Content Include="Views\OrderProduct\Index.cshtml" />
     <Content Include="Views\OrderProduct\Index_OrderProduct.cshtml" />
     <Content Include="Views\Product\Oder_Product_Index.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
@@ -497,6 +496,7 @@
     <Content Include="Views\UserMobile\User_Edit.cshtml" />
     <Content Include="Views\UserMobile\User_Control.cshtml" />
     <Content Include="Views\Shared\_InfoUser.cshtml" />
+    <Content Include="Views\OrderProduct\CussesOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

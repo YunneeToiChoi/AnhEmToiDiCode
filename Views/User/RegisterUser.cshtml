@@ -27,7 +27,7 @@
             {
                 <p style="color : red">@ViewBag.ErrorRegister</p>
             }
-            <div class="vadition__box-wrapper">
+            <div style="display:none" class="vadition__box-wrapper">
                 <p class="vadition__box-tittle--input">@Html.LabelFor(model => model.ID_User) </p>
                 @Html.EditorFor(model => model.ID_User, new { htmlAttributes = new { placeholder = "Nhap ID_User", @readonly = "readonly" } })
                 <p>@Html.ValidationMessageFor(model => model.ID_User)</p>
