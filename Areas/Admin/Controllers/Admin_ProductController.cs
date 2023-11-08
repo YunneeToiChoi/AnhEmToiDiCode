@@ -58,7 +58,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                 List<Category> catels = db.Category.ToList();
                 foreach (var item in catels)
                 {
-                    pro.Name_Cate= db.Category.Where(x => x.ID_Cate == item.ID_Cate).Select( x=> x.Name_Cate).FirstOrDefault();
+                    pro.Name_Cate = db.Category.Where(x => x.ID_Cate == pro.ID_Cate).Select(x => x.Name_Cate).FirstOrDefault();
                 }
                 db.Rooms.Add(pro);
                 db.SaveChanges();
@@ -105,7 +105,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                 List<Category> catels = db.Category.ToList();
                 foreach (var item in catels)
                 {
-                    room.Name_Cate = db.Category.Where(x => x.ID_Cate == item.ID_Cate).Select(x => x.Name_Cate).FirstOrDefault();
+                    room.Name_Cate = db.Category.Where(x => x.ID_Cate == room.ID_Cate).Select(x=>x.Name_Cate).FirstOrDefault();
                 }
                 db.Entry(room).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();

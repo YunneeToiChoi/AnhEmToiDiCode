@@ -47,5 +47,17 @@ namespace AirBNB_Admin.Controllers
             rooms.Id_Room=id;
             return View(db.Rooms.Where(s=>s.Id_Room==id).ToList());
         }
+        //public ActionResult ViewCardOrder()
+        //{
+        //    var us = db.User.Select(s => s.ID_User).ToList();
+        //    var pro = db.Rooms.Select(s => s.Id_Room).ToList();
+        //    var viewmodel = new ViewmodelProductUser();
+        //    {
+        //        User = us,
+        //        product=pro
+        //    };
+        //    return View(viewmodel);
+            
+        //}
     }
 }

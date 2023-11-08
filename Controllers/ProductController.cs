@@ -43,6 +43,8 @@ namespace AirBNB_Admin.Controllers
             }
             return PartialView(db.Rooms.ToList());
         }
+
+        [Obsolete]
         public ActionResult Product_Index_Main__Agothims(int id = 0)
         {
             int cateid = 0;
