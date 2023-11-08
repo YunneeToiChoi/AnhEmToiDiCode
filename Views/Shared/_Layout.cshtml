@@ -331,26 +331,32 @@
     <script src="~/Scripts/scripts/Modal_user.js"></script>
     <script>
         var boxfilterforuser = document.querySelector('.filter-form') // bat cai box mo
-        var form = document.querySelector('.form-vadition--modal') // bat form
+        var form = document.querySelector('.form-filter--overplay') // bat form
         var filterbox = document.querySelector('.box-loc') // cai box filter
         var icfilterbox = document.querySelector('.filterbox-ic')
         filterbox.addEventListener('click', moboxfilter)
-        function moboxfilter() {
+        function moboxfilter() { // su kien mo filterbox
             form.classList.add('active')
             boxfilterforuser.classList.add('active')
         }
-
+        icfilterbox.addEventListener('click', closefilterbox) // su kien tat  filterbox = icon hoac form
+            function closefilterbox() {
+            form.classList.remove('active')
+            boxfilterforuser.classList.remove('active')
+        }
+        // su kien tat  filterbox = form
+        form.addEventListener('click', closeFilterBoxWithForm)
+        function closeFilterBoxWithForm (){
+             form.classList.remove('active')
+            boxfilterforuser.classList.remove('active')
+        }
+        
         ////////////// LOADER //
         const load = document.querySelector('.container_Load');
         function timeLoad() {
             load.classList.add('none')
 
 
-        }
-        icfilterbox.addEventListener('click', closefilterbox)
-        function closefilterbox() {
-            form.classList.remove('active')
-            boxfilterforuser.classList.remove('active')
         }
 
         setTimeout(timeLoad, 1500)

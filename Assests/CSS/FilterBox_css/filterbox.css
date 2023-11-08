@@ -3,3 +3,26 @@
 .filter-form{
     z-index : 10;
 }
+.form-filter--modal {
+/*    display: none;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;*/
+}
+
+.form-filter--overplay {
+    z-index: 3;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    transform-origin: bottom bottom;
+    animation: fadeIn linear .2s;
+    display : none;
+}
