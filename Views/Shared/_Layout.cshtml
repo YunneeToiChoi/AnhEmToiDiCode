@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="~/Assests/CSS/Load_css/Load_css.css" />
     <link rel="stylesheet" href="~/Assests/CSS/Details/details.css"  />
     <link rel="stylesheet" href="~/Scripts/scripts/Product_js.js"  />
+    <link href="~/Assests/CSS/FilterBox_css/filterbox.css" rel="stylesheet" />
+    <link href="~/Scripts/scripts/FilterBox.js" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -325,6 +327,15 @@
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/scripts/Modal_user.js"></script>
     <script>
+        var boxfilterforuser = document.querySelector('.filter-form') // bat cai box mo
+        var form = document.querySelector('.form-vadition--modal') // bat form
+        var filterbox = document.querySelector('.box-loc') // cai box filter
+        var icfilterbox = document.querySelector('.filterbox-ic')
+        filterbox.addEventListener('click', moboxfilter)
+        function moboxfilter() {
+            form.classList.add('active')
+            boxfilterforuser.classList.add('active')
+        }
 
         ////////////// LOADER //
         const load = document.querySelector('.container_Load');
@@ -332,6 +343,11 @@
             load.classList.add('none')
 
 
+        }
+        icfilterbox.addEventListener('click', closefilterbox)
+        function closefilterbox() {
+            form.classList.remove('active')
+            boxfilterforuser.classList.remove('active')
         }
 
         setTimeout(timeLoad, 1500)
