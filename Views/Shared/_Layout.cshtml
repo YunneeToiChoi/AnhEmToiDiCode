@@ -97,12 +97,12 @@
                 </nav>
             </div>
         </div>
-        @*@{ var xx = Session["event"] as AirBNB_Admin.Models.Rooms;}
+        @{ var xx = Session["event"] as AirBNB_Admin.Models.Rooms;}
         @if (xx == null)
-        {*@
+        {
             @Html.Partial("_Menu")
-        @*}*@
-        @*else
+        }
+        else
         {
             Session["event"] = 1;
         }
