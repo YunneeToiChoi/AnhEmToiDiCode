@@ -14,7 +14,7 @@ namespace AirBNB_Admin.Controllers
         // GET: Product
         AirbnbEntities2 db = new AirbnbEntities2();
 
-        public ActionResult Index()
+        public ActionResult Map()
         {
 
             return View();
