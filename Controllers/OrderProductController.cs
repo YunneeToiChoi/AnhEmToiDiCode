@@ -10,6 +10,8 @@ namespace AirBNB_Admin.Controllers
     {
         // GET: OrderProduct
         AirbnbEntities2 db = new AirbnbEntities2();
+
+        [System.Obsolete]
         public ActionResult Index_OrderProduct(int id)
         {
             List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();

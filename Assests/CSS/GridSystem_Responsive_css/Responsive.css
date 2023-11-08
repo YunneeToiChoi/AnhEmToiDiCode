@@ -73,6 +73,10 @@
     }
 }
 @media (max-width: 740px) {
+    .menu-left
+    {
+        gap:2rem;
+    }
     .menu-right__box
     {
         margin-left:50px;
@@ -210,6 +214,9 @@
     }
     @media(max-width:460px)
     {
+        .menu-left{
+            gap:4rem!important;
+        }
         .Order-box--UX
         {
             width:auto!important;

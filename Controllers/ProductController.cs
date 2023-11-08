@@ -19,6 +19,8 @@ namespace AirBNB_Admin.Controllers
 
             return View();
         }
+
+        [Obsolete]
         public ActionResult Product_Index_Main()
         {
 

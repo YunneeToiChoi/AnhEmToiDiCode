@@ -117,20 +117,15 @@
 
 .menu-left 
 {
-    display: flex !important;
-    justify-content:space-between!important;
-    flex:1;
+    display:grid;
+    grid-auto-flow:column;
+    grid-auto-columns:21%;
     overflow-x:auto;
+    overscroll-behavior-inline:contain;
 }
-.menu-right {
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom:10px;
-}
-
 .menu__box {
     display: flex;
-    min-width:100px;
+    min-width: 100px;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
@@ -140,8 +135,14 @@
     color: black;
     height: 60px;
     text-align: center;
-    padding:0 10px;
+    padding: 0 10px;
 }
+.menu-right {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom:15px;
+}
+
 .menu__box-border-bt {
     display: none;
 }
@@ -211,9 +212,9 @@ menu-right__box:hover
     margin-top: 6px;
     font-size: 1.6rem;
     overflow: hidden;
-    text-overflow: ellipsis;
+/*    text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 90px;
+    max-width: 90px;*/
     margin-bottom:8px;
 }
 /* End Menu */
