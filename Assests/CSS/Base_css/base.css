@@ -123,3 +123,6 @@ html
 .actives{
     display: block;
 }
+.activehide {
+    display : none !important;
+}

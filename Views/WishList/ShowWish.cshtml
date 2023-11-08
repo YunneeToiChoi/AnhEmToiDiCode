@@ -9,9 +9,15 @@
         icon.classList.add('filled');
     }
     icon.addEventListener('click', fillicon)
+    
 
 </script>
-          
+<style>
+    .menu{
+        display : none;
+    }
+</style>
+    @{ var menu = Session["HideMenu"] as AirBNB_Admin.Models.Wish;}
 <div class="content">
     <div class="grid wide">
         @if (Model != null)
@@ -21,9 +27,26 @@
 
                 @foreach (var pro in Model.Items)
                 {
+                    {if (menu == null)
+                        {
+                            <style>
+                                .menu {
+                                    display: none;
+                                }
+                            </style>
+                        }
+                        else
+                        {
+                            <style>
+                                .menu {
+                                    display: none;
+                                }
+                            </style>
+                        }
+                    }
                     <div class="content__box col l-3 m-4 c-12">
                         <div class="content-img__box">
-                            <div class="content__wishlist">
+                            <div class="content__wishlist kk">
                                 <a href="/WishList/RemoveWish/@pro._product.Id_Room" class="content__link">
                                     @*<i class="content-wishlist__icon fa-regular fa-heart"></i>*@
                                     @* fill: rgba(0, 0, 0, 0.5); *@
@@ -52,7 +75,7 @@
                         </div>
                     </div>
                 }
-            
+
             </div>
         }
     </div>

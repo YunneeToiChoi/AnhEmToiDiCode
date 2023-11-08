@@ -24,7 +24,8 @@ namespace AirBNB_Admin.Models
         public Nullable<int> ID_User { get; set; }
         public string Payment_Card { get; set; }
         public string Zip_Post { get; set; }
-    
+        public string idOder { get; set; } // cai nay them tay
+        public DateTime DateTime { get; set; } // cai nay them tay
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservation { get; set; }
