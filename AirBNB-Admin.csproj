@@ -163,7 +163,6 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FormCollection.cs" />
     <Compile Include="Models\OrderProduct.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
