@@ -103,7 +103,7 @@
         }
         else
         {
-            Session["event"] = 2;
+            Session["event"] = 1;
         }
 
         @* If(ko có sản phẩm) *@
@@ -354,15 +354,7 @@
             boxfilterforuser.classList.remove('active')
         }
         
-        ////////////// LOADER //
-        const load = document.querySelector('.container_Load');
-        function timeLoad() {
-            load.classList.add('none')
 
-
-        }
-
-        setTimeout(timeLoad, 1500)
 
         document.addEventListener('DOMContentLoaded', function () {
             var checkbox = document.getElementById('checkboxInput');
@@ -393,7 +385,15 @@
                 });
             }
         });
+        ////////////// LOADER //
+        document.addEventListener("DOMContentLoaded", function () {
+            var load = document.querySelector('.container_Load');
+            setTimeout(timeLoad, 1500);
 
+            function timeLoad() {
+                load.classList.add('none');
+            }
+        });
     </script>
     <style>
         .none {
