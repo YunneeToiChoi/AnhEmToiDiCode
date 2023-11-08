@@ -9,8 +9,6 @@
         icon.classList.add('filled');
     }
     icon.addEventListener('click', fillicon)
-    
-
 </script>
 <style>
     .menu{
@@ -27,21 +25,22 @@
 
                 @foreach (var pro in Model.Items)
                 {
-                    {if (menu == null)
+                    {if (menu == null) 
                         {
                             <style>
                                 .menu {
                                     display: none;
                                 }
                             </style>
+                            //container_Load
                         }
                         else
                         {
-                            <style>
+                            @*<style>
                                 .menu {
                                     display: none;
                                 }
-                            </style>
+                            </style>*@
                         }
                     }
                     <div class="content__box col l-3 m-4 c-12">
