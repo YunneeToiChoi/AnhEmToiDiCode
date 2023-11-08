@@ -59,9 +59,12 @@ namespace AirBNB_Admin.Controllers
         {
 
             var _pro = db.Rooms.SingleOrDefault(s => s.Id_Room == id); // lay product theo id
-            if(_pro != null && Session["User"]!=null)
+            Session["HideMenu"] = _pro;
+
+            if (_pro != null && Session["User"]!=null)
             {
                 GetWish().Add_Room_Cart(_pro);
+                Session["HideMenu"] = _pro;
                 return RedirectToAction("ShowWish", "WishList");
             
             }

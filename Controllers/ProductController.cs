@@ -26,7 +26,7 @@ namespace AirBNB_Admin.Controllers
             List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
             foreach (int i in sum)
             {
-                var dbContext = new AirbnbEntities2(); 
+                var dbContext = new AirbnbEntities2();
 
                 var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
                     .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
@@ -36,27 +36,126 @@ namespace AirBNB_Admin.Controllers
                 get.tongtientruocthue = 1;
                 get.tongtientruocthue = -(get.Price * totalDays);
                 get.tongtiensauthue = 1;
-              get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
+                get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
                 get.tongdem = 1;
                 get.tongdem = totalDays;
                 db.SaveChanges();
             }
             return PartialView(db.Rooms.ToList());
         }
-        //public ActionResult Product_Index_Main__Agothims(int id =0)
-        //{
-        //    List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
-        //        foreach(int i in sum)
-        //    {
-        //        var x = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
-        //        x.tongtientrong5ngay = 1;
-        //        x.tongtientrong5ngay = x.Price * 100;
-        //        db.SaveChanges();
-        //    }
-        //    return View(db.Rooms.ToList());
-        //}
-        public ActionResult Product_Index(int cateid)
+        public ActionResult Product_Index_Main__Agothims(int id = 0)
         {
+            int cateid = 0;
+            var roomsgiamdan = db.Rooms.OrderByDescending(x => x.ID_Cate).Where(x => x.ID_Cate == cateid);
+            var roomsGuest = from room in db.Rooms
+                             where room.Guest <= 2
+                             select room;
+
+            var roomsPlace = from room in db.Rooms
+                             where room.Place == "Hà Nội"
+                             select room;
+            var roomsPrice = from room in db.Rooms
+                             where room.Price < 1000000
+                             select room;
+            var roomsLaySLtheogia = db.Rooms
+            .OrderBy(room => room.Price)
+            .Take(5);
+            var countStatus = db.Rooms.Where(room => room.Status == "Sẵn sàng").Count();
+            var roomsRatings = from room in db.Rooms
+                               join review in db.Reviews on room.Id_Room equals review.Id_Room
+                               where review.Rating >= 4
+                               select room;
+            List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
+            foreach (int i in sum)
+            {
+                var dbContext = new AirbnbEntities2();
+
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                    .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
+                    .Sum();
+
+                var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
+                get.tongtientruocthue = 1;
+                get.tongtientruocthue = -(get.Price * totalDays);
+                get.tongtiensauthue = 1;
+                get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
+                get.tongdem = 1;
+                get.tongdem = totalDays;
+                db.SaveChanges();
+            }
+
+            List<Category> catels = db.Category.ToList();
+            Rooms pro = new Rooms();
+            foreach (var item in catels)
+            {
+                pro.Name_Cate = db.Category.Where(x => x.ID_Cate == item.ID_Cate).Select(x => x.Name_Cate).FirstOrDefault();
+            }
+
+            return View(db.Rooms.ToList());
+        }
+        public ActionResult ShowProductHBOR()
+        {
+            var products = from product in db.Rooms
+                           join orderDetail in db.OrderProduct on product.Id_Room equals orderDetail.ID_Product
+                           join od in db.OrderProduct on orderDetail.idOder equals od.idOder
+                           where od.DateTime > DateTime.Now.AddMonths(-1)
+                           select product;
+            return View(products);
+        }
+        public ActionResult FindByName(string name)
+        {
+            var check = db.Rooms.Where(s => s.Room_Name == name).FirstOrDefault();
+            return View(check);
+        }
+        public ActionResult Roomgiamdan(int cateid) {
+            var roomsgiamdan = db.Rooms.OrderByDescending(x => x.ID_Cate).Where(x => x.ID_Cate == cateid);
+            return View(roomsgiamdan);
+        }
+        public ActionResult RoomLayNguoidung(int sl)
+        {
+            var roomsGuest = from room in db.Rooms
+                             where room.Guest <= sl
+                             select room;
+            return View(roomsGuest);
+        }
+        public ActionResult RoomsPlace(string place)
+        {
+            var roomsPlace = from room in db.Rooms
+                             where room.Place == place
+                             select room;
+            return View(roomsPlace);
+        }
+
+        public ActionResult RoomsPrice(decimal gia)
+        {
+            var roomsPrice = from room in db.Rooms
+                             where room.Price < gia
+                             select room;
+            return View(roomsPrice);
+        }
+        public ActionResult RoomsSLPrice(int sl)
+        {
+            var roomsLaySLtheogia = db.Rooms
+          .OrderBy(room => room.Price)
+          .Take(sl);
+            return View(roomsLaySLtheogia);
+        }
+        public ActionResult RoomsStatus()
+        {
+            var countStatus = db.Rooms.Where(room => room.Status == "Sẵn sàng").Count();
+            return View(countStatus);
+        }
+        public ActionResult RoomsRatings(int sl)
+        {
+            var roomsRatings = from room in db.Rooms
+                               join review in db.Reviews on room.Id_Room equals review.Id_Room
+                               where review.Rating >= 4
+                               select room;
+            return View(roomsRatings);
+        }
+
+        public ActionResult Product_Index(int cateid)
+        { // sap xep product theo id menu va giam dan theo id 
             if (cateid == -1)
             {
                 var productList = db.Rooms.OrderByDescending(x => x.ID_Cate);
@@ -81,5 +180,7 @@ namespace AirBNB_Admin.Controllers
             }
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
+
+
     }
 }

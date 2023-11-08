@@ -113,7 +113,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             }
             catch
             {
-                return Content("Sai roi bro, xoa di ma lam nguoi");
+                return Content("Sai roi bro");
             }
             
         }
