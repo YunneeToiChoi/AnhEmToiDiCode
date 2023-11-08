@@ -1,0 +1,29 @@
+﻿.btnmap {
+    padding:22px 30px 20px 30px;
+    background-color:black;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+.btnmap-text
+{
+    font-size:1.6rem;
+    padding-right:5px;
+    font-weight:500;
+}
+.btnmap-icon-map
+{
+    font-size:1.6rem;
+}
+.Main-button_map
+{
+    display:none;
+     position:sticky;
+     margin-bottom:100px;
+     margin-top:50px;
+    bottom:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
