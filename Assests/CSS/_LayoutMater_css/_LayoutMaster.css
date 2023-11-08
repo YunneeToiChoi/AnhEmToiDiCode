@@ -186,7 +186,7 @@
 
 .menu-right__box 
 {
-    margin-left:20px!important;
+    margin-left:10px!important;
     display: flex;
     align-items: center;
     font-size: 1.6rem;
@@ -203,9 +203,11 @@ menu-right__box:hover
     transition: 0.3s linear;
 }
 
-.menu__content 
-{
+.menu__content {
     margin-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .menu__header {

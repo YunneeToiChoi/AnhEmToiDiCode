@@ -1,4 +1,10 @@
-﻿@model IEnumerable<AirBNB_Admin.Models.Rooms>
+﻿
+@{
+    ViewBag.Title = "Product_Index_Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<AirBNB_Admin.Models.Rooms>
 
 <style>
     .oo {
@@ -36,7 +42,7 @@
                         <div class="content__arrow">
                             <i class="content-arrow__icon fa-solid fa-angle-right"></i>
                         </div>
-                        <a href="Product/Product_Detail_user/@pro.Id_Room" class="content__link">
+                        <a href="/Product/Product_Detail_user/@pro.Id_Room" class="content__link">
                             <img src="@Url.Content(pro.Images_Room)" style="width : 100%" alt="Alternate Text" class="content__img" />
                         </a>
                     </div>
@@ -83,7 +89,7 @@
                         <div class="content__arrow">
                             <i class="content-arrow__icon fa-solid fa-angle-right"></i>
                         </div>
-                        <a href="Product/Product_Detail_user/@pro.Id_Room" class="content__link">
+                        <a href="/Product/Product_Detail_user/@pro.Id_Room" class="content__link">
                             <img src="@Url.Content(pro.Images_Room)" style="width : 100%; height : 188px" alt="Alternate Text" class="content__img" />
                         </a>
                     </div>

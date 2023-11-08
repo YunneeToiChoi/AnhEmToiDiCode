@@ -4,6 +4,7 @@
     color:white;
     text-decoration:none;
     border-radius:30px;
+    transition:linear 0.2s;
 }
 .btnmap-text
 {
@@ -24,5 +25,9 @@
     display:flex;
     justify-content:center;
     align-items:center;
+}
+.Main-button_map:hover .btnmap
+{
+    padding:23px 32px 22px 32px;
 }
 

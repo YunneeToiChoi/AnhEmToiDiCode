@@ -115,7 +115,7 @@ namespace AirBNB_Admin.Controllers
                 Session["ID"] = user.ID_User;
                 Session["PasswordUser"] = user.Password;
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Product_Index_Main", "Product");
             }
         }
         public ActionResult index_login()
@@ -125,7 +125,7 @@ namespace AirBNB_Admin.Controllers
         public ActionResult Logout()
         {
             Session["User"] = null;
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Product_Index_Main", "Product");
         }
         //[HttpPost]
         //[ValidateAntiForgeryToken]

@@ -2,9 +2,19 @@
 
 @{
     ViewBag.Title = "Index_OrderProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var load = document.querySelector('.container_Load');
+        setTimeout(timeLoad, 1500);
 
+        function timeLoad() {
+            load.classList.add('none');
+        }
+    });
+</script>
 @foreach ( var temp in Model)
 { 
     <div class="content" style="padding:0px 30px">

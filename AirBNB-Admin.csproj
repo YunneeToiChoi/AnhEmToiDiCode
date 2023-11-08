@@ -500,8 +500,8 @@
     <Content Include="Views\UserMobile\User_Edit.cshtml" />
     <Content Include="Views\UserMobile\User_Control.cshtml" />
     <Content Include="Views\Shared\_InfoUser.cshtml" />
-    <Content Include="Views\OrderProduct\CussesOrder.cshtml" />
     <Content Include="Views\Product\Map.cshtml" />
+    <Content Include="Views\Home\LoginSelect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
