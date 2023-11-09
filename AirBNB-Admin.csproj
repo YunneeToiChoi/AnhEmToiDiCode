@@ -138,6 +138,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserMobileController.cs" />
+    <Compile Include="Controllers\ViewmodelController.cs" />
     <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -145,6 +146,7 @@
     <Compile Include="Models\AdminUser.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminUserViewModel.cs" />
     <Compile Include="Models\AirBnBDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,6 +165,7 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\OrderProduct.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
@@ -176,13 +179,13 @@
     <Compile Include="Models\Rooms.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RoomsViewModel.cs" />
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewmodelProductUser.cs" />
     <Compile Include="Models\Wish.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -508,6 +511,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\Viewmodel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
