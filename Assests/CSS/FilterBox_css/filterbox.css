@@ -24,5 +24,90 @@
     position: fixed;
     transform-origin: bottom bottom;
     animation: fadeIn linear .2s;
-    display : none;
+}
+.filter__price {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter__input {
+    padding: 18px 10px;
+    border-radius: 10px;
+}
+
+.type__category {
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.category__block {
+    padding: 24px;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    line-height:3rem;
+    text-align:center;
+}
+
+    .category__block:hover {
+        border: 1px solid black;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+.end__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 24px;
+    font-size: 1.8rem;
+}
+
+.box__delete {
+    color: black;
+    padding: 8px 10px;
+    font-weight:600;
+}
+
+    .box__delete:hover {
+        background-color: #DDDDDD;
+        border-radius:8px;
+    }
+
+.end__btn {
+    color: white;
+    background-color: black;
+    padding: 20px 30px!important;
+    opacity: 0.8;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+    .end__btn:hover {
+        opacity: 1;
+        color: white !important;
+    }
+.form-filter--modal {
+    position:fixed;
+    z-index:3;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    display:none;
+}
+.Main-filter-box {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    height:80%;
+}
+.vadition__box-tittle
+{
+    text-align:center;
 }
