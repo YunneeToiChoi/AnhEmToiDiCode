@@ -146,7 +146,7 @@
     <Compile Include="Models\AdminUser.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AdminUserViewModel.cs" />
+    <Compile Include="Models\AdminUserCategoryViewModel.cs" />
     <Compile Include="Models\AirBnBDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,21 +165,21 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\OrderProduct.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderProductUserViewModel.cs" />
     <Compile Include="Models\ProductWishListViewModel.cs" />
     <Compile Include="Models\Reservation.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReservationRoomsViewModel.cs" />
     <Compile Include="Models\Reviews.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rooms.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RoomsViewModel.cs" />
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>

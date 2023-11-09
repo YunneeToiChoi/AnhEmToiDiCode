@@ -19,49 +19,53 @@ namespace AirBNB_Admin.Controllers
                 db = context;
             }
 
-            public ActionResult AdminUser()
+            public ActionResult AdminUserCategory()
             {
-                var adminUsers = db.AdminUser.Select(u => new AdminUserViewModel
-                {
-                    ID = u.ID,
-                    Name_User = u.Name_User,
-                    Email_User = u.Email_User
-                }).ToList();
+                var adminUserCategoryData = (from au in db.AdminUser
+                                             join c in db.Category on au.ID equals c.ID_Cate
+                                             select new AdminUserCategoryViewModel
+                                             {
+                                                 AdminUserID = au.ID,
+                                                 AdminUserName = au.Name_User,
+                                                 CategoryID = c.ID_Cate,
+                                                 CategoryName = c.Name_Cate
+                                             }).ToList();
 
-                return View(adminUsers);
+                return View(adminUserCategoryData);
             }
 
-            public ActionResult Category()
+            public ActionResult OrderProductUser()
             {
-                var categories = db.Category.Select(c => new CategoryViewModel
-                {
-                    ID_Cate = c.ID_Cate,
-                    Name_Cate = c.Name_Cate,
-                    Image_Cate = c.Image_Cate
-                }).ToList();
+                var orderProductUserData = (from op in db.OrderProduct
+                                            join u in db.User on op.ID_User equals u.ID_User
+                                            select new OrderProductUserViewModel
+                                            {
+                                                OrderProductID = op.ID_Product,
+                                                UserID = u.ID_User,
+                                                UserName = u.User_Name,
+                                                PaymentCard = op.Payment_Card,
+                                                ZipPost = op.Zip_Post
+                                            }).ToList();
 
-                return View(categories);
+                return View(orderProductUserData);
             }
 
-            public ActionResult Rooms()
+            public ActionResult ReservationRooms()
             {
-                var rooms = db.Rooms.Select(r => new RoomsViewModel
-                {
-                    Id_Room = r.Id_Room,
-                    Room_Name = r.Room_Name,
-                    Place = r.Place,
-                    Images_Room = r.Images_Room,
-                    Price = (decimal)r.Price,
-                    Home_types = r.Home_types,
-                    Room_types = r.Room_types,
-                    ID_Cate = (int)r.ID_Cate,
-                    Room_Description = r.Room_Description,
-                    Check_in = (DateTime)r.Check_in,
-                    Check_out = (DateTime)r.Check_out,
-                    Name_Cate = r.Name_Cate
-                }).ToList();
+                var reservationRoomsData = (from r in db.Reservation
+                                            join rm in db.Rooms on r.ID_Rooms equals rm.Id_Room
+                                            select new ReservationRoomsViewModel
+                                            {
+                                                ReservationID = r.ID_Reservation,
+                                                RoomID = rm.Id_Room,
+                                                Price = (decimal)r.Price,
+                                                Guest = (int)r.Guest,
+                                                RoomName = rm.Room_Name,
+                                                Place = rm.Place,
+                                                ImagesRoom = rm.Images_Room
+                                            }).ToList();
 
-                return View(rooms);
+                return View(reservationRoomsData);
             }
         }
     }
