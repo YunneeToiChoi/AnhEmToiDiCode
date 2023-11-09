@@ -30,7 +30,7 @@
 <div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
     <div class="form-register-clone">
         <div class="cart-body">
-            @using (Html.BeginForm("Index", "HomeAdmin"))
+            @using (Html.BeginForm("LoginAdmin", "HomeAdmin"))
             {
                 @Html.AntiForgeryToken()
                 <style>
@@ -50,7 +50,7 @@
                     @*END HEADER
                         BEGIN BOX*@
 
-                    <div class="vadition__box pd24">
+                    <div style="height:auto!important" class="vadition__box pd24">
                         <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
                             Welcome to Airbnb
                         </h1>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,7 +34,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             {
                 ViewBag.LoginFail = "Dang nhap that bai";
                 ModelState.AddModelError("myError", "InvalidEmail or Password");
-                return RedirectToAction("LoginAdmin", "LoginAdmin");
+                return RedirectToAction("LoginAdmin", "HomeAdmin");
 
             }
             else
@@ -42,7 +43,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                 Session["ID"] = user.ID;
                 Session["PasswordUser"] = user.Password_User;
                 db.SaveChanges();
-                return View("localhost:44371/Admin/HomeAdmin/Index");
+                return RedirectToAction("Index","HomeAdmin");
             }
         }
     }

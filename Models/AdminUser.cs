@@ -11,12 +11,18 @@ namespace AirBNB_Admin.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class AdminUser
     {
         public int ID { get; set; }
         public string Name_User { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter a valid password")]
+        [StringLength(50, ErrorMessage = "Khong du kich thuoc", MinimumLength = 8)]
+        [DataType(DataType.Password)]
         public string Password_User { get; set; }
+        [Required(ErrorMessage = "Email not Empty....")]
         public string Email_User { get; set; }
     }
 }
