@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirBNB_Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace AirBNB_Admin.Controllers
 {
     public class HomeController : Controller
     {
+        AirbnbEntities2 db = new AirbnbEntities2();
         public ActionResult Index()
         {
             return View();
@@ -30,6 +32,18 @@ namespace AirBNB_Admin.Controllers
         {
             return View();
         }
-
+        public ActionResult SuccessOrder(int id)
+        {
+            var x = db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault();
+            if (x == null)
+            {
+                Session["event"] = null;
+            }
+            else
+            {
+                Session["event"] = x;
+            }
+            return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
+        }
     }
 }
