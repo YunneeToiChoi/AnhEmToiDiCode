@@ -1,0 +1,83 @@
+﻿@model AirBNB_Admin.Models.AdminUser
+<link rel="stylesheet" href="~/_LayoutAdmin/assets/vendors/mdi/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="~/_LayoutAdmin/assets/vendors/css/vendor.bundle.base.css">
+<!-- endinject -->
+<!-- Plugin css for this page -->
+<!-- End plugin css for this page -->
+<!-- inject:css -->
+<!-- endinject -->
+<!-- Layout styles -->
+<link rel="stylesheet" href="~/_LayoutAdmin/assets/css/style.css">
+<!-- End layout styles -->
+<link rel="shortcut icon" href="~/_LayoutAdmin/assets/images/favicon.ico" />
+<link rel="stylesheet" href="~/Assests/CSS/Product_css/Product.css" />
+<link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/Responsive.css" />
+<link href="~/Assests/CSS/_LayoutMater_css/_LayoutMaster.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/grid.css" />
+<link rel="stylesheet" href="~/Assests/CSS/Switch/Switch_menu.css" />
+<link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
+<link rel="stylesheet" href="~/Assests/CSS/_LayoutMater_css/Modal_user.css" />
+<link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
+<link rel="stylesheet" href="~/Assests/CSS/Bear_css/bear.css" />
+<link href="~/Assests/CSS/loader_css/loader.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Assests/CSS/Footer/footer.css" />
+<link href="~/Assests/CSS/Load_css/Load_css.css" rel="stylesheet" />
+<link href="~/Assests/CSS/Details/details.css" rel="stylesheet" />
+<div style=" position: fixed;  top: 0; bottom: 0; right: 0; left: 0;" class="card bg-gradient-danger card-img-holder text-white">
+    <img src="/_layoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
+</div>
+
+<div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
+    <div class="form-register-clone">
+        <div class="cart-body">
+            @using (Html.BeginForm("Index", "HomeAdmin"))
+            {
+                @Html.AntiForgeryToken()
+                <style>
+                    .field-validation-error {
+                        color: red;
+                    }
+                </style>
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div>
+                    <div class="vadition__header pdlr24">
+                        <div class="vadition__header-icon"><i class="fa-solid fa-x"></i></div>
+                        <header class="vadition__header-tittle">Login</header>
+                    </div>
+                    <hr />
+                    @*END HEADER
+                        BEGIN BOX*@
+
+                    <div class="vadition__box pd24">
+                        <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
+                            Welcome to Airbnb
+                        </h1>
+                        <form class="vadition__box-form">
+                            <div class="vadition__box-wrapper">
+                                @Html.LabelFor(model => model.Email_User)
+                                @Html.EditorFor(model => model.Email_User, new { htmlAttributes = new { placeholder = "Your Email" } })
+                                @Html.ValidationMessageFor(model => model.Email_User)
+                            </div>
+                            <div class="vadition__box-wrapper">
+                                @Html.LabelFor(model => model.Password_User)
+                                @Html.PasswordFor(model => model.Password_User, new { htmlAttributes = new { @class = "vadition__box-password" } })
+                                @Html.ValidationMessageFor(model => model.Password_User)
+                                @* thieu placeholder *@
+                                <h1 style="color : red">  @ViewBag.LoginFail</h1>
+                            </div>
+                            <div class="vadition__box-decripstion">
+                                We’ll call or text you to confirm your number. Standard message and data rates apply.
+                                <p style="font-size:1.2rem" class="vadition__box-privacyPolity">Privacy Policy</p>
+                            </div>
+                            <button class="btn vadition__box-submit">Continue</button>
+                        </form>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
