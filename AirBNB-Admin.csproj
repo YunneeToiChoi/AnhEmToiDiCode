@@ -209,6 +209,7 @@
     <Content Include="Assests\CSS\UserMobile__css\userMobilecss.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\Modal_user.css" />
     <Content Include="Assests\CSS\_LayoutMater_css\_LayoutMaster.css" />
+    <Content Include="Assests\_image\Airicon\Airbnb-icon.ico" />
     <Content Include="Assests\_image\Content_image\avatar-gau-cute.png" />
     <Content Include="Assests\_image\Content_image\content_1.jpg" />
     <Content Include="Assests\_image\details_img\rua.png" />
