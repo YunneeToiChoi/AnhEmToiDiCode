@@ -36,7 +36,6 @@ function closeicon() {
 }
 closeFormics.addEventListener('click', closeicon)
 function closeicon() {
-    console.log('cc')
     ModalForm.classList.remove('active');
 }
 

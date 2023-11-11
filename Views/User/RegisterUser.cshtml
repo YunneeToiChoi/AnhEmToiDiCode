@@ -6,7 +6,6 @@
 </style>
 <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
 <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
-
 @using (Html.BeginForm("RegisterUser", "User", FormMethod.Post, new { enctype = "multipartform/data" }))
 {
     @Html.AntiForgeryToken()

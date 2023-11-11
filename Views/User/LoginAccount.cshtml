@@ -6,7 +6,29 @@
 </style>
 <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
 <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
+<script>
 
+    registerNav.addEventListener('click', () => { // mo form REGISTER
+        ModalForm.classList.add('active') // nhan nav register >> mo form >> + active form register
+        registerForm.classList.add('active')        // active form register
+        hideBoxNavForm();
+    })
+    loginNav.addEventListener('click', () => { // mo form LOGIN
+        ModalForm.classList.add('active') // nhan nav login >> mo form >> + active form login
+        loginForm.classList.add('active')        // active form register
+        hideBoxNavForm();
+    })
+
+    function hideBoxNavForm() { // dong form
+        userParent.classList.remove('active')
+
+    }
+
+    // close Form = overplay
+
+    overPlayForm.addEventListener('click', () => { ModalForm.classList.remove('active'); registerForm.classList.remove('active'); loginForm.classList.remove('active') }) // click overplay >> tat form >> sau do tat register/login active 
+    closeForm.addEventListener('click ', () => { ModalForm.classList.remove('active'); registerForm.classList.remove('active'); loginForm.classList.remove('active') })// icon closeForm*/
+</script>
 @*<div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
     <div class="form-register-clone">
         <div class="cart-body">*@
