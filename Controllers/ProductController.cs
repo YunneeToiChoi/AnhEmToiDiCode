@@ -155,7 +155,45 @@ namespace AirBNB_Admin.Controllers
                                select room;
             return View(roomsRatings);
         }
+        public ActionResult SearchOptions(decimal min = decimal.MinValue, decimal max = decimal.MaxValue) 
+        {
+            List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
+            foreach (int i in sum)
+            {
+                var dbContext = new AirbnbEntities2();
 
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                    .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
+                    .Sum();
+
+                var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
+                get.tongtientruocthue = 1;
+                get.tongtientruocthue = -(get.Price * totalDays);
+                get.tongtiensauthue = 1;
+                get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
+                get.tongdem = 1;
+                get.tongdem = totalDays;
+                db.SaveChanges();
+            }
+            // Hàm này là hàm chung của các chức năng search nè
+            var list = db.Rooms.Where(p => (decimal)p.Price >= min && (decimal)p.Price <= max).ToList();
+            // cái list này là chọn giá....
+            TempData["SearchResults"] = list;
+            // lưu cái giá đó vào cái biến dữ liệu tạm
+            return RedirectToAction("AnswerShowSearch",list);
+        }
+        public ActionResult AnswerShowSearch()
+        {
+            var list = TempData["SearchResults"] as List<Rooms>;
+            // lấy biến dữ liệu đó ra vào list 
+            if (list != null)
+            {
+                return View(list);
+            }
+            // k có gì thì cho search lại
+            return View("SearchOptions");
+
+        }
         public ActionResult Product_Index(int cateid)
         { // sap xep product theo id menu va giam dan theo id 
             if (cateid == -1)

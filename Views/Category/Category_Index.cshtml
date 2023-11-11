@@ -1,6 +1,16 @@
 ﻿@model IEnumerable<AirBNB_Admin.Models.Category>
 
+<script>
+    ////////////// LOADER //
+    document.addEventListener("DOMContentLoaded", function () {
+        var load = document.querySelector('.container_Load');
+        setTimeout(timeLoad, 1500);
 
+        function timeLoad() {
+            load.classList.add('none');
+        }
+    });
+</script>
 <style>
     .filter__price {
         padding: 20px;
@@ -67,8 +77,6 @@
             color: white !important;
         }
 </style>
-
-
 <div class="menu">
     <div class="grid wide">
         <div class="menu__container">
@@ -98,52 +106,4 @@
     </div>
 </div>
 @*@Html.Action("Product_Index", "Product")*@
-<div class="form-filter--modal">
-    <div class="form-filter--overplay"></div>
-    <div style="position: fixed; left: 50%; transform: translateX(-50%); max-width: 800px; right: 0; z-index: 10; background-color: white; top: 26%; height: 60%; overflow: hidden; border-radius: 15px; " class="filter-form">
-        <div class="vadition__header pdlr24">
-            <div class="vadition__header-icon vadition__header-icon--ic filterbox-ic actives"><i class="fa-solid fa-x"></i></div>
-            <header style="padding-right: 37px; text-align:center; align-items: center; font-size: 2.5rem;" class="vadition__header-tittle">Bộ lọc</header>
-        </div>
-        <hr />
-        <div class="Main-filter-box">
-            <div class="filter__box pd24" style="height:auto;">
-                <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
-                    Khoảng giá
-                </h1>
-                <div class="filter__price" style="margin-bottom: 60px">
-                    <input class="filter__input" style="width:40%" placeholder="Min" />
-                    <span style="margin: 0px 20px"> ---- </span>
-                    <input class="filter__input" style="width:40%" placeholder="Max" />
-                </div>
-                <hr />
-            </div>
-            <div class="filter__box  pd24" style="height:auto">
-                <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
-                    Loại nhà/phòng
-                </h1>
-                <div class="type__category row">
-                    <div class="category__block col l-6 m-6 c-12">
-                        <i class="category__icon fa-solid fa-house"></i>
-                        <p>Nhà</p>
-                    </div>
-                    <div class="category__block col l-6 m-6 c-12">
-                        <i class="fa-solid fa-building"></i>
-                        <p>Căn hộ</p>
-                    </div>
-                    <div class="category__block col l-6 m-6 c-12">
-                        <i class="fa-solid fa-hotel"></i>
-                        <p>Khách sạn</p>
-                    </div>
-                </div>
 
-                <hr />
-            </div>
-            <div class="end__box">
-                <a href="#" class="box__delete">Xóa tất cả</a>
-                <a href="" class="end__btn">Hiển thị 600 địa điểm</a>
-            </div>
-        </div>
-
-    </div>
-</div>

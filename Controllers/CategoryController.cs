@@ -27,6 +27,7 @@ namespace AirBNB_Admin.Controllers
                 return PartialView("Category_Index", db.Category.Where(s => s.Name_Cate.Contains(name)).ToList());
             }
         }
+
         //public ActionResult ViewmodelProCate(int idcate)
         //{
         //    List<Category> Cate = db.Category.ToList();

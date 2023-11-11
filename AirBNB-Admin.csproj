@@ -509,6 +509,8 @@
     <Content Include="Views\Product\Map.cshtml" />
     <Content Include="Views\Shared\AdminUser.cshtml" />
     <Content Include="Views\Home\SuccessOrder.cshtml" />
+    <Content Include="Views\Product\SearchOptions.cshtml" />
+    <Content Include="Views\Product\AnswerShowSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
