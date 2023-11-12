@@ -3,38 +3,39 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>CKR ADMIN</title>
+    <link rel="shortcut icon" href="~/Assests/_image/Airicon/Airbnb-icon.ico" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <!-- End layout styles -->
+    <link rel="stylesheet" href="~/Assests/CSS/Product_css/Product.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/Responsive.css" />
+    <link href="~/Assests/CSS/_LayoutMater_css/_LayoutMaster.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/grid.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/_LayoutMater_css/Modal_user.css" />
+    <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
+    <link href="~/Assests/CSS/loader_css/loader.css" rel="stylesheet" />
+    <link href="~/Assests/CSS/Load_css/Load_css.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+    <div class="header">
+        <div class="grid wide">
+            <nav class="navbar-mobile navbar row">
+                <div  class="nav-left col l-1">
+                    <a href="/Home/Index" class="navbar__link">
+                        <img src="~/Assests/_image/navbar_image/logo.png" alt="" class="navbar__img" style="width:120px; height: 100% ">
+                    </a>
+                </div>
+            </nav>
         </div>
     </div>
-
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
