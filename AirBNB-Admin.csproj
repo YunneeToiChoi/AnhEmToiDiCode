@@ -200,6 +200,7 @@
     <Content Include="Assests\CSS\FORM\VADITION.css" />
     <Content Include="Assests\CSS\GridSystem_Responsive_css\grid.css" />
     <Content Include="Assests\CSS\GridSystem_Responsive_css\Responsive.css" />
+    <Content Include="Assests\CSS\HeaderSearch\HeaderSearch.css" />
     <Content Include="Assests\CSS\Load_css\Load_css.css" />
     <Content Include="Assests\CSS\MenuMobile_css\menumobile.css" />
     <Content Include="Assests\CSS\OrderProduct\OrderProductCss.css" />
@@ -279,6 +280,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\scripts\FilterBox.js" />
+    <Content Include="Scripts\scripts\HeaderSearch.js" />
     <Content Include="Scripts\scripts\Modal_user.js" />
     <Content Include="Scripts\scripts\Product_js.js" />
     <Content Include="_LayoutAdmin\.gitignore" />

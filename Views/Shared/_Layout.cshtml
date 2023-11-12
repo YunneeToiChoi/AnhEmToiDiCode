@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Assests/CSS/Product_css/Product.css" />
     <link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/Responsive.css" />
-    <link rel="stylesheet" href="~/Assests/CSS/_LayoutMater_css/_LayoutMaster.css" />
+    <link href="~/Assests/CSS/_LayoutMater_css/_LayoutMaster.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Assests/CSS/GridSystem_Responsive_css/grid.css" />
     <link rel="stylesheet" href="~/Assests/CSS/Switch/Switch_menu.css" />
     <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="~/Scripts/scripts/Product_js.js" />
     <link rel="stylesheet" href="~/Assests/CSS/buttonmap/buttonmap.css" />
     <link href="~/Assests/CSS/FilterBox_css/filterbox.css" rel="stylesheet" />
-    <link href="~/Scripts/scripts/FilterBox.js" rel="stylesheet" />
+    <link href="~/Assests/CSS/HeaderSearch/HeaderSearch.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,7 +41,7 @@
                             <img src="~/Assests/_image/navbar_image/logo.png" alt="" class="navbar__img" style="width: 120px;height:100%">
                         </a>
                     </div>
-                    <div class="nav-middle col l-4 ">
+                    <div class="nav-middle col l-4 search-container">
                         <div class="navbar__box nav-middle_width">
                             <ul class="navbar__list">
                                 <li class="navbar__item navbar__item-space navbar__link-none"><a href="#" class="navbar__link">Địa điểm bất kỳ</a></li>
@@ -51,6 +51,16 @@
                             </ul>
                         </div>
                     </div>
+                    @* box xin chao khi mo header *@
+                    <div class="nav-middle col l-4 search-container header-welcome__tittle hide-on-mobile">
+                        <div class="navbar__box nav-middle_width">
+                            <ul class="navbar__list">
+                                <li class="navbar__item navbar__item-space navbar__link-none"><a href="#" class="navbar__link">Welcome To Airbnb</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    @* box xin chao khi mo header *@
+
                     <div class="nav-right user-navbar__header col l-1 hide-on-mobile">
                         <div class=" navbar__box user-navbar__box">
                             <ul class="navbar__list">
@@ -64,10 +74,10 @@
                                 <div class="user-header__form-box">
 
                                     @*<button class="user-header__form--navRegister">Sign In</button>
-                                        <button class="user-header__form--navLogin">Log in</button>
-                                        <hr style="border: 0.1px solid #cfcfcf " />
-                                        <button class="user-header__form--support">Airbnb your home</button>
-                                        <button class="user-header__form--support">Help Center</button>*@
+                        <button class="user-header__form--navLogin">Log in</button>
+                        <hr style="border: 0.1px solid #cfcfcf " />
+                        <button class="user-header__form--support">Airbnb your home</button>
+                        <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
@@ -96,6 +106,23 @@
                         </div>
                     </div>
                 </nav>
+                <nav class="navbar-mobile navbar row header__searchOption-container hide-on-mobile">
+                    <div class="nav-middle col l-4 ">
+                        <div class="navbar__box nav-middle_width ">
+                            <ul class="navbar__list">
+                                <li class="navbar__item navbar__item-space navbar__link-none">
+                                    <a href="#" class="navbar__link">Check in</a>
+                                    <input type="date" name="checkin" value="" />
+                                </li>
+                                <li class="navbar__item navbar__item-space navbar__link-none">
+                                    <a href="#" class="navbar__link">Check out</a>
+                                    <input type="date" name="checkout" value="" />
+                                </li>
+                                <li class="navbar__item"><button type="submit" class="navbar__link header-searchOption--submit">Submit</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
         @{ var xx = Session["event"] as AirBNB_Admin.Models.Rooms;}
@@ -114,11 +141,6 @@
             <!-- Product -->
             @RenderBody()
         </div>
-
-
-
-
-
         <footer class="footer">
             <div style="padding:0 20px">
                 <div class="grid wide">
@@ -264,15 +286,21 @@
     @* END LOADER *@
 
 
-    @*  BEGIN FILTER BOX  *@
+    @*  BEGIN overplay FILTER BOX  *@
     <div class="form-filter--modal">
         <div class="form-filter--overplay"></div>
         <div style="position: fixed; left: 50%; transform: translateX(-50%); max-width: 800px; right: 0; z-index: 10; background-color: white; top: 26%; height: 60%; overflow: hidden; border-radius: 15px; " class="filter-form">
             @Html.Partial("~/Views/Product/SearchOptions.cshtml") @* cai nay chi la cai box search option thoi *@
         </div>
     </div>
-    @*  END FILTER BOX  *@
+    @*  END  overplay FILTER BOX  *@
 
+
+    @*  Begin overplay HeaderSearch BOX  *@
+    <div class="form-headerSearch--modal">
+        <div class="form-HeaderSeach--overplay"></div>
+    </div>
+    @*  End overplay HeaderSearch BOX  *@
 
 
     @* Menu-Mobile *@
@@ -343,6 +371,8 @@
 
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/scripts/HeaderSearch.js"></script>
+    <script src="~/Scripts/scripts/FilterBox.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
