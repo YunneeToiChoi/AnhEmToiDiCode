@@ -38,16 +38,6 @@ namespace AirBNB_Admin.Controllers
         {
             try
             {
-              
-                // mot them anh  vao nha 
-                //if (room.UploadImage != null)
-                //{
-                //    string filename = Path.GetFileNameWithoutExtension(room.UploadImage.FileName);
-                //    string extent = Path.GetExtension(room.UploadImage.FileName);
-                //    filename += extent;
-                //    room.Images_Room = "~/Content/image/" + filename;
-                //    room.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
-                //}
                 db.Entry(user).State = System.Data.Entity.EntityState.Modified; 
                 db.SaveChanges();
                 return RedirectToAction("Logout","User");

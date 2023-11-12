@@ -1,0 +1,60 @@
+﻿@model AirBNB_Admin.Models.User
+@{
+    ViewBag.Title = "index_loginMobile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .field-validation-error {
+        color: red;
+    }
+</style>
+<link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
+<link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
+
+@*<div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
+    <div class="form-register-clone">
+        <div class="cart-body">*@
+@using (Html.BeginForm("LoginAccount", "User"))
+{
+    @Html.AntiForgeryToken();
+<div style="max-width:600px;margin:auto">
+    <div class="vadition__header pdlr24">
+        <header class="vadition__header-tittle">Log in</header>
+    </div>
+    <hr />
+    @*END HEADER
+        BEGIN BOX*@
+    <div style="height: 100%!important; overflow-y: hidden!important" class="vadition__box pd24">
+        <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
+            Welcome to Airbnb
+        </h1>
+        <form class="vadition__box-form">
+            <div class="vadition__box-wrapper">
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Your Email" } })
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div class="vadition__box-wrapper">
+                @Html.LabelFor(model => model.Password)
+                @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "vadition__box-password" } })
+                @Html.ValidationMessageFor(model => model.Password)
+                @* thieu placeholder *@
+
+                @*<h1 style="color : red">  @ViewBag.LoginFail</h1>*@
+            </div>
+            <div class="vadition__box-decripstion">
+                We’ll call or text you to confirm your number. Standard message and data rates apply.
+                <p class="vadition__box-privacyPolity">Privacy Policy</p>
+            </div>
+            <button class="btn vadition__box-submit">Continue</button>
+        </form>
+        <div class="form-line"><hr><p>or</p><hr></div>
+    </div>
+</div>
+  
+    @*END BOx*@
+}
+@*</div>
+    </div>
+    </div>*@
+

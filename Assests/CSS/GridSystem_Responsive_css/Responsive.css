@@ -18,7 +18,10 @@
     .menu-right {
         display: none !important;
     }
-}
+    .vadition__box {
+        height: 100%!important;
+        overflow-y: hidden!important;
+    }
 @media(max-width:1023px) 
 {
     .menu-left::-webkit-scrollbar{

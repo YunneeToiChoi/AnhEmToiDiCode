@@ -39,7 +39,7 @@ namespace AirBNB_Admin.Models
 
         public string Password { get; set; }
 
-
+        [Compare(otherProperty: "Password", ErrorMessage = " Confirm password does not match")]
         public string ConfirmPassword { get; set; }
         [NotMapped]
         public string ErrorLogin { get; set; }
