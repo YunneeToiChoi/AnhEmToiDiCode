@@ -511,6 +511,8 @@
     <Content Include="Views\Home\SuccessOrder.cshtml" />
     <Content Include="Views\User\RegisterUserMobile.cshtml" />
     <Content Include="Views\User\index_loginMobile.cshtml" />
+    <Content Include="Views\Product\SearchOptions.cshtml" />
+    <Content Include="Views\Product\AnswerShowSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

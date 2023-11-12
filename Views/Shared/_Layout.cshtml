@@ -64,10 +64,10 @@
                                 <div class="user-header__form-box">
 
                                     @*<button class="user-header__form--navRegister">Sign In</button>
-                                    <button class="user-header__form--navLogin">Log in</button>
-                                    <hr style="border: 0.1px solid #cfcfcf " />
-                                    <button class="user-header__form--support">Airbnb your home</button>
-                                    <button class="user-header__form--support">Help Center</button>*@
+                                        <button class="user-header__form--navLogin">Log in</button>
+                                        <hr style="border: 0.1px solid #cfcfcf " />
+                                        <button class="user-header__form--support">Airbnb your home</button>
+                                        <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
@@ -108,14 +108,14 @@
             Session["event"] = 1;
         }
 
-      
+
 
         <div class="render-body-content">
             <!-- Product -->
             @RenderBody()
         </div>
 
-      
+
 
 
 
@@ -261,6 +261,18 @@
         </div>
 
     </div>
+    @* END LOADER *@
+
+
+    @*  BEGIN FILTER BOX  *@
+    <div class="form-filter--modal">
+        <div class="form-filter--overplay"></div>
+        <div style="position: fixed; left: 50%; transform: translateX(-50%); max-width: 800px; right: 0; z-index: 10; background-color: white; top: 26%; height: 60%; overflow: hidden; border-radius: 15px; " class="filter-form">
+            @Html.Partial("~/Views/Product/SearchOptions.cshtml") @* cai nay chi la cai box search option thoi *@
+        </div>
+    </div>
+    @*  END FILTER BOX  *@
+
 
 
     @* Menu-Mobile *@
@@ -323,6 +335,10 @@
         }
     }
 
+
+
+
+
     @* End Menu-Mobile *@
 
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
@@ -340,9 +356,9 @@
         function moboxfilter() { // su kien mo filterbox
             form.classList.add('active')
         }
-        boxfilterforuser.addEventListener('click',closefilterbox)
+        boxfilterforuser.addEventListener('click', closefilterbox)
         icfilterbox.addEventListener('click', closefilterbox) // su kien tat  filterbox = icon hoac form
-            function closefilterbox() {
+        function closefilterbox() {
             form.classList.remove('active')
         }
         // su kien tat  filterbox = form
@@ -351,9 +367,6 @@
         //     form.classList.remove('active')
         //    boxfilterforuser.classList.remove('active')
         //}
-        
-
-
         document.addEventListener('DOMContentLoaded', function () {
             var checkbox = document.getElementById('checkboxInput');
             var item = document.querySelector('.oo'); // su kien mac dinh

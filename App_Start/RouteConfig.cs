@@ -19,5 +19,15 @@ namespace AirBNB_Admin
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
+        public static void SearchRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "SearchOptions",
+                url: "Product/SearchOptions",
+                defaults: new { controller = "Product", action = "SearchOptions" }
+            );
+        }
     }
 }
