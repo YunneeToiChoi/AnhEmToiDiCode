@@ -287,8 +287,8 @@
     @{ if (usermb == null) // neu k co dang nhap
         {
             <div style="z-index:5" class="menu-mobile menu-mobile--active">
-                <a style="color:black;text-decoration:none" href="/Product/Product_Index_Main">
-                    <div class="menu-mobile__box">
+                <a style="color:black;text-decoration:none" href="/UserMobile/Index">
+                    <div class="menu-mobile__box ">
                         <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
                         <span style="color: rgb(113, 113, 113); text-decoration:none;font-weight:700" class="menu-mobile__name">Khám phá</span>
                     </div>
@@ -313,8 +313,8 @@
         else /*login dc */
         {
             <div style="z-index:5" class="menu-mobile menu-mobile--active">
-                <a style="color:black;text-decoration:none" href="/Product/Product_Index_Main">
-                    <div class="menu-mobile__box">
+                <a style="color:black;text-decoration:none" href="#">
+                    <div class="menu-mobile__box ">
                         <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
                         <span style="color: rgb(113, 113, 113); text-decoration:none;font-weight:700" class="menu-mobile__name">Khám phá</span>
                     </div>
@@ -355,8 +355,14 @@
         var boxfilterforuser = document.querySelector('.form-filter--overplay') // bat cai box mo
         var form = document.querySelector('.form-filter--modal') // bat form
         var filterbox = document.querySelector('.box-loc') // cai box filter
-        var icfilterbox = document.querySelector('.filterbox-ic')
+        var icfilterbox = document.querySelector('.filterbox-ic') // icon filter box
+        var headerSearch = document.querySelector('.nav-middle') // search header
+        var searchMenu = document.querySelector('menu-search') // search menu 
+        //searchMenu.addEventListener('click', moboxfilter)
+        headerSearch.addEventListener('click', moboxfilter)
         filterbox.addEventListener('click', moboxfilter)
+        
+
         function moboxfilter() { // su kien mo filterbox
             form.classList.add('active')
         }
