@@ -20,6 +20,7 @@ html
     --form-height: 357px;
     --color-magic: #e61e4d;
     --primary-color: #FF385C;
+    --headerOptionNoneActive-height : 81px;
     --colorBackground-magic: background-image ( circle at center,var(--ihf-tp-q) 0%,#e61e4d 27.5%,#e31c5f 40%,#d70466 57.5%,#bd1e59 75%,#bd1e59 100% );
 }
 /*animation*/
@@ -128,4 +129,7 @@ html
 }
 .heightfull{
     height : 100%;
+}
+.activefl{
+    display: flex !important;
 }
