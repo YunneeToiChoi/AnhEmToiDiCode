@@ -24,11 +24,15 @@
     }
 @media(max-width:1023px) 
 {
+    .hide-on-tablet {
+        display: none !important;
+    }
     .menu-left::-webkit-scrollbar{
         width:0;
     }
     .box-loc {
         padding: 20px 30px !important;
+        display : none !important;
     }
     .menu-right {
         flex: 0 0 16.66667% !important;
