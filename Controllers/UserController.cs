@@ -46,7 +46,6 @@ namespace AirBNB_Admin.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
-
                 if (check == null)// chua co id{
                 {
                     //user.Password_User = GetMD5(user.Password_User);
@@ -66,31 +65,6 @@ namespace AirBNB_Admin.Controllers
 
 
         }
-        //public ActionResult index_register(int id = 0)
-        //{
-        //    User emp = new User();
-        //    var lastemployee = db.User.OrderByDescending(x => x.ID_User).FirstOrDefault();
-        //    if (id != 0)
-        //    {
-        //        emp = db.User.Where(x => x.ID_User == id).FirstOrDefault();
-        //    }
-        //    else if (lastemployee == null)
-        //    {
-        //        emp.ID_User = 0;
-        //    }
-        //    else
-        //    {
-        //        emp.ID_User = lastemployee.ID_User + 1;
-        //    }
-        //    return PartialView(emp);
-        //}
-        //[HttpPost]
-        //public ActionResult index_register(User user)
-        //{
-        //    db.User.Add(user);
-        //    db.SaveChanges();
-        //    return PartialView();
-        //}
 
         public ActionResult RegisterUserMobile(int id = 0)
         {
@@ -116,6 +90,7 @@ namespace AirBNB_Admin.Controllers
         public ActionResult RegisterUserMobile(User user)
         {
             var mail = user.Email;
+            Session["event"] = 2;
             if (ModelState.IsValid)
             {
                 var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
@@ -167,10 +142,6 @@ namespace AirBNB_Admin.Controllers
                 return RedirectToAction("Product_Index_Main", "Product");
             }
         }
-        //public ActionResult index_login()
-        //{
-        //    return PartialView();
-        //}
         public ActionResult index_loginMobile()
         {
             return PartialView();
@@ -180,43 +151,5 @@ namespace AirBNB_Admin.Controllers
             Session["User"] = null;
             return RedirectToAction("Product_Index_Main", "Product");
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult LoginAccount(AdminUser user)
-        //{
-        //    var check = db.User.Where(s => s.ID == user.ID && s.Password_User == user.Password_User).FirstOrDefault();
-        //    if (check == null) {
-        //        ViewBag.ErrorInfo = "Sai info ";
-        //        return PartialView();
-        //    }
-        //    else
-        //    {
-        //        db.Configuration.ValidateOnSaveEnabled = false;
-        //        Session["ID"] = user.ID;
-        //        Session["PasswordUser"] = user.Password_User;
-        //        return RedirectToAction("Index", "Home");
-        //    }
-        //}
-        //public ActionResult LoginAccount(string email, string password)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var _password = GetMD5(password);
-        //        var data = db.User.Where(s => s.Email_User.Equals(email) && s.Password_User.Equals(_password)).ToList();
-        //        if (data.Count() > 0)
-        //        {
-        //            // add session
-        //            Session["FullName"] = data.FirstOrDefault().Name_User;
-        //            Session["Email"] = data.FirstOrDefault().Email_User;
-        //            Session["idUser"] = data.FirstOrDefault().ID;
-        //        }
-        //        else
-        //        {
-        //            ViewBag.error = "Login Failed";
-        //            return View();
-        //        }
-        //    }
-        //    return View();
-        //}
     }
 }
