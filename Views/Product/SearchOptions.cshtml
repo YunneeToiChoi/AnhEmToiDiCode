@@ -9,6 +9,12 @@
     form {
         height: 100%;
     }
+    .text-btn__
+    {
+        color:white;
+        text-decoration:none;
+        font-weight:700;
+    }
 </style>
 @using (Html.BeginForm("SearchOptions", "Product"))
 {
@@ -32,12 +38,12 @@
         </div>
         <div class="filter__box pd24" style="height:auto;">
             <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
-                gia Tang Giam Dan
+                Up Down Price
             </h1>
             <div class="filter__price" style="margin-bottom: 60px">
-                <button>@Html.ActionLink("Giá Giảm Dần", "AnswerShowGiaGiamDanSearch", "Product")</button>
+                <button style="text-decoration: none; padding: 20px 30px; background-color: black; border: none; border-radius: 12px;">@Html.ActionLink("Giá Giảm Dần", "AnswerShowGiaGiamDanSearch", "Product", new {@class="text-btn__"})</button>
                 <span style="margin: 0px 20px"> ---- </span>
-                <button>@Html.ActionLink("Giá Tăng Dần", "AnswerShowGiaTangDanSearch", "Product")</button>
+                <button style="text-decoration: none; padding: 20px 30px; background-color: black; border: none; border-radius: 12px;">@Html.ActionLink("Giá Tăng Dần", "AnswerShowGiaTangDanSearch", "Product", new { @class = "text-btn__" })</button>
             </div>
             <hr />
         </div>
