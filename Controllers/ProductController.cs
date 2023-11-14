@@ -182,6 +182,58 @@ namespace AirBNB_Admin.Controllers
             // lưu cái giá đó vào cái biến dữ liệu tạm
             return RedirectToAction("AnswerShowSearch",list);
         }
+        public ActionResult AnswerShowGiaGiamDanSearch()
+        {
+            List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
+            foreach (int i in sum)
+            {
+                var dbContext = new AirbnbEntities2();
+
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                    .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
+                    .Sum();
+
+                var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
+                get.tongtientruocthue = 1;
+                get.tongtientruocthue = -(get.Price * totalDays);
+                get.tongtiensauthue = 1;
+                get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
+                get.tongdem = 1;
+                get.tongdem = totalDays;
+                db.SaveChanges();
+            }
+            var list = from b in db.Rooms
+                       orderby b.Price descending
+                       select b;
+            TempData["GiaGiamDan"] = list;
+            return View(list);
+        }
+        public ActionResult AnswerShowGiaTangDanSearch()
+        {
+            List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
+            foreach (int i in sum)
+            {
+                var dbContext = new AirbnbEntities2();
+
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                    .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
+                    .Sum();
+
+                var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
+                get.tongtientruocthue = 1;
+                get.tongtientruocthue = -(get.Price * totalDays);
+                get.tongtiensauthue = 1;
+                get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
+                get.tongdem = 1;
+                get.tongdem = totalDays;
+                db.SaveChanges();
+            }
+            var list = from b in db.Rooms
+                       orderby b.Price ascending
+                       select b;
+            TempData["GiaTangDan"] = list;
+            return View(list);
+        }
         public ActionResult AnswerShowSearch()
         {
             var list = TempData["SearchResults"] as List<Rooms>;
