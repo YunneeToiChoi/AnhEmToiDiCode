@@ -357,12 +357,15 @@
         var filterbox = document.querySelector('.box-loc') // cai box filter
         var icfilterbox = document.querySelector('.filterbox-ic') // icon filter box
         var headerSearch = document.querySelector('.nav-middle') // search header
-        //var searchMenu = document.querySelectorAll('.menu-mobile__box')
-        //for (var i = 0; i < searchMenu.length; i++) {
-        //    searchMenu[0].addEventListener('click', moboxfilter)
-        //}
-        var menuSearch = document.querySelector('.menu-mobile__search')
-        menuSearch.addEventListener('click', moboxfilter)
+        var searchMenu = document.querySelectorAll('.menu-mobile__box')
+        for (var i = 0; i < searchMenu.length; i++) {
+            //if (searchMenu[0].classList.contains('.menu-mobile__search')){
+            //    searchMenu[0].addEventListener('click', moboxfilter)
+            //}
+            searchMenu[0].addEventListener('click', moboxfilter)
+        }
+        //var menuSearch = document.querySelector('.menu-mobile__search')
+        //menuSearch.addEventListener('click', moboxfilter)
         headerSearch.addEventListener('click', moboxfilter)
         filterbox.addEventListener('click', moboxfilter)
         function moboxfilter() { // su kien mo filterbox
