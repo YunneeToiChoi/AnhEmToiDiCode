@@ -288,7 +288,7 @@
         {
             <div style="z-index:5" class="menu-mobile menu-mobile--active">
                 <a style="color:black;text-decoration:none" href="/UserMobile/Index">
-                    <div class="menu-mobile__box ">
+                    <div class="menu-mobile__box">
                         <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
                         <span style="color: rgb(113, 113, 113); text-decoration:none;font-weight:700" class="menu-mobile__name">Khám phá</span>
                     </div>
@@ -313,12 +313,12 @@
         else /*login dc */
         {
             <div style="z-index:5" class="menu-mobile menu-mobile--active">
-                <a style="color:black;text-decoration:none" href="#">
-                    <div class="menu-mobile__box ">
+                <div class="menu-mobile__search" style="color:black;text-decoration:none">
+                    <div class="menu-mobile__box">
                         <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
                         <span style="color: rgb(113, 113, 113); text-decoration:none;font-weight:700" class="menu-mobile__name">Khám phá</span>
                     </div>
-                </a>
+                </div>
                 <a style="color:black;text-decoration:none" href="/WishList/ShowWish">
                     <div class="menu-mobile__box">
                         <i class="menu-mobile__icon fa-regular fa-heart"></i>
@@ -357,12 +357,14 @@
         var filterbox = document.querySelector('.box-loc') // cai box filter
         var icfilterbox = document.querySelector('.filterbox-ic') // icon filter box
         var headerSearch = document.querySelector('.nav-middle') // search header
-        var searchMenu = document.querySelector('menu-search') // search menu 
-        //searchMenu.addEventListener('click', moboxfilter)
+        //var searchMenu = document.querySelectorAll('.menu-mobile__box')
+        //for (var i = 0; i < searchMenu.length; i++) {
+        //    searchMenu[0].addEventListener('click', moboxfilter)
+        //}
+        var menuSearch = document.querySelector('.menu-mobile__search')
+        menuSearch.addEventListener('click', moboxfilter)
         headerSearch.addEventListener('click', moboxfilter)
         filterbox.addEventListener('click', moboxfilter)
-        
-
         function moboxfilter() { // su kien mo filterbox
             form.classList.add('active')
         }
@@ -371,6 +373,7 @@
         function closefilterbox() {
             form.classList.remove('active')
         }
+      
         // su kien tat  filterbox = form
         //form.addEventListener('click', closeFilterBoxWithForm)
         //function closeFilterBoxWithForm (){
