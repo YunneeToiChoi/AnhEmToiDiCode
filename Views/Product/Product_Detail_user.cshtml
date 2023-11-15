@@ -4,6 +4,7 @@
     ViewBag.Title = "Product_Detail_user";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{var user = Session["User"] as AirBNB_Admin.Models.User;}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var load = document.querySelector('.container_Load');
@@ -13,8 +14,27 @@
             load.classList.add('none');
         }
     });
+    var boxfilterforuser = document.querySelector('.form-filter--overplay') // bat cai box mo
+    var form = document.querySelector('.form-filter--modal') // bat form
+    var filterbox = document.querySelector('.box-loc') // cai box filter
+    var icfilterbox = document.querySelector('.filterbox-ic') // icon filter box
+    var headerSearch = document.querySelector('.nav-middle') // search header
+    //var menuSearch = document.querySelector('.menu-mobile__search')
+    //menuSearch.addEventListener('click', moboxfilter)
+    headerSearch.addEventListener('click', moboxfilter)
+    filterbox.addEventListener('click', moboxfilter)
+    function moboxfilter() { // su kien mo filterbox
+        form.classList.add('active')
+    }
+
+
+
+    boxfilterforuser.addEventListener('click', closefilterbox)
+    icfilterbox.addEventListener('click', closefilterbox) // su kien tat  filterbox = icon hoac form
+    function closefilterbox() {
+        form.classList.remove('active')
+    }
 </script>
-@{var user = Session["User"] as AirBNB_Admin.Models.User;}
 <div class="Containt__details">
     <div class="grid wide">
         <div class="header__details">
