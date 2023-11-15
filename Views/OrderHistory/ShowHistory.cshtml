@@ -23,8 +23,12 @@
         display: block;
     }
 </style>
+
+@{var user = Session["User"] as AirBNB_Admin.Models.User;}
+
 <div class="content oo">
     <div class="grid wide">
+        <h3 style="text-align:center; font-size:4.6rem; margin:10px 0px;">Lịch sử đặt phòng của @user.User_Name</h3>
         <div class="content__container row">
             @foreach (var pro in Model)
             {
@@ -37,8 +41,8 @@
                             </a>
                         </div>
                         @*<div class="content__page">
-                                <p class="content__transition">.<span class="content__transition--no-chosen">....</span></p>
-                            </div>*@
+                            <p class="content__transition">.<span class="content__transition--no-chosen">....</span></p>
+                        </div>*@
                         <div class="content__arrow">
                             <i class="content-arrow__icon fa-solid fa-angle-right"></i>
                         </div>
