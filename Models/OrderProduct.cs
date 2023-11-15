@@ -27,7 +27,9 @@ namespace AirBNB_Admin.Models
         public string idOder { get; set; } // cai nay them tay
         public DateTime DateTime { get; set; } // cai nay them tay
         public virtual User User { get; set; }
+        public Nullable<int> Quantity {  get; set; }    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservation { get; set; }
+        public virtual Rooms Rooms { get; set; }
     }
 }

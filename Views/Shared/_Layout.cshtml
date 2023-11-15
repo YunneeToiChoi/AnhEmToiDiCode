@@ -66,10 +66,10 @@
                                 <div class="user-header__form-box">
 
                                     @*<button class="user-header__form--navRegister">Sign In</button>
-                        <button class="user-header__form--navLogin">Log in</button>
-                        <hr style="border: 0.1px solid #cfcfcf " />
-                        <button class="user-header__form--support">Airbnb your home</button>
-                        <button class="user-header__form--support">Help Center</button>*@
+        <button class="user-header__form--navLogin">Log in</button>
+        <hr style="border: 0.1px solid #cfcfcf " />
+        <button class="user-header__form--support">Airbnb your home</button>
+        <button class="user-header__form--support">Help Center</button>*@
                                     @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
@@ -89,6 +89,7 @@
                                             <hr style="border: 0.1px solid #cfcfcf " />
                                             <button class="user-header__form--support">Airbnb your home</button>
                                             <button class="user-header__form--navWishList">@Html.ActionLink("Wish List", "ShowWish", "WishList", null, new { @class = "rs-alink" })</button>// mot sua thanh actionlink
+                                            <button class="user-header__form--navWishList">@Html.ActionLink("Lịch sử đặt phòng", "ShowHistory", "OrderHistory", null, new { @class = "rs-alink" })</button>// mot sua thanh actionlink
                                             <button class="user-header__form--support">Help Center</button>
                                             <button class="user-header__form--navLogout">@Html.ActionLink("Logout", "Logout", "User", null, new { @class = "rs-alink" })</button>
                                         }

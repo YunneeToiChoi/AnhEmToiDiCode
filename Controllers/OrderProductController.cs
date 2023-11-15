@@ -1,6 +1,8 @@
 ﻿using AirBNB_Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
+using System.Data.Odbc;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -47,17 +49,19 @@ namespace AirBNB_Admin.Controllers
             rooms.Id_Room=id;
             return View(db.Rooms.Where(s=>s.Id_Room==id).ToList());
         }
-        //public ActionResult ViewCardOrder()
-        //{
-        //    var us = db.User.Select(s => s.ID_User).ToList();
-        //    var pro = db.Rooms.Select(s => s.Id_Room).ToList();
-        //    var viewmodel = new ViewmodelProductUser();
-        //    {
-        //        User = us,
-        //        product=pro
-        //    };
-        //    return View(viewmodel);
-            
-        //}
+      public ActionResult EventBuy(int id,OrderProduct order)
+        {
+            try
+            {
+                order.ID_Product = id;
+                db.OrderProduct.Add(order);
+                db.SaveChanges();
+                return View(order);
+            }
+            catch
+            {
+                return Content("Phòng Đã Hết Hoặc Đã Được mua");
+            }
+        }
     }
 }

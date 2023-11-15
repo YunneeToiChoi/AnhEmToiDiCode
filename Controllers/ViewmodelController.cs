@@ -12,7 +12,7 @@ namespace AirBNB_Admin.Controllers
         // GET: Viewmodel
         public class HomeController : Controller
         {
-            AirbnbEntities2 db = new AirbnbEntities2(); // AirbnbContext là context của cơ sở dữ liệu của bạn
+            AirbnbEntities2 db = new AirbnbEntities2(); 
 
             public HomeController(AirbnbEntities2 context)
             {

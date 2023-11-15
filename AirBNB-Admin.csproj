@@ -134,6 +134,8 @@
     <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderDetail_ProductController.cs" />
+    <Compile Include="Controllers\OrderHistoryController.cs" />
     <Compile Include="Controllers\OrderProductController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -165,6 +167,7 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderHistoryViewModel.cs" />
     <Compile Include="Models\OrderProduct.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
@@ -183,6 +186,7 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Top_ViewModel.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>AirBnBDB.tt</DependentUpon>
     </Compile>
@@ -515,6 +519,9 @@
     <Content Include="Views\Product\AnswerShowSearch.cshtml" />
     <Content Include="Views\Product\AnswerShowGiaGiamDanSearch.cshtml" />
     <Content Include="Views\Product\AnswerShowGiaTangDanSearch.cshtml" />
+    <Content Include="Views\OrderDetail_Product\Top10_Pro.cshtml" />
+    <Content Include="Views\OrderProduct\EventBuy.cshtml" />
+    <Content Include="Views\OrderHistory\ShowHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

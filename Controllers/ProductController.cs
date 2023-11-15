@@ -246,6 +246,7 @@ namespace AirBNB_Admin.Controllers
             return View("SearchOptions");
 
         }
+ 
         public ActionResult Product_Index(int cateid)
         { // sap xep product theo id menu va giam dan theo id 
             if (cateid == -1)

@@ -33,6 +33,7 @@ namespace AirBNB_Admin.Models
         public string Place { get; set; }
         public string Images_Room { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public int Quantity {  get; set; }
         public string Home_types { get; set; }
         public string Room_types { get; set; }
         public Nullable<int> ID_Cate { get; set; }
