@@ -30,26 +30,18 @@
                     <div class="order__trip">
                         <h3 class="trip__header">Chuyến đi của bạn</h3>
                         <div class="order__date">
-                            <div class="order__day">
-                                <p class="big-text">Ngày</p>
-                                <a class="order__link" href="">Chỉnh sửa</a>
-                            </div>
                             <p> Từ ngày @Html.DisplayFor(x => temp.Check_in) - Đến ngày @Html.DisplayFor(x => temp.Check_out)</p>
                         </div>
                         <div class="order__quantity">
-                            <div class="order__day">
-                                <p class="big-text">Khách</p>
-                                <a class="order__link" href="">Chỉnh sửa</a>
-                            </div>
                             <p>1 khách</p>
                         </div>
                     </div>
                     <hr style="margin:10px 0px" />
-                <div style="margin-top:40px">
-                    <a style="text-decoration:none" href="/Home/SuccessOrder/@temp.Id_Room" class="order__btn">
-                        Yêu cầu đặt phòng
-                    </a>
-                </div>
+                    <div style="margin-top:40px">
+                        <a style="text-decoration:none" href="/OrderProduct/EventBuy/@temp.Id_Room" class="order__btn">
+                            Yêu cầu đặt phòng
+                        </a>
+                    </div>
                 </div>
                 <div class="content-right col l-4 m-12 c-12">
                     <div class="content-right-box">
