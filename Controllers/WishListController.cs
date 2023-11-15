@@ -69,7 +69,7 @@ namespace AirBNB_Admin.Controllers
             
             }
 
-            return RedirectToAction("index_login", "User");
+            return RedirectToAction("LoginAccount", "User");
         }
         public ActionResult RemoveWish(int id) // chua xoa dc
         {

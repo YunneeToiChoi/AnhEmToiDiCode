@@ -22,63 +22,6 @@
         height: 100%!important;
         overflow-y: hidden!important;
     }
-@media(max-width:1023px) 
-{
-    .hide-on-tablet {
-        display: none !important;
-    }
-    .menu-left::-webkit-scrollbar{
-        width:0;
-    }
-    .box-loc {
-        padding: 20px 30px !important;
-        display : none !important;
-    }
-    .menu-right {
-        flex: 0 0 16.66667% !important;
-        max-width: 16.66667% !important;
-    }
-    .boloc {
-        display: none !important;
-    }
-    .box-price {
-        display: none !important;
-    }
-    .footer__powered-right {
-        text-align: center;
-    }
-
-    .footer__powered {
-        flex-direction:column;
-    }
-
-    .footer__powered-left {
-        text-align: center !important;
-    }
-    .dt__pture-right--child-last
-    {
-        display:none!important;
-    }
-    .Order__Details-interface {
-        flex-direction: column;
-    }
-
-    .Details-interface__Infobox {
-        width: 100% !important;
-    }
-
-    .Oderbox-Main {
-        margin-left: 0 !important;
-        margin-bottom: 0 !important;
-        margin-top: 20px !important;
-        margin-bottom: 20px !important;
-    }
-
-    .Order-box--UX {
-        width: 400px;
-        margin: auto;
-    }
-}
 @media (max-width: 740px) {
     .menu-left
     {
