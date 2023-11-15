@@ -53,12 +53,12 @@ namespace AirBNB_Admin.Controllers
                     //Session["ID"] = user.ID;
                     db.User.Add(user);
                     db.SaveChanges();
-                    return RedirectToAction("index_loginMobile", "User");
+                    return RedirectToAction("LoginAccount", "User");
                 }
                 else
                 {
                     ViewBag.ErrorRegister = "This ID or Email is exist";
-                    return RedirectToAction("RegisterUserMobile", "User");
+                    return RedirectToAction("RegisterUser", "User");
                 }
             }
             return View(user);
