@@ -520,6 +520,7 @@
     <Content Include="Views\Product\AnswerShowGiaTangDanSearch.cshtml" />
     <Content Include="Views\OrderProduct\EventBuy.cshtml" />
     <Content Include="Views\OrderHistory\ShowHistory.cshtml" />
+    <Content Include="Views\Shared\_Empty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
