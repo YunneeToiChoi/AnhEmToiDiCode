@@ -36,11 +36,6 @@
                                 @Html.DisplayFor(modelItem => item.Images_Room)
                             </label>
                         </td>
-                        @*<td>
-                          @Html.ActionLink("Edit", "Product_Edit", "Admin_Product", new { id = item.Id_Room }, null)
-                          @Html.ActionLink("Detail", "Product_Detail", "Admin_Product", new { id = item.Id_Room }, null)
-                          @Html.ActionLink("Delete", "Product_Delete", "Admin_Product", new { id = item.Id_Room }, null)
-                        </td>*@
                         <td>
                             <a href="Product_Edit/@item.Id_Room" class="text-link-action">Sửa</a>
                             <span style="padding:0 8px">|</span>

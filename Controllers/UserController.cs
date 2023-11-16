@@ -13,12 +13,7 @@ namespace AirBNB_Admin.Controllers
 {
     public class UserController : Controller
     {
-        // GET: User
         AirbnbEntities2 db = new AirbnbEntities2();
-        //public ActionResult Index()
-        //{
-        //    return PartialView(db.User.ToList());
-        //}
         public ActionResult RegisterUser(int id = 0)
         {
             id = 0;
@@ -46,26 +41,21 @@ namespace AirBNB_Admin.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
-                if (check == null)// chua co id{
+                if (check == null)
                 {
-                    //user.Password_User = GetMD5(user.Password_User);
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    //Session["ID"] = user.ID;
                     db.User.Add(user);
                     db.SaveChanges();
-                    return RedirectToAction("index_loginMobile", "User");
+                    return RedirectToAction("LoginAccount", "User");
                 }
                 else
                 {
                     ViewBag.ErrorRegister = "This ID or Email is exist";
-                    return RedirectToAction("RegisterUserMobile", "User");
+                    return RedirectToAction("RegisterUser", "User");
                 }
             }
-            return RedirectToAction("RegisterUserMobile", "User");
-
-
+            return View(user);
         }
-
         public ActionResult RegisterUserMobile(int id = 0)
         {
             id = 0;
@@ -95,11 +85,9 @@ namespace AirBNB_Admin.Controllers
             {
                 var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
 
-                if (check == null)// chua co id{
+                if (check == null)
                 {
-                    //user.Password_User = GetMD5(user.Password_User);
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    //Session["ID"] = user.ID;
                     db.User.Add(user);
                     db.SaveChanges();
                     return RedirectToAction("index_loginMobile", "User");
@@ -111,10 +99,7 @@ namespace AirBNB_Admin.Controllers
                 }
             }
             return RedirectToAction("RegisterUserMobile", "User");
-
-
         }
-        //----------------------------------------------------------------------------------------------
         public ActionResult LoginAccount()
         {
             return PartialView();
@@ -124,22 +109,38 @@ namespace AirBNB_Admin.Controllers
         public ActionResult LoginAccount(User user)
         {
             var check = db.User.Where(s => s.Email == user.Email && s.Password == user.Password).FirstOrDefault();
-            if (check == null)
+            if (ModelState.IsValid)
             {
-                ViewBag.LoginFail = "Dang nhap that bai";
-                Session["User"] = null;
-                ModelState.AddModelError("myError", "InvalidEmail or Password");
-                return RedirectToAction("index_loginMobile", "User");
-
+                if (check == null)
+                {
+                    ViewBag.LoginFail = "Đăng nhập thất bại. Email hoặc mật khẩu không chính xác.";
+                    Session["User"] = null;
+                    ModelState.AddModelError("myError", "InvalidEmail or Password");
+                    return View(user);
+                }
+                else
+                {
+                    Session["User"] = check;
+                    Session["ID"] = user.ID_User;
+                    Session["PasswordUser"] = user.Password;
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    db.SaveChanges();
+                    return RedirectToAction("Product_Index_Main", "Product");
+                }
             }
             else
             {
-                Session["User"] = check;
-                db.Configuration.ValidateOnSaveEnabled = false;
-                Session["ID"] = user.ID_User;
-                Session["PasswordUser"] = user.Password;
-                db.SaveChanges();
-                return RedirectToAction("Product_Index_Main", "Product");
+              if(check!=null)
+                {
+                    Session["User"] = check;
+                    Session["ID"] = user.ID_User;
+                    Session["PasswordUser"] = user.Password;
+                    db.Configuration.ValidateOnSaveEnabled = false;
+                    db.SaveChanges();
+                    return RedirectToAction("Product_Index_Main", "Product");
+                }
+                ViewBag.LoginFail = "Đăng nhập thất bại. Email hoặc mật khẩu không chính xác.";
+                return View(user);
             }
         }
         public ActionResult index_loginMobile()

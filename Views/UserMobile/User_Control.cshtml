@@ -1,85 +1,85 @@
-﻿@model  IEnumerable<AirBNB_Admin.Models.User>
+﻿    @model  IEnumerable<AirBNB_Admin.Models.User>
 
-@{
-    ViewBag.Title = "User_Control";
-    Layout = "~/Views/Shared/_InfoUser.cshtml";
-}
-<body>
-    @foreach (var item in Model)
-    {<div style="margin-bottom:50px" class="content">
-    <a href="@Url.Action("Index","UserMobile")" style="color:black"><i style="margin:20px 0px;font-size:2.5rem" class="user-mobile__icon fa-solid fa-chevron-left"></i></a>
-    <h2 style="padding:0px 20px;font-size:2rem">Thông tin cá nhân</h2>
-        <div class="user-mobile__box">
-            <div class="user-mobile__left">
-                <div class="user-mobile__list">
-                    <div class="user-mobile__text">
-                        <p>Tên pháp lý</p>
-                        <p class="blur">@item.User_Name</p>
+    @{
+        ViewBag.Title = "User_Control";
+        Layout = "~/Views/Shared/_InfoUser.cshtml";
+    }
+    <body>
+        @foreach (var item in Model)
+        {<div style="margin-bottom:50px" class="content">
+        <a href="@Url.Action("Index","UserMobile")" style="color:black"><i style="margin:20px 0px;font-size:2.5rem" class="user-mobile__icon fa-solid fa-chevron-left"></i></a>
+        <h2 style="padding:0px 20px;font-size:2rem">Thông tin cá nhân</h2>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Tên pháp lý</p>
+                            <p class="blur">@item.User_Name</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Địa chỉ email</p>
+                            <p class="blur">@item.Email</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Số điện thoại</p>
+                            <p class="blur">@item.Phone_number</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Địa chỉ</p>
+                            <p class="blur">@item.Address</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-mobile__box">
+                <div class="user-mobile__left">
+                    <div class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <p>Mật Khẩu</p>
+                            <p class="blur">@item.Password</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn vadition__box-submit">
+                <div class="user-mobile__left">
+                    <div style="display:block" class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <button class="btn vadition__box-submit"><a style="font-size: 1.6rem !important; padding: 10px; display: block;text-decoration:none;color:white"href="/UserMobile/User_Edit/@item.ID_User">Chỉnh sửa</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div style="padding:20px"></div>
+            <div style="background-color:darkgray!important" class="btn vadition__box-submit">
+                <div class="user-mobile__left">
+                    <div style="display:block" class="user-mobile__list">
+                        <div class="user-mobile__text">
+                            <button style="background-color:darkgray!important" class="btn vadition__box-submit"><a style="font-size: 1.6rem !important; padding: 10px; display: block;text-decoration:none;color:black" href="/UserMobile/User_Delete/@item.ID_User">Detele</a></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="user-mobile__box">
-            <div class="user-mobile__left">
-                <div class="user-mobile__list">
-                    <div class="user-mobile__text">
-                        <p>Địa chỉ email</p>
-                        <p class="blur">@item.Email</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="user-mobile__box">
-            <div class="user-mobile__left">
-                <div class="user-mobile__list">
-                    <div class="user-mobile__text">
-                        <p>Số điện thoại</p>
-                        <p class="blur">@item.Phone_number</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="user-mobile__box">
-            <div class="user-mobile__left">
-                <div class="user-mobile__list">
-                    <div class="user-mobile__text">
-                        <p>Địa chỉ</p>
-                        <p class="blur">@item.Address</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="user-mobile__box">
-            <div class="user-mobile__left">
-                <div class="user-mobile__list">
-                    <div class="user-mobile__text">
-                        <p>Mật Khẩu</p>
-                        <p class="blur">@item.Password</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <div class="btn vadition__box-submit">
-        <div class="user-mobile__left">
-            <div style="display:block" class="user-mobile__list">
-                <div class="user-mobile__text">
-                    <button class="btn vadition__box-submit"><a style="font-size: 1.6rem !important; padding: 10px; display: block;text-decoration:none;color:white"href="/UserMobile/User_Edit/@item.ID_User">Chỉnh sửa</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div style="padding:20px"></div>
-    <div style="background-color:darkgray!important" class="btn vadition__box-submit">
-        <div class="user-mobile__left">
-            <div style="display:block" class="user-mobile__list">
-                <div class="user-mobile__text">
-                    <button style="background-color:darkgray!important" class="btn vadition__box-submit"><a style="font-size: 1.6rem !important; padding: 10px; display: block;text-decoration:none;color:black" href="/UserMobile/User_Delete/@item.ID_User">Detele</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-           
-     }
-</body>
+          
+         }
+    </body>
 

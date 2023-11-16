@@ -34,8 +34,6 @@
                         color: red;
                     }
                 </style>
-
-
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div>
                     <div class="vadition__header pdlr24">
@@ -43,9 +41,6 @@
                         <header class="vadition__header-tittle">Login</header>
                     </div>
                     <hr />
-                    @*END HEADER
-                        BEGIN BOX*@
-
                     <div class="vadition__box pd24">
                         <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
                             Welcome to Airbnb
@@ -60,7 +55,6 @@
                                 @Html.LabelFor(model => model.Password)
                                 @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "vadition__box-password" } })
                                 @Html.ValidationMessageFor(model => model.Password)
-                                @* thieu placeholder *@
                                 <h1 style="color : red">  @ViewBag.LoginFail</h1>
                             </div>
                             <div class="vadition__box-decripstion">
@@ -89,9 +83,8 @@
                             </button>
                         </div>
                     </div>
-
                 </div>
-            }
-        </div>
+             }
+    </div>
     </div>
 

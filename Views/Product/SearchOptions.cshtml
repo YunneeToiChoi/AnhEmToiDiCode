@@ -1,21 +1,37 @@
 ﻿
 @{
     ViewBag.Title = "SearchOptions";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <style>
     form {
         height: 100%;
     }
+    .btn__filter {
+        padding: 16px 20px;
+        background-color: #e61e4d;
+        border:none;
+        border-radius:5px;
+    }
+    .btn__filter:hover{
+        transition:0.2s;
+        cursor:pointer;
+
+    }
+        .btn__filter:hover>a{
+            color:black;
+        }
+        .btn__filter > a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.8rem;
+        }
 </style>
 @using (Html.BeginForm("SearchOptions", "Product"))
 {
     @Html.AntiForgeryToken()
     <div class="vadition__header pdlr24">
         <div class="vadition__header-icon vadition__header-icon--ic filterbox-ic actives"><i class="fa-solid fa-x"></i></div>
-        <header style="padding-right: 37px; text-align:center; align-items: center; font-size: 2.5rem;" class="vadition__header-tittle">Bộ lọc</header>
+        <header style="padding-right: 37px; text-align:center; align-items: center; font-size: 2.5rem;" class="vadition__header-tittle">Tìm kiếm</header>
     </div>
     <hr />
     <div class="Main-filter-box">
@@ -27,6 +43,17 @@
                 <input type="number" class="filter__input" style="width:40%" placeholder="Min" name="min" />
                 <span style="margin: 0px 20px"> ---- </span>
                 <input type="number" class="filter__input" style="width:40%" placeholder="Max" name="max" />
+            </div>
+            <hr />
+        </div>
+        <div class="filter__box pd24" style="height:auto;">
+            <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
+                Bộ lọc giá tăng giảm dần
+            </h1>
+            <div class="filter__price" style="margin-bottom: 60px">
+                <button class="btn__filter">@Html.ActionLink("Giá Giảm Dần", "AnswerShowGiaGiamDanSearch", "Product")</button>
+                <span style="margin: 0px 20px"> ---- </span>
+                <button class="btn__filter">@Html.ActionLink("Giá Tăng Dần", "AnswerShowGiaTangDanSearch", "Product")</button>
             </div>
             <hr />
         </div>
@@ -51,12 +78,8 @@
 
             <hr />
         </div>
-        <div class="end__box">
-            <button type="submit" class="end__btn">Hiển thị địa điểm</button>
+        <div style="display:block" class="end__box">
+            <button style="width:100%; font-size:2.6rem" type="submit" class="end__btn">Hiển thị địa điểm</button>
         </div>
     </div>
 }
-
-
-
-

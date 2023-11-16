@@ -9,13 +9,7 @@ namespace AirBNB_Admin.Controllers
 {
     public class WishListController : Controller
     {
-        // GET: WishList
         AirbnbEntities2 db  = new AirbnbEntities2 ();
-
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
         public ActionResult EmptyLayout()
         {
             return View();
@@ -26,9 +20,7 @@ namespace AirBNB_Admin.Controllers
             {
                 if (Session["Wish"] == null)
                 {
-                    //return RedirectToAction("ShowList", "ShoppingCart");
                     return RedirectToAction("EmptyLayout", "WishList");
-                    //return View("EmptyWish");
                 }
                 Wish wish = Session["Wish"] as Wish;
                 return View(wish);
@@ -52,13 +44,10 @@ namespace AirBNB_Admin.Controllers
                     Session["CheckWish"] = wish.active_heart;
                 }
             return wish;
-            
-          
         }
         public ActionResult AddtoWish(int id)
         {
-
-            var _pro = db.Rooms.SingleOrDefault(s => s.Id_Room == id); // lay product theo id
+            var _pro = db.Rooms.SingleOrDefault(s => s.Id_Room == id);
             Session["HideMenu"] = _pro;
 
             if (_pro != null && Session["User"]!=null)
@@ -68,10 +57,9 @@ namespace AirBNB_Admin.Controllers
                 return RedirectToAction("ShowWish", "WishList");
             
             }
-
-            return RedirectToAction("index_login", "User");
+            return RedirectToAction("LoginAccount", "User");
         }
-        public ActionResult RemoveWish(int id) // chua xoa dc
+        public ActionResult RemoveWish(int id)
         {
             Wish wish = Session["Wish"] as Wish;
             wish.Remove_WishItem(id);

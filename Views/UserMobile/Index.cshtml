@@ -69,8 +69,8 @@
                             <div class="user-mobile__left">
                                 <div class="user-mobile__list">
                                     <div class="user-mobile__text">
-                                        @Html.ActionLink("Đăng Kí", "RegisterUserMobile", "User", null, new { @class = "rs-alink user-mobile__lirs " })
-                                        @Html.ActionLink("Đăng Nhập", "index_loginMobile", "User", null, new { @class = "rs-alink user-mobile__lirs " })
+                                        @Html.ActionLink("Đăng Kí", "RegisterUser", "User", null, new { @class = "rs-alink user-mobile__lirs " })
+                                        @Html.ActionLink("Đăng Nhập", "LoginAccount", "User", null, new { @class = "rs-alink user-mobile__lirs " })
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +177,7 @@
                         </div>
                     </a>
                     <a href="/UserMobile/User_Control/@user.ID_User" style="text-decoration:none; color:black">
-                        <div class="user-mobile__box">
+                        <div  class="user-mobile__box">
                             <div class="user-mobile__left">
                                 <div class="user-mobile__list">
                                     <i class="user-mobile__icon fa-regular fa-user"></i>
@@ -191,8 +191,23 @@
                             </div>
                         </div>
                     </a>
+                    <a href="/OrderHistory/ShowHistory" style="text-decoration:none; color:black">
+                        <div class="user-mobile__box">
+                            <div class="user-mobile__left">
+                                <div class="user-mobile__list">
+                                    <i class="user-mobile__icon fa-regular fa-user"></i>
+                                    <div class="user-mobile__text">
+                                        <p>Lịch sử đặt hàng</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-mobile__right">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
                     <h2 class="user-mobile__header">Hỗ trợ</h2>
-                    <a href="" style="text-decoration:none; color:black">
+                    <a href="@Url.Action("Contact","Home")" style="text-decoration:none; color:black">
                         <div class="user-mobile__box user-mobile__box--no-border">
                             <div class="user-mobile__left">
                                 <div class="user-mobile__list">
@@ -207,7 +222,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="" style="text-decoration:none; color:black">
+                    <a href="@Url.Action("Contact","Home")" style="text-decoration:none; color:black">
                         <div class="user-mobile__box user-mobile__box--no-border">
                             <div class="user-mobile__left">
                                 <div class="user-mobile__list">
@@ -222,7 +237,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="" style="text-decoration:none; color:black">
+                    <a href="@Url.Action("Contact","Home")" style="text-decoration:none; color:black">
                         <div class="user-mobile__box">
                             <div class="user-mobile__left">
                                 <div class="user-mobile__list">
@@ -237,7 +252,6 @@
                             </div>
                         </div>
                     </a>
-                    @*<a class="user-mobile__logout" href="">Đăng Xuất</a>*@
                     @Html.ActionLink("Đăng Xuất", "Logout", "User", null, new { @class = "rs-alink user-mobile__logout" })
                     <br />
                     <div style="padding:5px 0"></div>

@@ -1,9 +1,9 @@
-﻿
+﻿@model IEnumerable<AirBNB_Admin.Models.Rooms>
+
 @{
-    ViewBag.Title = "Product_Index_Main";
+    ViewBag.Title = "AnswerShowGiaTangDanSearch";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model IEnumerable<AirBNB_Admin.Models.Rooms>
 <style>
     .oo {
         display: block;
@@ -52,7 +52,6 @@
                     </div>
                 </div>
             }
-
         </div>
     </div>
     <div class="Main-button_map">
@@ -69,6 +68,7 @@
         <div class="content__container row">
             @foreach (var pro in Model)
             {
+
                 <div class="content__box col l-3 m-4 c-6">
                     <div class="content-img__box">
                         <div class="content__wishlist">
@@ -94,7 +94,6 @@
                     </div>
                 </div>
             }
-
         </div>
     </div>
     <div class="Main-button_map">
@@ -106,4 +105,3 @@
         </div>
     </div>
 </div>
-

@@ -4,9 +4,6 @@
     ViewBag.Title = "LoginAdmin";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-
-
 @using (Html.BeginForm("LoginAdmin", "HomeAdmin"))
 {
     @Html.AntiForgeryToken()
@@ -15,15 +12,12 @@
             color: red;
         }
     </style>
-
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div style="max-width:600px;margin:auto">
         <div class="vadition__header pdlr24">
             <header class="vadition__header-tittle">Log in</header>
         </div>
         <hr />
-        @*END HEADER
-            BEGIN BOX*@
         <div style=" overflow-y: hidden!important" class="vadition__box pd24">
             <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
                 Welcome to Airbnb Admin
@@ -38,9 +32,6 @@
                     @Html.LabelFor(model => model.Password_User)
                     @Html.PasswordFor(model => model.Password_User, new { htmlAttributes = new { @class = "vadition__box-password" } })
                     @Html.ValidationMessageFor(model => model.Password_User)
-                    @* thieu placeholder *@
-
-                    @*<h1 style="color : red">  @ViewBag.LoginFail</h1>*@
                 </div>
                 <div class="vadition__box-decripstion">
                     We’ll call or text you to confirm your number. Standard message and data rates apply.

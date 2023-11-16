@@ -2,50 +2,51 @@
 <style>
     .field-validation-error {
         color: red;
+        font-size: 1.4rem;
+    }
+    label{
+        font-size : 1.4rem;
     }
 </style>
 <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
 <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
 <script>
 
-    registerNav.addEventListener('click', () => { // mo form REGISTER
-        ModalForm.classList.add('active') // nhan nav register >> mo form >> + active form register
-        registerForm.classList.add('active')        // active form register
+    registerNav.addEventListener('click', () => {
+        ModalForm.classList.add('active') 
+        registerForm.classList.add('active') 
         hideBoxNavForm();
     })
-    loginNav.addEventListener('click', () => { // mo form LOGIN
-        ModalForm.classList.add('active') // nhan nav login >> mo form >> + active form login
-        loginForm.classList.add('active')        // active form register
+    loginNav.addEventListener('click', () => {
+        ModalForm.classList.add('active')
+        loginForm.classList.add('active')
         hideBoxNavForm();
     })
 
-    function hideBoxNavForm() { // dong form
+    function hideBoxNavForm() {
         userParent.classList.remove('active')
 
     }
-
-    // close Form = overplay
-
-    overPlayForm.addEventListener('click', () => { ModalForm.classList.remove('active'); registerForm.classList.remove('active'); loginForm.classList.remove('active') }) // click overplay >> tat form >> sau do tat register/login active 
+    overPlayForm.addEventListener('click', () => { ModalForm.classList.remove('active'); registerForm.classList.remove('active'); loginForm.classList.remove('active') }) // click overplay >> tat form >> sau do tat register/login active
     closeForm.addEventListener('click ', () => { ModalForm.classList.remove('active'); registerForm.classList.remove('active'); loginForm.classList.remove('active') })// icon closeForm*/
 </script>
-@*<div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
-    <div class="form-register-clone">
-        <div class="cart-body">*@
 @using (Html.BeginForm("LoginAccount", "User"))
 {
     @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="vadition__header pdlr24">
         <div class="vadition__header-icon vadition__header-icon--ic actives"><i class="fa-solid fa-x"></i></div>
         <header class="vadition__header-tittle">Log in</header>
     </div>
     <hr />
-    @*END HEADER
-        BEGIN BOX*@
     <div class="vadition__box pd24">
         <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
             Welcome to Airbnb
         </h1>
+        @if (!string.IsNullOrEmpty(ViewBag.LoginFail))
+        {
+            <p class="field-validation-error">@ViewBag.LoginFail</p>
+        }
         <form class="vadition__box-form">
             <div class="vadition__box-wrapper">
                 @Html.LabelFor(model => model.Email)
@@ -56,9 +57,6 @@
                 @Html.LabelFor(model => model.Password)
                 @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "vadition__box-password" } })
                 @Html.ValidationMessageFor(model => model.Password)
-                @* thieu placeholder *@
-
-                @*<h1 style="color : red">  @ViewBag.LoginFail</h1>*@
             </div>
             <div class="vadition__box-decripstion">
                 We’ll call or text you to confirm your number. Standard message and data rates apply.
@@ -86,8 +84,4 @@
             </button>
         </div>
     </div>
-    @*END BOx*@
 }
-@*</div>
-    </div>
-    </div>*@

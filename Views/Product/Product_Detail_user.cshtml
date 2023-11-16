@@ -4,6 +4,7 @@
     ViewBag.Title = "Product_Detail_user";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{var user = Session["User"] as AirBNB_Admin.Models.User;}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var load = document.querySelector('.container_Load');
@@ -13,8 +14,22 @@
             load.classList.add('none');
         }
     });
+    var boxfilterforuser = document.querySelector('.form-filter--overplay')
+    var form = document.querySelector('.form-filter--modal')
+    var filterbox = document.querySelector('.box-loc')
+    var icfilterbox = document.querySelector('.filterbox-ic')
+    var headerSearch = document.querySelector('.nav-middle')
+    headerSearch.addEventListener('click', moboxfilter)
+    filterbox.addEventListener('click', moboxfilter)
+    function moboxfilter() {
+        form.classList.add('active')
+    }
+    boxfilterforuser.addEventListener('click', closefilterbox)
+    icfilterbox.addEventListener('click', closefilterbox)
+    function closefilterbox() {
+        form.classList.remove('active')
+    }
 </script>
-@{var user = Session["User"] as AirBNB_Admin.Models.User;}
 <div class="Containt__details">
     <div class="grid wide">
         <div class="header__details">
@@ -48,8 +63,6 @@
                 </div>
             </div>
         </div>
-        <!-- end-header__details -->
-        <!-- Picture__product -->
         <div class="Main__details-picture">
             <div class="pictures__details">
                 <a href="#" class="dt__pture-parent dt__pture-left pture--parent">
@@ -75,12 +88,9 @@
                 </div>
             </div>
         </div>
-        <!-- end-picture__details -->
         <div class="Main__details-Oder">
             <div class="Order__Details-interface">
-                <!-- infobox-Owner -->
                 <div class="Details-interface__Infobox">
-                    <!-- header-info-owner -->
                     <div class="Owner__Info--header">
                         <div class="Details__Owner-name">
                             <h2>AETOIDICODE. Chủ nhà CKR</h2>
@@ -92,8 +102,6 @@
                                 <span class="Roomfeatures-text">1 giường</span>
                                 <span class="assess__dotspace">.</span>
                                 <span class="Roomfeatures-text">1 phòng tắm</span>
-                                @*<span class="assess__dotspace">.</span>*@
-                                @*<span class="Roomfeatures-text">@Html.DisplayFor(model => Model.Room_Description)</span>*@
                             </div>
                         </div>
                         <div class="Details__Owner-logo">
@@ -101,9 +109,7 @@
                             <span class="Owner__logo-icon"><i class="Owner__icon-tag fa-solid fa-signature"></i></span>
                         </div>
                     </div>
-                    <!-- end header-info-owner -->
                     <hr style="border: 1px solid #e7e7e7;">
-                    <!-- Utilities--box -->
                     <div class="Room__Utilities--main">
                         <ul class="Room__Utilities--box">
                             <li class="Room__Utilities--item">
@@ -129,7 +135,6 @@
                             </li>
                         </ul>
                     </div>
-                    <!--end-Utilities--box -->
                     <hr style="border: 1px solid #e7e7e7;">
                     <div class="Room__About-box--service">
                         <ul class="Room__About-list grid row">
@@ -217,7 +222,6 @@
                     </div>
                     <hr style="border: 1px solid #e7e7e7;">
                 </div>
-                <!-- orderbox-Owner -->
                 <div class="Details-interface__Orderbox">
                     <div class="Oderbox-Main">
                         <div class="Order-box--UX">
@@ -267,7 +271,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- end order box -->
             </div>
         </div>
     </div>

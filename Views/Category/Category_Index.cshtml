@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<AirBNB_Admin.Models.Category>
-
 <script>
-    ////////////// LOADER //
     document.addEventListener("DOMContentLoaded", function () {
         var load = document.querySelector('.container_Load');
         setTimeout(timeLoad, 1500);
@@ -71,7 +69,6 @@
         text-decoration: none;
         border-radius: 12px;
     }
-
         .end__btn:hover {
             opacity: 1;
             color: white !important;
@@ -79,8 +76,8 @@
 </style>
 <div class="menu">
     <div class="grid wide">
-        <div class="menu__container">
-            <div class="menu-left col ">
+        <div class="menu__container row">
+            <div style="display:flex" class="menu-left col l-7 m-12 c-12">
                 @foreach (var menu in Model)
                 {
                     <a href="/Product/Product_Index?cateid=@menu.ID_Cate" class="menu__box ">
@@ -90,8 +87,8 @@
                     </a>
                 }
             </div>
-            <div style="display:flex" class="menu-right l-5 m-6 c-2">
-                <div class="menu-right__box navbar__box box-loc">
+            <div style="display:flex" class="menu-right col l-5 m-4 c-12">
+                <div class="menu-right__box navbar__box hide-on-tablet box-loc ">
                     <i class="menu-icon fa-solid fa-filter"></i>
                     <span style="font-size:1.6rem;margin-left:6px;" class="menu__content boloc">Bộ lọc</span>
                 </div>
@@ -105,5 +102,4 @@
         </div>
     </div>
 </div>
-@*@Html.Action("Product_Index", "Product")*@
 
