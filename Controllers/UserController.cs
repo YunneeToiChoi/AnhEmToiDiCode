@@ -41,8 +41,10 @@ namespace AirBNB_Admin.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
-                if (check == null)
+                var check_email = db.User.Where(s => s.Email == user.Email).FirstOrDefault();
+                if (check == null&&check_email==null)
                 {
+
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.User.Add(user);
                     db.SaveChanges();
