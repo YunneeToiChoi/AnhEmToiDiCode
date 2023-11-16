@@ -10,7 +10,6 @@ namespace AirBNB_Admin.Controllers
 {
     public class UserMobileController : Controller
     {
-        // GET: UserMobile
         AirbnbEntities2 db = new   AirbnbEntities2();
         public ActionResult Index(int id=0)
         {
@@ -51,6 +50,5 @@ namespace AirBNB_Admin.Controllers
         {
             return View(db.User.Where(x=> x.ID_User==id).ToList());
         }
-
     }
 }

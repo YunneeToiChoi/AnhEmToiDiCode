@@ -57,8 +57,6 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
                 return View();
             }
         }
-
-
         public ActionResult Category_Delete(int id)
         {
             return View(db.Category.Where(s => s.ID_Cate == id).FirstOrDefault());
@@ -71,15 +69,10 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Category_Control");
         }
-
-
-
         public ActionResult Category_Detail(int id)
         {
             return View(db.Category.Where(s => s.ID_Cate == id).FirstOrDefault());
         }
-
-
         public ActionResult Category_Edit(int id)
         {
             return View(db.Category.Where(s => s.ID_Cate == id).FirstOrDefault());

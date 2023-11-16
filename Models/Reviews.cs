@@ -11,7 +11,6 @@ namespace AirBNB_Admin.Models
 {
     using System;
     using System.Collections.Generic;
-    
     public partial class Reviews
     {
         public int ID { get; set; }

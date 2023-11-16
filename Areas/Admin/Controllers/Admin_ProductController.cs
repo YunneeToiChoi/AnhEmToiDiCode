@@ -17,7 +17,7 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult SelectCate() // tao category list cho prodct = ccah lay data tu category
+        public ActionResult SelectCate()
         {
             Category catels = new Category();
             catels.ListCate = db.Category.ToList<Category>();
@@ -118,8 +118,8 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             
         }
         public ActionResult Product_Control()
-            {
-                return View(db.Rooms.ToList());
-            }
+        {
+            return View(db.Rooms.ToList());
+        }
     } 
 }

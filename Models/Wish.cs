@@ -14,10 +14,10 @@ namespace AirBNB_Admin.Models
         {
             get { return items; }
         }
-        public void Add_Room_Cart (Rooms room, int _quanty = 1) // lay san pham bo vao gio hang
+        public void Add_Room_Cart (Rooms room, int _quanty = 1)
         {
             var item = Items.FirstOrDefault(s => s._product.Id_Room == room.Id_Room);
-            if(item == null) // neu rong thi them moi gio hang
+            if(item == null)
             {
                 items.Add(new WishItem
                 {
@@ -28,7 +28,7 @@ namespace AirBNB_Admin.Models
             }
             else
             {
-                item._quality += _quanty; // tong so luong trong gio hang dc cong don
+                item._quality += _quanty;
             }
         }
         public int Total_quanlity()
@@ -39,7 +39,6 @@ namespace AirBNB_Admin.Models
         {
             items.RemoveAll(s=>s._product.Id_Room==id);
         }
-
     }
     public class WishItem
     {

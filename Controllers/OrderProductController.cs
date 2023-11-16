@@ -20,11 +20,9 @@ namespace AirBNB_Admin.Controllers
             foreach (int i in sum)
             {
                 var dbContext = new AirbnbEntities2();
-
-                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i)
                     .Select(room => EntityFunctions.DiffDays(room.Check_in, room.Check_out))
                     .Sum();
-
                 var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
                 get.tongtientruocthue = 1;
                 get.tongtientruocthue = (get.Price * totalDays);
@@ -32,7 +30,6 @@ namespace AirBNB_Admin.Controllers
                 get.tongtiensauthue = get.tongtientruocthue * 15 / 100;
                 get.tongdem = 1;
                 get.tongdem = totalDays;
-                //x.tongtientrong5ngay = x.Price * 100;
                 db.SaveChanges();
             }
 
@@ -49,7 +46,7 @@ namespace AirBNB_Admin.Controllers
             rooms.Id_Room=id;
             return View(db.Rooms.Where(s=>s.Id_Room==id).ToList());
         }
-      public ActionResult EventBuy(int id,OrderProduct order)
+        public ActionResult EventBuy(int id,OrderProduct order)
         {
             try
             {

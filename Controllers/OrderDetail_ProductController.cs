@@ -9,7 +9,6 @@ namespace AirBNB_Admin.Controllers
 {
     public class OrderDetail_ProductController : Controller
     {
-        // GET: OrderDetail_Product
        AirbnbEntities2 db = new AirbnbEntities2();
         public ActionResult Index()
         {
@@ -40,4 +39,4 @@ namespace AirBNB_Admin.Controllers
             return View(check.Take(10).ToList());
         }
      }
-    }
+}

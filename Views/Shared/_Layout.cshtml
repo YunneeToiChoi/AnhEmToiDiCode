@@ -32,7 +32,6 @@
 <body>
 
     <div class="main">
-        <!-- Navbar -->
         <div class="header">
             <div class="grid wide">
                 <nav class="navbar-mobile navbar row">
@@ -51,8 +50,6 @@
                             </ul>
                         </div>
                     </div>
-
-
                     <div class="nav-right user-navbar__header col l-1 hide-on-mobile">
                         <div class=" navbar__box user-navbar__box">
                             <ul class="navbar__list">
@@ -64,13 +61,6 @@
                             <div class="form-user--overplay"></div>
                             <div class="user-header__form--active">
                                 <div class="user-header__form-box">
-
-                                    @*<button class="user-header__form--navRegister">Sign In</button>
-        <button class="user-header__form--navLogin">Log in</button>
-        <hr style="border: 0.1px solid #cfcfcf " />
-        <button class="user-header__form--support">Airbnb your home</button>
-        <button class="user-header__form--support">Help Center</button>*@
-                                    @*@Html.Action("Index","User")*@
                                     @{var user = Session["User"] as AirBNB_Admin.Models.User;}
 
                                     @{ if (user == null)
@@ -81,7 +71,7 @@
                                             <button class="user-header__form--support">Airbnb your home</button>
                                             <button class="user-header__form--support">Help Center</button>
                                         }
-                                        else /*login dc */
+                                        else
                                         {
                                             <a class="user-header__form--navHello" href="/UserMobile/Index" style="color:black;text-decoration:none;padding:15px 0;text-align:center;font-size:1.6rem; font-weight:500">
                                                 Hello @user.User_Name
@@ -110,11 +100,7 @@
         {
             Session["event"] = 1;
         }
-
-
-
         <div class="render-body-content">
-            <!-- Product -->
             @RenderBody()
         </div>
         <footer class="footer">
@@ -222,7 +208,6 @@
                 </div>
             </div>
             <div class="bottom-Main"></div>
-
         </footer>
         <div class="form-vadition--modal">
             <div class="form-vadition--overplay"></div>
@@ -234,10 +219,6 @@
             </div>
         </div>
     </div>
-
-
-
-    @*  BEGIN LOADER *@
     <div class="container_Load">
         <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
             <div class="wheel"></div>
@@ -257,35 +238,19 @@
             </div>
             <div class="spoke"></div>
         </div>
-
     </div>
-    @* END LOADER *@
-
-
-    @*  BEGIN overplay FILTER BOX  *@
     <div class="form-filter--modal">
         <div class="form-filter--overplay"></div>
         <div style="position: fixed; left: 50%; transform: translateX(-50%); max-width: 800px; right: 0; z-index: 10; background-color: white; top: 26%; height: 60%; overflow: hidden; border-radius: 15px;min-width:400px " class="filter-form">
-            @Html.Partial("~/Views/Product/SearchOptions.cshtml") @* cai nay chi la cai box search option thoi *@
+            @Html.Partial("~/Views/Product/SearchOptions.cshtml")
         </div>
     </div>
-    @*  END  overplay FILTER BOX  *@
-
-
-    @*  Begin overplay HeaderSearch BOX  *@
     <div class="form-headerSearch--modal">
         <div class="form-HeaderSeach--overplay"></div>
     </div>
-    @*  End overplay HeaderSearch BOX  *@
-
-
-    @* Menu-Mobile *@
-
-
-
     @{var usermb = Session["User"] as AirBNB_Admin.Models.User;}
 
-    @{ if (usermb == null) // neu k co dang nhap
+    @{ if (usermb == null)
         {
             <div style="z-index:5" class="menu-mobile menu-mobile--active">
                 <a style="color:black;text-decoration:none" href="/UserMobile/Index">
@@ -311,7 +276,7 @@
 
             </div>
         }
-        else /*login dc */
+        else
         {
             <div style="z-index:5" class="menu-mobile menu-mobile--active">
                 <div class="menu-mobile__search" style="color:black;text-decoration:none">
@@ -338,74 +303,44 @@
             </div>
         }
     }
-
-
-
-
-
-    @* End Menu-Mobile *@
-
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/Scripts/scripts/FilterBox.js"></script>
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/scripts/Modal_user.js"></script>
     <script>
-        var boxfilterforuser = document.querySelector('.form-filter--overplay') // bat cai box mo
-        var form = document.querySelector('.form-filter--modal') // bat form
-        var filterbox = document.querySelector('.box-loc') // cai box filter
-        var icfilterbox = document.querySelector('.filterbox-ic') // icon filter box
-        var headerSearch = document.querySelector('.nav-middle') // search header
+        var boxfilterforuser = document.querySelector('.form-filter--overplay')
+        var form = document.querySelector('.form-filter--modal')
+        var filterbox = document.querySelector('.box-loc')
+        var icfilterbox = document.querySelector('.filterbox-ic')
+        var headerSearch = document.querySelector('.nav-middle')
         var searchMenu = document.querySelectorAll('.menu-mobile__box')
         for (var i = 0; i < searchMenu.length; i++) {
-            //if (searchMenu[0].classList.contains('.menu-mobile__search')){
-            //    searchMenu[0].addEventListener('click', moboxfilter)
-            //}
             searchMenu[0].addEventListener('click', moboxfilter)
         }
-        //var menuSearch = document.querySelector('.menu-mobile__search')
-        //menuSearch.addEventListener('click', moboxfilter)
         headerSearch.addEventListener('click', moboxfilter)
         filterbox.addEventListener('click', moboxfilter)
-        function moboxfilter() { // su kien mo filterbox
+        function moboxfilter() {
             form.classList.add('active')
         }
         boxfilterforuser.addEventListener('click', closefilterbox)
-        icfilterbox.addEventListener('click', closefilterbox) // su kien tat  filterbox = icon hoac form
+        icfilterbox.addEventListener('click', closefilterbox)
         function closefilterbox() {
             form.classList.remove('active')
         }
-      
-        // su kien tat  filterbox = form
-        //form.addEventListener('click', closeFilterBoxWithForm)
-        //function closeFilterBoxWithForm (){
-        //     form.classList.remove('active')
-        //    boxfilterforuser.classList.remove('active')
-        //}
         document.addEventListener('DOMContentLoaded', function () {
             var checkbox = document.getElementById('checkboxInput');
-            var item = document.querySelector('.oo'); // su kien mac dinh
-            var items = document.querySelector('.ee') // su kien texas
-            if (checkbox) { // true
+            var item = document.querySelector('.oo');
+            var items = document.querySelector('.ee')
+            if (checkbox) {
                 checkbox.addEventListener('change', function () {
                     if (checkbox.checked) {
-                        // Checkbox đã được chọn
-                        console.log('Checkbox is checked'); // >> thue
-                        //loadPartialView(partialViewName, partialViewContainer);
-                        // action to product Ago
-
-                        //item.classList.add('anoo');
-                        //items.classList.add('hienee');
+                        console.log('Checkbox is checked');
                         item.style.display = "none";
                         items.style.display = "block";
-                    } else { // false
-                        // Checkbox đã bị bỏ chọn
-                        console.log('Checkbox is unchecked'); // bth
-                        // action to product index
-                        //item.classList.remove('anoo');
-                        //items.classList.remove('hienee');
+                    } else {
+                        console.log('Checkbox is unchecked')
                         item.style.cssText = "block !important";
                         items.style.cssText = "none !important";
 
@@ -413,7 +348,6 @@
                 });
             }
         });
-        ////////////// LOADER //
         document.addEventListener("DOMContentLoaded", function () {
             var load = document.querySelector('.container_Load');
             setTimeout(timeLoad, 1500);
@@ -428,6 +362,5 @@
             display: none !important;
         }
     </style>
-
 </body>
 </html>

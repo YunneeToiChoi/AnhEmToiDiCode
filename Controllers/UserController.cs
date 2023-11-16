@@ -13,12 +13,7 @@ namespace AirBNB_Admin.Controllers
 {
     public class UserController : Controller
     {
-        // GET: User
         AirbnbEntities2 db = new AirbnbEntities2();
-        //public ActionResult Index()
-        //{
-        //    return PartialView(db.User.ToList());
-        //}
         public ActionResult RegisterUser(int id = 0)
         {
             id = 0;
@@ -46,11 +41,9 @@ namespace AirBNB_Admin.Controllers
             if (ModelState.IsValid)
             {
                 var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
-                if (check == null)// chua co id{
+                if (check == null)
                 {
-                    //user.Password_User = GetMD5(user.Password_User);
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    //Session["ID"] = user.ID;
                     db.User.Add(user);
                     db.SaveChanges();
                     return RedirectToAction("LoginAccount", "User");
@@ -62,11 +55,7 @@ namespace AirBNB_Admin.Controllers
                 }
             }
             return View(user);
-            //return RedirectToAction("RegisterUserMobile", "User");
-
-
         }
-
         public ActionResult RegisterUserMobile(int id = 0)
         {
             id = 0;
@@ -96,11 +85,9 @@ namespace AirBNB_Admin.Controllers
             {
                 var check = db.User.SingleOrDefault(s => s.ID_User == user.ID_User && s.Email.Equals(mail));
 
-                if (check == null)// chua co id{
+                if (check == null)
                 {
-                    //user.Password_User = GetMD5(user.Password_User);
                     db.Configuration.ValidateOnSaveEnabled = false;
-                    //Session["ID"] = user.ID;
                     db.User.Add(user);
                     db.SaveChanges();
                     return RedirectToAction("index_loginMobile", "User");
@@ -112,10 +99,7 @@ namespace AirBNB_Admin.Controllers
                 }
             }
             return RedirectToAction("RegisterUserMobile", "User");
-
-
         }
-        //----------------------------------------------------------------------------------------------
         public ActionResult LoginAccount()
         {
             return PartialView();
@@ -124,7 +108,6 @@ namespace AirBNB_Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LoginAccount(User user)
         {
-
             var check = db.User.Where(s => s.Email == user.Email && s.Password == user.Password).FirstOrDefault();
             if (ModelState.IsValid)
             {
@@ -159,8 +142,6 @@ namespace AirBNB_Admin.Controllers
                 ViewBag.LoginFail = "Đăng nhập thất bại. Email hoặc mật khẩu không chính xác.";
                 return View(user);
             }
-
-          
         }
         public ActionResult index_loginMobile()
         {

@@ -9,7 +9,6 @@ namespace AirBNB_Admin.Controllers
 {
     public class ViewmodelController : Controller
     {
-        // GET: Viewmodel
         public class HomeController : Controller
         {
             AirbnbEntities2 db = new AirbnbEntities2(); 
@@ -18,7 +17,6 @@ namespace AirBNB_Admin.Controllers
             {
                 db = context;
             }
-
             public ActionResult AdminUserCategory()
             {
                 var adminUserCategoryData = (from au in db.AdminUser
@@ -30,10 +28,8 @@ namespace AirBNB_Admin.Controllers
                                                  CategoryID = c.ID_Cate,
                                                  CategoryName = c.Name_Cate
                                              }).ToList();
-
                 return View(adminUserCategoryData);
             }
-
             public ActionResult OrderProductUser()
             {
                 var orderProductUserData = (from op in db.OrderProduct
@@ -49,7 +45,6 @@ namespace AirBNB_Admin.Controllers
 
                 return View(orderProductUserData);
             }
-
             public ActionResult ReservationRooms()
             {
                 var reservationRoomsData = (from r in db.Reservation

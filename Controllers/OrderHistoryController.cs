@@ -10,13 +10,13 @@ namespace AirBNB_Admin.Controllers
 {
     public class OrderHistoryController : Controller
     {
-        // GET: OrderHistory
         AirbnbEntities2 db = new AirbnbEntities2();
         public ActionResult Index()
         {
             return View();
         }
 
+        [Obsolete]
         public ActionResult ShowHistory()
         {
             var roomOrderViewModels = (from room in db.Rooms
@@ -38,7 +38,7 @@ namespace AirBNB_Admin.Controllers
                 {
                     var dbContext = new AirbnbEntities2();
 
-                    var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                    var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i)
                         .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
                         .Sum();
 
@@ -51,10 +51,8 @@ namespace AirBNB_Admin.Controllers
                     get.tongdem = totalDays;
                     db.SaveChanges();
                 }
-
             }
             return View(roomOrderViewModels);
-
         }
     }
 }

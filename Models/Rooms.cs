@@ -45,13 +45,11 @@ namespace AirBNB_Admin.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Check_out { get; set; }
         public string active_heart { get; set; }
-        public Nullable<decimal> tongtientruocthue { get; set; }// cai nay them tay
-        public Nullable<decimal> tongtiensauthue { get; set; }// cai nay them tay
-        public Nullable<decimal> tongdem { get; set; } // cai nay them tay
-        public int Guest { get; set; } // cai nay them tay
-        public string Status { get; set; } // cai nay them tay
-
-
+        public Nullable<decimal> tongtientruocthue { get; set; }
+        public Nullable<decimal> tongtiensauthue { get; set; }
+        public Nullable<decimal> tongdem { get; set; }
+        public int Guest { get; set; }
+        public string Status { get; set; }
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservation { get; set; }

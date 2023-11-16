@@ -16,16 +16,10 @@
 </style>
 <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
 <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
-
-@*<div style=" display:flex; height:100%" class="card bg-gradient-danger l-12 m-12 c-12">
-    <div class="form-register-clone">
-        <div class="cart-body">*@
 @using (Html.BeginForm("LoginAccount", "User"))
 {
     @Html.AntiForgeryToken();
 <div style="max-width:600px;margin:auto">
-    @*END HEADER
-        BEGIN BOX*@
     <div style="height: 100%!important; overflow-y: hidden!important" class="vadition__box pd24">
         <h1 style="margin-bottom: 20px;" class="vadition__box-tittle">
             Log in
@@ -40,9 +34,6 @@
                 @Html.LabelFor(model => model.Password)
                 @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "vadition__box-password" } })
                 @Html.ValidationMessageFor(model => model.Password)
-                @* thieu placeholder *@
-
-                @*<h1 style="color : red">  @ViewBag.LoginFail</h1>*@
             </div>
             <div class="vadition__box-decripstion">
                 We’ll call or text you to confirm your number. Standard message and data rates apply.
@@ -70,10 +61,4 @@
         </div>
     </div>
 </div>
-  
-    @*END BOx*@
 }
-@*</div>
-    </div>
-    </div>*@
-

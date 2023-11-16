@@ -11,15 +11,12 @@ namespace AirBNB_Admin.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
         AirbnbEntities2 db = new AirbnbEntities2();
-
         public ActionResult Map()
         {
 
             return View();
         }
-
         [Obsolete]
         public ActionResult Product_Index_Main()
         {
@@ -28,10 +25,9 @@ namespace AirBNB_Admin.Controllers
             {
                 var dbContext = new AirbnbEntities2();
 
-                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i)
                     .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
                     .Sum();
-
                 var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
                 get.tongtientruocthue = 1;
                 get.tongtientruocthue = -(get.Price * totalDays);
@@ -43,7 +39,6 @@ namespace AirBNB_Admin.Controllers
             }
             return PartialView(db.Rooms.ToList());
         }
-
         [Obsolete]
         public ActionResult Product_Index_Main__Agothims(int id = 0)
         {
@@ -72,10 +67,9 @@ namespace AirBNB_Admin.Controllers
             {
                 var dbContext = new AirbnbEntities2();
 
-                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i)
                     .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
                     .Sum();
-
                 var get = db.Rooms.Where(s => s.Id_Room == i).FirstOrDefault();
                 get.tongtientruocthue = 1;
                 get.tongtientruocthue = -(get.Price * totalDays);
@@ -85,14 +79,12 @@ namespace AirBNB_Admin.Controllers
                 get.tongdem = totalDays;
                 db.SaveChanges();
             }
-
             List<Category> catels = db.Category.ToList();
             Rooms pro = new Rooms();
             foreach (var item in catels)
             {
                 pro.Name_Cate = db.Category.Where(x => x.ID_Cate == item.ID_Cate).Select(x => x.Name_Cate).FirstOrDefault();
             }
-
             return View(db.Rooms.ToList());
         }
         public ActionResult ShowProductHBOR()
@@ -162,7 +154,7 @@ namespace AirBNB_Admin.Controllers
             {
                 var dbContext = new AirbnbEntities2();
 
-                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i)
                     .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
                     .Sum();
 
@@ -175,13 +167,12 @@ namespace AirBNB_Admin.Controllers
                 get.tongdem = totalDays;
                 db.SaveChanges();
             }
-            // Hàm này là hàm chung của các chức năng search nè
             var list = db.Rooms.Where(p => (decimal)p.Price >= min && (decimal)p.Price <= max).ToList();
-            // cái list này là chọn giá....
             TempData["SearchResults"] = list;
-            // lưu cái giá đó vào cái biến dữ liệu tạm
             return RedirectToAction("AnswerShowSearch",list);
         }
+
+        [Obsolete]
         public ActionResult AnswerShowGiaGiamDanSearch()
         {
             List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
@@ -189,7 +180,7 @@ namespace AirBNB_Admin.Controllers
             {
                 var dbContext = new AirbnbEntities2();
 
-                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i)
                     .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
                     .Sum();
 
@@ -215,7 +206,7 @@ namespace AirBNB_Admin.Controllers
             {
                 var dbContext = new AirbnbEntities2();
 
-                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i) // thuat toan tinh tong ngay cua san pham 
+                var totalDays = dbContext.Rooms.Where(s => s.Id_Room == i)
                     .Select(room => EntityFunctions.DiffDays(room.Check_out, room.Check_in))
                     .Sum();
 
@@ -237,18 +228,14 @@ namespace AirBNB_Admin.Controllers
         public ActionResult AnswerShowSearch()
         {
             var list = TempData["SearchResults"] as List<Rooms>;
-            // lấy biến dữ liệu đó ra vào list 
             if (list != null)
             {
                 return View(list);
             }
-            // k có gì thì cho search lại
             return View("SearchOptions");
-
         }
- 
         public ActionResult Product_Index(int cateid)
-        { // sap xep product theo id menu va giam dan theo id 
+        { 
             if (cateid == -1)
             {
                 var productList = db.Rooms.OrderByDescending(x => x.ID_Cate);
@@ -273,7 +260,5 @@ namespace AirBNB_Admin.Controllers
             }
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
-
-
     }
 }
