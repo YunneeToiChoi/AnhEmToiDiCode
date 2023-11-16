@@ -4,17 +4,22 @@
         color: red;
         font-size: 1.4rem;
     }
-    label{
-        font-size : 1.4rem;
+
+    label {
+        font-size: 1.4rem;
     }
 </style>
+@{ 
+    Layout = "~/Views/Shared/_Empty.cshtml";
+
+}
 <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
 <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
 <script>
 
     registerNav.addEventListener('click', () => {
-        ModalForm.classList.add('active') 
-        registerForm.classList.add('active') 
+        ModalForm.classList.add('active')
+        registerForm.classList.add('active')
         hideBoxNavForm();
     })
     loginNav.addEventListener('click', () => {
@@ -30,6 +35,8 @@
     overPlayForm.addEventListener('click', () => { ModalForm.classList.remove('active'); registerForm.classList.remove('active'); loginForm.classList.remove('active') }) // click overplay >> tat form >> sau do tat register/login active
     closeForm.addEventListener('click ', () => { ModalForm.classList.remove('active'); registerForm.classList.remove('active'); loginForm.classList.remove('active') })// icon closeForm*/
 </script>
+<div class="grid wide">
+
 @using (Html.BeginForm("LoginAccount", "User"))
 {
     @Html.AntiForgeryToken();
@@ -47,6 +54,7 @@
         {
             <p class="field-validation-error">@ViewBag.LoginFail</p>
         }
+
         <form class="vadition__box-form">
             <div class="vadition__box-wrapper">
                 @Html.LabelFor(model => model.Email)
@@ -85,3 +93,4 @@
         </div>
     </div>
 }
+</div>

@@ -2,9 +2,13 @@
 <style>
     .field-validation-error {
         color: red;
-        font-size : 1.4rem;
+        font-size: 1.4rem;
     }
 </style>
+@{
+    Layout = "~/Views/Shared/_Empty.cshtml";
+
+}
 <link rel="stylesheet" href="~/Assests/CSS/FORM/VADITION.css" />
 <link rel="stylesheet" href="~/Assests/CSS/Base_css/base.css" />
 @using (Html.BeginForm("RegisterUser", "User", FormMethod.Post, new { enctype = "multipartform/data" }))
