@@ -68,8 +68,8 @@
                                             <button class="user-header__form--navRegister">Sign up</button>
                                             <button class="user-header__form--navLogin">Log in</button>
                                             <hr style="border: 0.1px solid #cfcfcf " />
-                                            <button class="user-header__form--support">Airbnb your home</button>
-                                            <button class="user-header__form--support">Help Center</button>
+                                            <button class="user-header__form--support">@Html.ActionLink("Airbnb your home", "Contact", "Home", null, new { @class = "rs-alink" })</button>
+                                            <button class="user-header__form--support">@Html.ActionLink("Help Center", "Contact", "Home", null, new { @class = "rs-alink" })</button>
                                         }
                                         else
                                         {
