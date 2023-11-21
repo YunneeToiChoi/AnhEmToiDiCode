@@ -90,32 +90,39 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return View(db.Rooms.Where(s => s.Id_Room == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Product_Edit(int id, Rooms room)
+        [ValidateAntiForgeryToken]
+        public ActionResult Product_Edit([Bind(Include = "Id_Room,Room_Name,Room_Description,Images_Room,Price,ID_Cate,Name_Cate")] Rooms room, HttpPostedFileBase Upload)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (room.UploadImage != null)
+                var pro = db.Rooms.FirstOrDefault(p => p.Id_Room == room.Id_Room);
+                if (pro != null)
                 {
-                    string filename = Path.GetFileNameWithoutExtension(room.UploadImage.FileName);
-                    string extent = Path.GetExtension(room.UploadImage.FileName);
-                    filename += extent;
-                    room.Images_Room = "~/Content/image/" + filename;
-                    room.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
+                    pro.Room_Name = room.Room_Name;
+                    pro.Room_Description = room.Room_Description;
+                    pro.Price = room.Price;
+                    pro.Name_Cate = room.Name_Cate;
+                    pro.ID_Cate = room.ID_Cate;
+                    if (Upload != null)
+                    {
+                        var filename = Path.GetFileName(Upload.FileName);
+                        var path = Path.Combine(Server.MapPath("~/Content/image/"),filename);
+                        pro.Images_Room = "~/Content/image/" + filename;
+                        Upload.SaveAs(path);
+                    }
                 }
-                List<Category> catels = db.Category.ToList();
-                foreach (var item in catels)
-                {
-                    room.Name_Cate = db.Category.Where(x => x.ID_Cate == room.ID_Cate).Select(x=>x.Name_Cate).FirstOrDefault();
-                }
-                db.Entry(room).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Product_Control");
             }
-            catch
-            {
-                return Content("Sai roi bro");
-            }
-            
+            //List<Category> catels = db.Category.ToList();
+            //foreach (var item in catels)
+            //{
+            //    room.Name_Cate = db.Category.Where(x => x.ID_Cate == room.ID_Cate).Select(x=>x.Name_Cate).FirstOrDefault();
+            //}
+            //db.Entry(room).State = System.Data.Entity.EntityState.Modified;
+            //db.SaveChanges();
+            //return RedirectToAction("Product_Control");
+            return View(room);
         }
         public ActionResult Product_Control()
         {
