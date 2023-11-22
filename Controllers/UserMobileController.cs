@@ -36,7 +36,7 @@ namespace AirBNB_Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult User_Edit([Bind(Include = "ID_User,Email,Phone_number,User_Name,Address,Password")] User account)
+        public ActionResult User_Edit([Bind(Include = "ID_User,Email,Phone_number,User_Name,Address,Password")] User account) // bin ke thua lai cac contruc
         {
             var pro = db.User.FirstOrDefault(s => s.ID_User == account.ID_User);
             if (pro != null)
@@ -49,15 +49,15 @@ namespace AirBNB_Admin.Controllers
                 pro.Password = account.Password;
                 pro.ConfirmPassword = account.Password;
             }
-            try
+            try // test bug
             {
                 db.SaveChanges();
             }
             catch (DbEntityValidationException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex); // bat loi
             }
-            return RedirectToAction("Logout", "User");
+            return RedirectToAction("Logout", "User"); // fix xong thi log out 
         }
 
         public ActionResult User_Control(int id)
