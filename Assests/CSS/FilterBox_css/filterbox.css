@@ -96,7 +96,7 @@
     }
 .form-filter--modal {
     position:fixed;
-    z-index:5;
+    z-index:5!important;
     top:0;
     bottom:0;
     right:0;

@@ -239,7 +239,7 @@
             <div class="spoke"></div>
         </div>
     </div>
-    <div class="form-filter--modal">
+    <div style="z-index:5!important;" class="form-filter--modal">
         <div class="form-filter--overplay"></div>
         <div style="position: fixed; left: 50%; transform: translateX(-50%); max-width: 800px; right: 0; z-index: 10; background-color: white; top: 26%; height: 60%; overflow: hidden; border-radius: 15px;min-width:400px " class="filter-form">
             @Html.Partial("~/Views/Product/SearchOptions.cshtml")
@@ -253,7 +253,7 @@
     @{ if (usermb == null)
         {
             <div style="z-index:5" class="menu-mobile menu-mobile--active">
-                <a style="color:black;text-decoration:none" href="/UserMobile/Index">
+                <a style="color:black;text-decoration:none" href="/Product/Product_Index_Main">
                     <div class="menu-mobile__box">
                         <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
                         <span style="color: rgb(113, 113, 113); text-decoration:none;font-weight:700" class="menu-mobile__name">Khám phá</span>
@@ -278,29 +278,29 @@
         }
         else
         {
-            <div style="z-index:5" class="menu-mobile menu-mobile--active">
-                <div class="menu-mobile__search" style="color:black;text-decoration:none">
-                    <div class="menu-mobile__box">
-                        <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
-                        <span style="color: rgb(113, 113, 113); text-decoration:none;font-weight:700" class="menu-mobile__name">Khám phá</span>
-                    </div>
-                </div>
-                <a style="color:black;text-decoration:none" href="/WishList/ShowWish">
-                    <div class="menu-mobile__box">
-                        <i class="menu-mobile__icon fa-regular fa-heart"></i>
-                        <h4 class="menu-mobile__name">
-                            <span class="rs-alink-mb">Yêu thích</span>
-                        </h4>
-                    </div>
-                </a>
-                <a style="color:black;text-decoration:none" href="/UserMobile/Index">
-                    <div class="menu-mobile__box">
-                        <i class="menu-mobile__icon fa-regular fa-user"></i>
-                        <h4 class="menu-mobile__name"> <span class="rs-alink-mb">Đăng nhập</span></h4>
-                    </div>
-                </a>
+<div style="z-index:5" class="menu-mobile menu-mobile--active">
+    <a style="color:black;text-decoration:none" href="/Product/Product_Index_Main">
+        <div class="menu-mobile__box">
+            <i class="menu-mobile__icon fa-solid fa-magnifying-glass"></i>
+            <span style="color: rgb(113, 113, 113); text-decoration:none;font-weight:700" class="menu-mobile__name">Khám phá</span>
+        </div>
+    </a>
+    <a style="color:black;text-decoration:none" href="/WishList/ShowWish">
+        <div class="menu-mobile__box">
+            <i class="menu-mobile__icon fa-regular fa-heart"></i>
+            <h4 class="menu-mobile__name">
+                <span class="rs-alink-mb">Yêu thích</span>
+            </h4>
+        </div>
+    </a>
+    <a style="color:black;text-decoration:none" href="/UserMobile/Index">
+        <div class="menu-mobile__box">
+            <i class="menu-mobile__icon fa-regular fa-user"></i>
+            <h4 class="menu-mobile__name"> <span class="rs-alink-mb">Đăng nhập</span></h4>
+        </div>
+    </a>
 
-            </div>
+</div>
         }
     }
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
@@ -315,7 +315,7 @@
         var filterbox = document.querySelector('.box-loc')
         var icfilterbox = document.querySelector('.filterbox-ic')
         var headerSearch = document.querySelector('.nav-middle')
-        var searchMenu = document.querySelectorAll('.menu-mobile__box')
+        var searchMenu = document.querySelectorAll('.nav-middle_width')
         for (var i = 0; i < searchMenu.length; i++) {
             searchMenu[0].addEventListener('click', moboxfilter)
         }
