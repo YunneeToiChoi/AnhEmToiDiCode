@@ -1,8 +1,10 @@
 ﻿using AirBNB_Admin.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,19 +35,31 @@ namespace AirBNB_Admin.Controllers
             return View(db.User.Where(s => s.ID_User == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult User_Edit(int id, User user)
+        [ValidateAntiForgeryToken]
+        public ActionResult User_Edit([Bind(Include = "ID_User,Email,Phone_number,User_Name,Address,Password")] User account) // bin ke thua lai cac contruc
         {
-            try
+            var pro = db.User.FirstOrDefault(s => s.ID_User == account.ID_User);
+            if (pro != null)
             {
-                db.Entry(user).State = System.Data.Entity.EntityState.Modified; 
+                pro.ID_User = account.ID_User;
+                pro.User_Name = account.User_Name;
+                pro.Email = account.Email;
+                pro.Phone_number = account.Phone_number;
+                pro.Address = account.Address;
+                pro.Password = account.Password;
+                pro.ConfirmPassword = account.Password;
+            }
+            try // test bug
+            {
                 db.SaveChanges();
-                return RedirectToAction("Logout","User");
             }
-            catch
+            catch (DbEntityValidationException ex)
             {
-                return Content("Sai roi bro, xoa di ma lam nguoi");
+                Console.WriteLine(ex); // bat loi
             }
+            return RedirectToAction("Logout", "User"); // fix xong thi log out 
         }
+
         public ActionResult User_Control(int id)
         {
             return View(db.User.Where(x=> x.ID_User==id).ToList());

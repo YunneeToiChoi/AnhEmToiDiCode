@@ -87,12 +87,14 @@
     justify-content: space-between;
     height:40px;
 }
-
-.content__owner, .content__date, .content__day {
-    color: #717171;
-    font-weight: 400;
-    margin: 4px 0px;
-}
+    .content__header > p:first-child {
+        width: 72%;
+    }
+    .content__owner, .content__date, .content__day {
+        color: #717171;
+        font-weight: 400;
+        margin: 4px 0px;
+    }
 .content__owner {
   display: -webkit-box;
   -webkit-box-orient: vertical;
