@@ -78,26 +78,23 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             return View(db.Category.Where(s => s.ID_Cate == id).FirstOrDefault());
         }
         [HttpPost]
-        public ActionResult Category_Edit(Category cate)
+        [ValidateAntiForgeryToken]
+        public ActionResult Category_Edit([Bind(Include = "ID_Cate,Name_Cate,Image_Cate")] Category cate, HttpPostedFileBase Upload)
         {
-            try
+            var pro = db.Category.FirstOrDefault(p => p.ID_Cate == cate.ID_Cate );
+            if (pro != null)
             {
-                if (cate.UploadImage != null )
+                pro.Name_Cate = cate.Name_Cate;
+                if (Upload != null)
                 {
-                    string filename = Path.GetFileNameWithoutExtension(cate.UploadImage.FileName);
-                    string extent = Path.GetExtension(cate.UploadImage.FileName);
-                    filename += extent;
-                    cate.Image_Cate = "~/Content/image/" + filename;
-                    cate.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/image/"), filename));
+                    var filename = Path.GetFileName(Upload.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/image/"), filename);
+                    pro.Image_Cate = "~/Content/image/" + filename;
+                    Upload.SaveAs(path);
                 }
-                db.Entry(cate).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Category_Control");
             }
-            catch
-            {
-                return Content("Sai roi bro, xoa di ma lam nguoi");
-            }
+            db.SaveChanges();
+            return RedirectToAction("Category_Control");
         }
     }
 }

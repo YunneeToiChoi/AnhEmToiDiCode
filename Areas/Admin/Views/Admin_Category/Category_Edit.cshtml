@@ -33,7 +33,7 @@
                         <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
                         <span class="input-group-append">
                             <label for="uploadimg" class="file-upload-browse btn btn-gradient-primary" type="button">Upload</label>
-                            <input id="uploadimg" style="display:none" type="file" name="UploadImage" onchange="ChangeImage(this,document.getElementById('previewImg'))" />
+                            <input id="uploadimg" style="display:none" type="file" name="Upload" onchange="ChangeImage(this,document.getElementById('previewImg'))" />
                         </span>
                     </div>
                     <img src="@Url.Content(Model.Image_Cate)" height="150" width="150" id="previewImg" />

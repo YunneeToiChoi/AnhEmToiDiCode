@@ -21,15 +21,15 @@
 {
     font-size:1.6rem;
 }
-.Main-button_map
-{
-     position:sticky;
-     margin-bottom:100px;
-     margin-top:50px;
-    bottom:100px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.Main-button_map {
+    position: sticky;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    bottom: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
 }
 .Main-button_map:hover .btnmap
 {

@@ -97,28 +97,30 @@ namespace AirBNB_Admin.Areas.Admin.Controllers
             {
                 var pro = db.Rooms.FirstOrDefault(p => p.Id_Room == room.Id_Room);
                 if (pro != null)
-                {
+                {       
+                   
                     pro.Room_Name = room.Room_Name;
                     pro.Room_Description = room.Room_Description;
                     pro.Price = room.Price;
-                    pro.Name_Cate = room.Name_Cate;
-                    pro.ID_Cate = room.ID_Cate;
+                    pro.ID_Cate = room.ID_Cate; 
+                    List<Category> catels = db.Category.ToList();
+                   foreach (var item in catels)
+                   {
+                   pro.Name_Cate = db.Category.Where(x => x.ID_Cate == room.ID_Cate).Select(x => x.Name_Cate).FirstOrDefault();
+                   }
                     if (Upload != null)
                     {
                         var filename = Path.GetFileName(Upload.FileName);
                         var path = Path.Combine(Server.MapPath("~/Content/image/"),filename);
                         pro.Images_Room = "~/Content/image/" + filename;
                         Upload.SaveAs(path);
-                    }
+                    } 
+            
                 }
                 db.SaveChanges();
                 return RedirectToAction("Product_Control");
             }
-            //List<Category> catels = db.Category.ToList();
-            //foreach (var item in catels)
-            //{
-            //    room.Name_Cate = db.Category.Where(x => x.ID_Cate == room.ID_Cate).Select(x=>x.Name_Cate).FirstOrDefault();
-            //}
+          
             //db.Entry(room).State = System.Data.Entity.EntityState.Modified;
             //db.SaveChanges();
             //return RedirectToAction("Product_Control");
