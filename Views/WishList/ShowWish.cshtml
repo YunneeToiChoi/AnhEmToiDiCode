@@ -21,12 +21,12 @@
         <div class="grid wide">
             @if (Model != null)
             {
-                <div style="display:flex">
+                <div class="content__container row">
 
 
                     @foreach (var pro in Model.Items)
                     {
-                   
+
                         <div class="content__box col l-3 m-4 c-12">
                             <div class="content-img__box">
                                 <div class="content__wishlist kk">
@@ -42,7 +42,7 @@
                                 </a>
                             </div>
                             <div class="content__infomation">
-                                <div class="content__header">
+                                <div style="height:40px" class="content__header">
                                     <p>@Html.DisplayFor(model => pro._product.Room_Name)</p>
                                     <p class="content__rate"><i class="content__icon fa-solid fa-star"></i>4,88</p>
                                 </div>
@@ -54,6 +54,6 @@
                     }
 
                 </div>
-             }
+            }
         </div>
     </div>

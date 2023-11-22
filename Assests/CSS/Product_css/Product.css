@@ -85,6 +85,7 @@
 .content__header {
     display: flex;
     justify-content: space-between;
+    height:40px;
 }
 
 .content__owner, .content__date, .content__day {
