@@ -5,15 +5,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{var user = Session["User"] as AirBNB_Admin.Models.User;}
+ @{var event1 = Session["event"] as AirBNB_Admin.Models.Rooms;}
+@{if(event1==null)
+    {
+
+    }
+    else
+    {
+        <style>                    
+            .nav-middle 
+            {
+                display:none!important;
+            }
+        </style>
+    }
+
+}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var load = document.querySelector('.container_Load');
-        setTimeout(timeLoad, 1500);
+         var load = document.querySelector('.container_Load');
+         setTimeout(timeLoad, 1500);
 
-        function timeLoad() {
-            load.classList.add('none');
-        }
-    });
+         function timeLoad() {
+             load.classList.add('none');
+         }
+     });
     var boxfilterforuser = document.querySelector('.form-filter--overplay')
     var form = document.querySelector('.form-filter--modal')
     var filterbox = document.querySelector('.box-loc')
@@ -22,12 +38,12 @@
     headerSearch.addEventListener('click', moboxfilter)
     filterbox.addEventListener('click', moboxfilter)
     function moboxfilter() {
-        form.classList.add('active')
+         form.classList.add('active')
     }
-    boxfilterforuser.addEventListener('click', closefilterbox)
+     boxfilterforuser.addEventListener('click', closefilterbox)
     icfilterbox.addEventListener('click', closefilterbox)
     function closefilterbox() {
-        form.classList.remove('active')
+         form.classList.remove('active')
     }
 </script>
 <div class="Containt__details">
