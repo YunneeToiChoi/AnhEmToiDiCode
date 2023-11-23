@@ -77,7 +77,7 @@
                                                 Hello @user.User_Name
                                             </a>
                                             <hr style="border: 0.1px solid #cfcfcf " />
-                                            <button class="user-header__form--support">Airbnb your home</button>
+                                            <button class="user-header__form--support">@Html.ActionLink("Airbnb your home", "Contact", "Home", null, new { @class = "rs-alink" })</button>
                                             <button class="user-header__form--navWishList">@Html.ActionLink("Wish List", "ShowWish", "WishList", null, new { @class = "rs-alink" })</button>// mot sua thanh actionlink
                                             <button class="user-header__form--navWishList">@Html.ActionLink("Lịch sử đặt phòng", "ShowHistory", "OrderHistory", null, new { @class = "rs-alink" })</button>// mot sua thanh actionlink
                                             <button class="user-header__form--support">Help Center</button>
