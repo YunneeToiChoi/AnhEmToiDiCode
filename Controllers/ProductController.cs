@@ -147,6 +147,8 @@ namespace AirBNB_Admin.Controllers
                                select room;
             return View(roomsRatings);
         }
+
+        [Obsolete]
         public ActionResult SearchOptions(decimal min = decimal.MinValue, decimal max = decimal.MaxValue) 
         {
             List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
@@ -199,6 +201,8 @@ namespace AirBNB_Admin.Controllers
             TempData["GiaGiamDan"] = list;
             return View(list);
         }
+
+        [Obsolete]
         public ActionResult AnswerShowGiaTangDanSearch()
         {
             List<int> sum = db.Rooms.Select(propa => propa.Id_Room).ToList();
